@@ -130,6 +130,8 @@ export const DATA = {
       end: "Feb 2025",
       description:
         "* Developed a centralized village data management system (PUSDATIN) using pure PHP for local government operations. \n* Designed a responsive and user-friendly interface with Bootstrap, ensuring smooth usability across devices. \n* Executed the end-to-end development lifecycle, including requirements analysis, system design, implementation, testing, and deployment. \n* Collaborated closely with government stakeholders to ensure the system fit actual village data workflows and operational needs. \n* Enhanced efficiency in data input, processing, reporting, and documentation, significantly improving village-level administrative workflows.",
+      certificateUrl: "",
+      gallery: [],
     },
     {
       company: "Niagahoster",
@@ -143,6 +145,8 @@ export const DATA = {
       end: "Jul 2023",
       description:
         "* Studied fundamental UI/UX principles and participated in introductory Design Thinking sessions to understand user-centered design approaches. \n* Conducted user research and requirement gathering to develop accurate user personas and user journey flows. \n* Built strong design fundamentals in color theory, typography, layouting, and created prototypes to validate design ideas. \n* Designed user journeys, developed visual designs aligned with Niagahoster’s branding, and produced interactive prototypes for usability testing. \n* Applied UI/UX concepts in real-world projects, gaining hands-on experience in end-to-end design processes.",
+      certificateUrl: "",
+      gallery: [],
     },
     {
       company: "Core Initiative Studio",
@@ -156,6 +160,8 @@ export const DATA = {
       end: "Dec 2022",
       description:
         "* Developed interactive and responsive user interfaces using JavaScript frameworks such as Vue.js, React.js, and Node.js for dynamic frontend functionality. \n* Managed development workflows using Git version control, ensuring smooth collaboration and structured code review processes. \n* Enhanced UI design and consistency by implementing Bootstrap and Tailwind CSS to create modern and optimized layouts. \n* Learned and applied CI/CD practices using tools like Docker, improving development speed and deployment reliability. \n* Integrated various external APIs into web applications to support dynamic content and real-time data rendering. \n* Performed unit testing with Jest to validate functionality, maintain code quality, and detect issues early in the development cycle.",
+      certificateUrl: "",
+      gallery: [],
     },
     {
       company: "PT Bonet Utama",
@@ -169,6 +175,8 @@ export const DATA = {
       end: "Dec 2020",
       description:
         "* Assisted in the installation and configuration of internet networks across various locations in Bogor City. \n* Performed CCTV system setup, including device installation, configuration, and functional testing to ensure optimal security monitoring. \n* Handled network device installation and maintenance, ensuring stable connectivity and minimizing downtime. \n* Collaborated effectively with the technical team to meet client requirements regarding network infrastructure and security systems. \n* Gained practical experience in network management, troubleshooting, and applying real-world security technology solutions.",
+      certificateUrl: "",
+      gallery: [],
     },
     {
       company: "Grand Computer",
@@ -182,6 +190,8 @@ export const DATA = {
       end: "Feb 2019",
       description:
         "* Performed installation, maintenance, and repair of computer systems to ensure stable and reliable operation. \n* Installed and configured Windows operating systems and various supporting applications according to user needs. \n* Assembled custom PC units from individual hardware components, ensuring each build met performance and quality standards. \n* Diagnosed and resolved hardware-related issues, including component failures, compatibility problems, and system malfunctions. \n* Ensured optimal device functionality through routine checks, troubleshooting, and preventative maintenance.",
+      certificateUrl: "",
+      gallery: [],
     },
   ],
   education: [

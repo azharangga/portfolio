@@ -10,6 +10,12 @@ import Link from "next/link";
 import React from "react";
 import Markdown from "react-markdown";
 
+import { GalleryModal } from "@/components/modals/gallery-modal";
+import { CertificateModal } from "@/components/modals/certificate-modal";
+import { GalleryItem } from "@/data/resume";
+import { Button } from "@/components/ui/button";
+import { FileText } from "lucide-react";
+
 interface ResumeCardProps {
   logoUrl: string;
   altText: string;
@@ -20,6 +26,8 @@ interface ResumeCardProps {
   period: string;
   description?: string;
   location?: string;
+  certificateUrl?: string;
+  gallery?: readonly GalleryItem[];
 }
 
 export const ResumeCard = ({
@@ -32,6 +40,8 @@ export const ResumeCard = ({
   period,
   description,
   location,
+  certificateUrl,
+  gallery,
 }: ResumeCardProps) => {
   const [isExpanded, setIsExpanded] = React.useState(false);
 
@@ -123,6 +133,36 @@ export const ResumeCard = ({
               <Markdown className="prose max-w-full text-pretty font-sans text-sm dark:prose-invert">
                 {description}
               </Markdown>
+              
+              {(certificateUrl || (gallery && gallery.length > 0)) && (
+                <div 
+                  className="flex flex-wrap gap-2 mt-1"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    e.preventDefault();
+                  }}
+                >
+                  {certificateUrl && (
+                    <CertificateModal
+                      href={certificateUrl}
+                      alt={`${title} - ${subtitle} Certificate`}
+                      trigger={
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="mt-3 gap-1.5 text-[10px] h-7 font-medium"
+                        >
+                          <FileText className="h-3 w-3" />
+                          Certificate
+                        </Button>
+                      }
+                    />
+                  )}
+                  {gallery && gallery.length > 0 && (
+                    <GalleryModal title={`${title} - ${subtitle}`} items={gallery} />
+                  )}
+                </div>
+              )}
             </motion.div>
           )}
         </div>

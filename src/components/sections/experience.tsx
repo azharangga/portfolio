@@ -24,6 +24,8 @@ export function ExperienceSection() {
               period={`${work.start} - ${work.end ?? "Present"}`}
               description={work.description}
               location={work.location}
+              certificateUrl={work.certificateUrl}
+              gallery={work.gallery}
             />
           </BlurFade>
         ))}
