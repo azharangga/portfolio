@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, FileText } from "lucide-react";
 import Markdown from "react-markdown";
 import BlurFade from "@/components/magicui/blur-fade";
@@ -17,7 +18,7 @@ export function HeroSection() {
           <div className="justify-center flex-col flex flex-1 space-y-1.5">
             <BlurFade delay={BLUR_FADE_DELAY}>
               <p className="mx-auto md:mx-0 text-3xl font-bold tracking-tighter sm:text-4xl xl:text-5xl/none">
-                Hi, I&apos;m {DATA.name} <span className="inline-block">👋</span>
+                Hi, I&apos;m {DATA.name} <Image src="/blob-wave-reverse.gif" alt="blob" width={42} height={42} className="inline-block align-middle" unoptimized />
               </p>
             </BlurFade>
             <BlurFade delay={BLUR_FADE_DELAY + 0.05}>
