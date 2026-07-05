@@ -5,7 +5,8 @@ import { AboutSection } from "@/components/sections/about";
 import { SkillsSection } from "@/components/sections/skills";
 import { ExperienceSection } from "@/components/sections/experience";
 import { EducationSection } from "@/components/sections/education";
-import { AcademicSection } from "@/components/sections/academic";
+import { TrainingAndCertificationsSection } from "@/components/sections/training-and-certifications";
+import { AchievementsSection } from "@/components/sections/achievements";
 import { ProjectsSection } from "@/components/sections/projects";
 import { GithubSection } from "@/components/sections/github";
 import { ContactSection } from "@/components/sections/contact";
@@ -17,7 +18,7 @@ import { cn } from "@/lib/utils";
 
 export default function Page() {
   return (
-    <ThemeProvider attribute="class" defaultTheme="dark">
+    <ThemeProvider attribute="class" defaultTheme="light">
       <TooltipProvider delayDuration={0}>
         <div
           className={cn(
@@ -30,7 +31,8 @@ export default function Page() {
             <SkillsSection />
             <ExperienceSection />
             <EducationSection />
-            <AcademicSection />
+            <TrainingAndCertificationsSection />
+            <AchievementsSection />
             <ProjectsSection />
             <GithubSection />
             <ContactSection />

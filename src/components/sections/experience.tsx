@@ -10,7 +10,7 @@ export function ExperienceSection() {
     <section id="experience" className="pt-6">
       <div className="flex min-h-0 flex-col gap-y-3">
         <BlurFade delay={WORK_DELAY}>
-          <h2 className="text-xl font-bold">Work Experience</h2>
+          <h2 className="text-xl font-bold">Experience</h2>
         </BlurFade>
         {DATA.work.map((work, id) => (
           <BlurFade key={work.company + id} delay={WORK_DELAY + id * 0.05}>
@@ -21,7 +21,7 @@ export function ExperienceSection() {
               subtitle={work.title}
               href={work.href}
               badges={work.badges}
-              period={`${work.start} - ${work.end ?? "Present"}`}
+              period={work.start === work.end ? work.start : `${work.start} - ${work.end ?? "Present"}`}
               description={work.description}
               location={work.location}
               certificateUrl={work.certificateUrl}

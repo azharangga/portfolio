@@ -8,7 +8,7 @@ import { DATA } from "@/data/resume";
 import { BLUR_FADE_DELAY } from "@/lib/constants";
 
 export function ProjectsSection() {
-  const [filter, setFilter] = useState<"all" | "web" | "app" | "ui/ux" | "ml/dl">("all");
+  const [filter, setFilter] = useState<"all" | "web" | "ui/ux" | "machine-learning">("all");
   const [showAll, setShowAll] = useState(false);
   const INITIAL_COUNT = 4;
 
@@ -36,7 +36,7 @@ export function ProjectsSection() {
                 Check out my latest work
               </h2>
               <p className="text-muted-foreground text-sm/relaxed xl:text-base/relaxed">
-                A showcase of my projects in Web Development, App Development, UI/UX, and ML/DL.
+                A showcase of my projects in Web Development, UI/UX Design, and Machine Learning.
               </p>
             </div>
           </div>
@@ -49,8 +49,7 @@ export function ProjectsSection() {
                 { value: "all", label: "All" },
                 { value: "web", label: "Web" },
                 { value: "ui/ux", label: "UI/UX" },
-                { value: "app", label: "App" },
-                { value: "ml/dl", label: "ML/DL" },
+                { value: "machine-learning", label: "ML" },
               ].map((tab) => {
                 const active = filter === tab.value;
                 return (

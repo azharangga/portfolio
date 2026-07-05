@@ -4,6 +4,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardHeader } from "@/components/ui/card";
 import Link from "next/link";
 import React from "react";
+import { GraduationCap } from "lucide-react";
 
 interface EducationCardProps {
   logoUrl: string;
@@ -37,7 +38,9 @@ export const EducationCard = ({
               alt={altText}
               className="object-contain"
             />
-            <AvatarFallback>{altText[0]}</AvatarFallback>
+            <AvatarFallback>
+              <GraduationCap className="size-6 text-muted-foreground" />
+            </AvatarFallback>
           </Avatar>
         </div>
         <div className="flex-grow ml-4 flex-col group">

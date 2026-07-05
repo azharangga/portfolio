@@ -80,6 +80,17 @@
   body {
     @apply bg-background text-foreground;
   }
+  
+  /* Custom Solid Text Selection */
+  ::selection {
+    background-color: #0f172a; /* Solid dark background for light theme */
+    color: #ffffff; /* White text */
+  }
+
+  .dark ::selection {
+    background-color: #f8fafc; /* Solid light background for dark theme */
+    color: #0f172a; /* Dark text */
+  }
 }
 
 h3 code {

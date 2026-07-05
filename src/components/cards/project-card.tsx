@@ -11,7 +11,9 @@ import Image from "next/image";
 import Link from "next/link";
 import Markdown from "react-markdown";
 import { PrototypeDialog } from "@/components/modals/prototype-dialog";
+import { FolderGit2 } from "lucide-react";
 import React, { useState } from "react";
+import { toast } from "sonner";
 
 interface Props {
   title: string;
@@ -28,7 +30,7 @@ interface Props {
     href: string;
   }[];
   openSource?: boolean;
-  category?: "web" | "ui/ux" | "app" | "ml/dl";
+  category?: "web" | "ui/ux" | "machine-learning";
   className?: string;
 }
 
@@ -47,6 +49,7 @@ export function ProjectCard({
   className,
 }: Props) {
   const [imageLoading, setImageLoading] = useState(true);
+  const [imageError, setImageError] = useState(false);
 
   return (
     <Card
@@ -75,7 +78,7 @@ export function ProjectCard({
 
       {/* MEDIA */}
       <Link href={href || "#"} className="block cursor-pointer">
-        {video && (
+        {video ? (
           <video
             src={video}
             autoPlay
@@ -84,8 +87,7 @@ export function ProjectCard({
             playsInline
             className="pointer-events-none w-full h-40 object-cover object-top"
           />
-        )}
-        {image && (
+        ) : image && !imageError ? (
           <div className="relative w-full h-40 overflow-hidden bg-muted">
             {imageLoading && (
               <div className="absolute inset-0 premium-shimmer" />
@@ -96,11 +98,19 @@ export function ProjectCard({
               width={300}
               height={150}
               onLoad={() => setImageLoading(false)}
+              onError={() => {
+                setImageLoading(false);
+                setImageError(true);
+              }}
               className={cn(
                 "w-full h-40 object-cover dark:brightness-[0.9] dark:hover:brightness-100 transition-opacity duration-300",
                 imageLoading ? "opacity-0" : "opacity-100"
               )}
             />
+          </div>
+        ) : (
+          <div className="relative w-full h-40 flex items-center justify-center bg-muted border-b">
+            <FolderGit2 className="size-12 text-muted-foreground/40" />
           </div>
         )}
       </Link>
@@ -139,12 +149,15 @@ export function ProjectCard({
           {links?.map((link, idx) => {
             // --- LOGIC DISABLE ---
             // 1. Jika link kosong (!link.href) -> Disable
-            // 2. Jika project Close Source (!openSource) -> Disable SEMUA tombol
-            const isDisabled = !link.href || !openSource;
+            const isDisabled = !link.href;
 
             if (isDisabled) {
               return (
-                <span key={idx} className="cursor-not-allowed" title="Link Disabled (Closed Source or Empty)">
+                <span
+                  key={idx}
+                  className="cursor-not-allowed"
+                  onClick={() => toast.error(`Resource "${link.type}" is private and cannot be accessed.`)}
+                >
                   <Badge
                     className="px-2 py-1 text-[10px] flex gap-2 transition-all duration-200
                       opacity-50 pointer-events-none" 

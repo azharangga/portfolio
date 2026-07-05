@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, FileText } from "lucide-react";
+import { Mail, FileText, User } from "lucide-react";
 import Markdown from "react-markdown";
 import BlurFade from "@/components/magicui/blur-fade";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -57,7 +57,9 @@ export function HeroSection() {
           <BlurFade delay={BLUR_FADE_DELAY}>
             <Avatar className="size-36 mx-auto">
               <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
-              <AvatarFallback>{DATA.initials}</AvatarFallback>
+              <AvatarFallback>
+                <User className="size-16 text-muted-foreground" />
+              </AvatarFallback>
             </Avatar>
           </BlurFade>
         </div>

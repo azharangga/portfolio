@@ -23,7 +23,7 @@ export function EducationSection() {
               altText={education.school}
               title={education.school}
               subtitle={education.degree}
-              period={`${education.start} - ${education.end}`}
+              period={(education.start as string) === education.end ? education.start : `${education.start} - ${education.end}`}
             />
           </BlurFade>
         ))}

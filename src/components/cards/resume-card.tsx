@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardHeader } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { ChevronRightIcon } from "lucide-react";
+import { ChevronRightIcon, Briefcase } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import Markdown from "react-markdown";
@@ -66,7 +66,9 @@ export const ResumeCard = ({
               alt={altText}
               className="object-contain"
             />
-            <AvatarFallback>{altText[0]}</AvatarFallback>
+            <AvatarFallback>
+              <Briefcase className="size-6 text-muted-foreground" />
+            </AvatarFallback>
           </Avatar>
         </div>
         <div className="flex-grow ml-4 items-center flex-col group">
