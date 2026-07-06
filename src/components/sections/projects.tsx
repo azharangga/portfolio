@@ -8,7 +8,7 @@ import { DATA } from "@/data/resume";
 import { BLUR_FADE_DELAY } from "@/lib/constants";
 
 export function ProjectsSection() {
-  const [filter, setFilter] = useState<"all" | "web" | "ui/ux" | "machine-learning">("all");
+  const [filter, setFilter] = useState<"all" | "web" | "api" | "ui/ux" | "machine-learning">("all");
   const [showAll, setShowAll] = useState(false);
   const INITIAL_COUNT = 4;
 

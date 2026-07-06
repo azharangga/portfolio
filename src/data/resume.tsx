@@ -31,7 +31,7 @@ import {
   SiHuggingface,
   SiShadcnui,
   SiTensorflow,
-  SiScikitlearn,
+  SiKeras,
 } from "react-icons/si";
 
 export interface GalleryItem {
@@ -44,7 +44,7 @@ export const DATA = {
   name: "Azharangga Kusuma",
   initials: "AK",
   url: "https://azharangga.me",
-  resumeUrl: "https://drive.google.com/file/d/1zOLX4greHhXuTD3iBf9MuQLeFVzltZGI/view?usp=sharing", 
+  resumeUrl: "https://drive.google.com/file/d/1X_SnQEuhr76gO9XAfMJqdaXHTFwwL_MG/view?usp=sharing", 
   location: "Cirebon, Indonesia",
   locationLink: "",
   description:
@@ -74,7 +74,7 @@ export const DATA = {
     { name: "Shadcn UI", icon: SiShadcnui },
     // ML / AI
     { name: "TensorFlow", icon: SiTensorflow },
-    { name: "Scikit-Learn", icon: SiScikitlearn },
+    { name: "Keras", icon: SiKeras },
     { name: "Hugging Face", icon: SiHuggingface },
     // Tools & DevOps
     { name: "Git", icon: SiGit },
@@ -152,7 +152,7 @@ export const DATA = {
       end: "Feb 2025",
       description:
         "* Developed the web-based PUSDATIN system using PHP to support centralized village data management within the Cirebon Regency Government. \n* Built responsive web interfaces using Bootstrap and implemented features aligned with user requirements and business workflows. \n* Collaborated with team members and stakeholders throughout the development lifecycle, from requirement analysis to system deployment, to improve data management and reporting efficiency.",
-      certificateUrl: "",
+      certificateUrl: "https://drive.google.com/file/d/1bNTTF7H-rkfqopBtnezoZMhOhUhUnS1T/view?usp=sharing",
       gallery: [],
     },
     {
@@ -167,7 +167,7 @@ export const DATA = {
       end: "Jun 2023",
       description:
         "* Conducted user research, mapped user journeys, and identified user needs to serve as the foundation for interface design. \n* Designed wireframes, prototypes, and user interfaces aligned with visual identity guidelines and business requirements. \n* Applied UI/UX principles, including typography, color theory, and page layout, to deliver intuitive and user-friendly designs.",
-      certificateUrl: "",
+      certificateUrl: "https://drive.google.com/file/d/198p42e1kGSQyi426QO278_13prFzPjkU/view?usp=sharing",
       gallery: [],
     },
     {
@@ -182,7 +182,7 @@ export const DATA = {
       end: "Nov 2022",
       description:
         "* Developed responsive web interfaces using React.js, Vue.js, Bootstrap, and Tailwind CSS according to project specifications. \n* Integrated REST APIs and utilized Git for version control to ensure smooth team collaboration and code management. \n* Implemented modern development practices including unit testing with Jest and gained hands-on experience with CI/CD pipelines using Docker.",
-      certificateUrl: "",
+      certificateUrl: "https://drive.google.com/file/d/1jOhds0MX-ZQAU7bbCNu2qr9jJ-YIGQJM/view?usp=sharing",
       gallery: [],
     },
     {
@@ -197,7 +197,7 @@ export const DATA = {
       end: "Dec 2020",
       description:
         "* Monitored network systems and internet services via the Network Operations Center (NOC) using The Dude to ensure stability and perform initial troubleshooting. \n* Configured, troubleshot, and maintained network devices using MikroTik RouterOS, Winbox, PuTTY, SSH, and Telnet to support operational network services. \n* Collaborated with field technicians in the installation, configuration, and testing of network devices, Access Points, CCTV systems, and network infrastructure to ensure service quality.",
-      certificateUrl: "",
+      certificateUrl: "https://drive.google.com/file/d/1_zIvXzQ8KY6SV1zUtMmR3-o2Apc06b7m/view?usp=sharing",
       gallery: [],
     },
     {
@@ -212,7 +212,7 @@ export const DATA = {
       end: "Jan 2019",
       description:
         "* Installed Windows operating systems, device drivers, and software applications on new laptops and desktop computers according to customer requirements. \n* Assembled custom PC builds based on customer specifications and tested hardware components to ensure proper functionality before delivery. \n* Assisted the technical team in diagnosing, troubleshooting, and repairing desktop computers and laptops to ensure customer satisfaction.",
-      certificateUrl: "",
+      certificateUrl: "https://drive.google.com/file/d/1neiZZq6rs418S9i5W8r6k9uu0DATAZt5/view?usp=sharing",
       gallery: [],
     },
   ],
@@ -301,7 +301,7 @@ export const DATA = {
       location: "Online",
       description:
         "Completed the VSGA training program for Junior Web Developers based on SKKNI standards. Acquired competencies in building and managing web applications using HTML, CSS, and PHP, including database management with MySQL and implementation of responsive user interfaces.",
-      certificateUrl: "https://drive.google.com/file/d/1JinEBPhcE3jUdOGTYzfSdzXc5gP06XQv/view?usp=sharing",
+      certificateUrl: "https://drive.google.com/file/d/1dghNUD5H_ByX0IUL2HM-pKVUP73uq8k7/view?usp=sharing",
       credentialId: "",
       gallery: [
         {
@@ -326,7 +326,7 @@ export const DATA = {
       location: "Kuningan, West Java, Indonesia",
       description:
         "Completed the Vocational School Graduate Academy (VSGA) training based on the Indonesian National Work Competency Standards (SKKNI). Gained practical skills in configuring network devices, designing IP addressing schemes, setting up wireless networks, and managing routing and switching systems.",
-      certificateUrl: "https://drive.google.com/file/d/1_ZMljdqoqjMPhc7Eq89X4PTxvq27b2DP/view?usp=sharing",
+      certificateUrl: "https://drive.google.com/file/d/1o0yVGlDDtjmW26Yh5N7_78nCkpLzBIe_/view?usp=sharing",
       credentialId: "",
       gallery: [
         {
@@ -482,7 +482,7 @@ export const DATA = {
       location: "Online",
       description:
         "Completed advanced CCNA training at Cisco Networking Academy, focusing on enterprise-scale networking. Developed skills in configuring OSPF, WAN architectures, network security concepts, access control lists (ACLs), network address translation (NAT), and modern network automation solutions.",
-      certificateUrl: "",
+      certificateUrl: "https://drive.google.com/file/d/1iVYdBiVKpicLlHPsS9h1pSO36LLpSUqI/view?usp=sharing",
       credentialId: "",
       gallery: [],
     },
@@ -582,7 +582,7 @@ export const DATA = {
       location: "Kuningan, West Java, Indonesia",
       description:
         "Earned the Junior Network Administrator professional competency certification issued by BNSP (Badan Nasional Sertifikasi Profesi) based on the Indonesian National Work Competency Standards (SKKNI). Certified competency covers configuring routers and network devices, subnetting, cabling, and basic network administration tasks.",
-      certificateUrl: "https://drive.google.com/file/d/1_ZMljdqoqjMPhc7Eq89X4PTxvq27b2DP/view?usp=sharing",
+      certificateUrl: "https://drive.google.com/file/d/1dswbl2eAl75FOpDd9i7orUxqWC1uAxic/view?usp=sharing",
       credentialId: "",
       gallery: [],
     },
@@ -629,7 +629,7 @@ export const DATA = {
       location: "Online",
       description:
         "Published and presented a research paper titled 'Comparative Analysis of Rice Leaf Disease Classification Models Based on MobileNetV2' at the SISFOTEK 2025 National Seminar. Served as team leader and first author, coordinating the study and presenting the findings.",
-      certificateUrl: "https://drive.google.com/file/d/1weW0nyCKE1mPRdOXhjE5OfNm2A4_TnbM/view?usp=sharing",
+      certificateUrl: "https://drive.google.com/file/d/1d4OzGfBdb6Dc-ceo2MY1PSDQu5iFMcj2/view?usp=sharing",
       gallery: [
         {
           image: "/achievements/gallery/sisfotek-1.jpg",
@@ -654,7 +654,7 @@ export const DATA = {
       location: "Cirebon, West Java, Indonesia",
       description:
         "Awarded Most Innovative Intern for exceptional contributions, innovation, and dedication during the internship. Recognized for active participation in web development projects and collaborative efforts to support regional digital services.",
-      certificateUrl: "",
+      certificateUrl: "https://drive.google.com/file/d/17meZtYBw8BTiz-rsBNi3Mc_PskRhsk0S/view?usp=sharing",
       gallery: [],
     },
     {
@@ -667,7 +667,7 @@ export const DATA = {
       end: "Jul 2024",
       location: "Buleleng, Bali, Indonesia",
       description:
-        "Participated in the Merdeka Student Exchange Program (PMM) Batch 4, where I explored Balinese culture firsthand and engaged in cross-disciplinary courses that broadened my academic perspective beyond my primary field of study. This experience strengthened my adaptability, cultural awareness, and ability to learn in diverse academic environments.",
+        "Selected for the Pertukaran Mahasiswa Merdeka (PMM) Batch 4 program at Universitas Pendidikan Ganesha, organized by the Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi Republik Indonesia. Engaged in cross-disciplinary learning and intercultural collaboration, serving as the design coordinator for the Nusantara Module. Additionally, led a social contribution project at LKSA Widhya Asih Singaraja as the Reading Corner Coordinator, overseeing library redevelopment, digital collection setup, and visual environment design.",
       certificateUrl:
         "https://drive.google.com/file/d/1QMQLNO2X06SVBygIOdO5EJP4sYVj8Ez2/view?usp=sharing",
       gallery: [
@@ -685,36 +685,6 @@ export const DATA = {
     },
   ],
   projects: [
-    {
-      title: "Dramova",
-      href: "",
-      dates: "",
-      active: true,
-      openSource: false,
-      category: "web",
-      description:
-        "A drama streaming platform featuring series and movies from various countries, including K-Dramas, C-Dramas, Thai Dramas, J-Dramas, and Variety Shows. It also includes a co-watching feature allowing users to stream and watch together in real-time.",
-      technologies: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI", "HLS.js", "Supabase", "PostgreSQL", "Python", "FAST API", "Cloudflare Turnstile"],
-      links: [
-        {
-          type: "Website",
-          href: "https://dramova.projectshowcase.web.id",
-          icon: <Icons.globe className="size-3" />,
-        },
-        {
-          type: "Source",
-          href: "",
-          icon: <Icons.github className="size-3" />,
-        },
-        {
-          type: "API Docs",
-          href: "",
-          icon: <Icons.doc className="size-3" />,
-        },
-      ],
-      image: "/projects/dramova.png",
-      video: "",
-    },
     {
       title: "GiziMeal",
       href: "",
@@ -743,6 +713,36 @@ export const DATA = {
         },
       ],
       image: "/projects/gizimeal.png",
+      video: "",
+    },
+    {
+      title: "Dramova",
+      href: "",
+      dates: "",
+      active: true,
+      openSource: false,
+      category: "web",
+      description:
+        "A drama streaming platform featuring series and movies from various countries, including K-Dramas, C-Dramas, Thai Dramas, J-Dramas, and Variety Shows. It also includes a co-watching feature allowing users to stream and watch together in real-time.",
+      technologies: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI", "HLS.js", "Supabase", "PostgreSQL", "Python", "FAST API", "Cloudflare Turnstile"],
+      links: [
+        {
+          type: "Website",
+          href: "https://dramova.projectshowcase.web.id",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "",
+          icon: <Icons.github className="size-3" />,
+        },
+        {
+          type: "API Docs",
+          href: "",
+          icon: <Icons.doc className="size-3" />,
+        },
+      ],
+      image: "/projects/dramova.png",
       video: "",
     },
     {
@@ -797,7 +797,7 @@ export const DATA = {
     },
     {
       title: "DataDikti",
-      href: "https://datadikti.vercel.app",
+      href: "",
       dates: "",
       active: true,
       openSource: true,
@@ -808,12 +808,12 @@ export const DATA = {
       links: [
         {
           type: "Website",
-          href: "https://datadikti.vercel.app",
+          href: "https://datadikti.projectshowcase.web.id",
           icon: <Icons.globe className="size-3" />,
         },
         {
           type: "Source",
-          href: "https://github.com/azharanggakusuma/datadikti",
+          href: "https://github.com/azharangga/datadikti",
           icon: <Icons.github className="size-3" />,
         },
         {
@@ -1102,24 +1102,24 @@ export const DATA = {
     },
     // --- Kategori Machine Learning ---
     {
-      title: "GiziMeal - Food Image Classifier and Recommendation Menu",
+      title: "GiziMeal - Model Food Image Classifier and Recommendation Menu",
       href: "",
       dates: "",
       active: true,
       openSource: true,
       category: "machine-learning",
       description:
-        "The underlying Deep Learning model powering the GiziMeal web application, designed to recognize food types from images and suggest recipes with nutritional info. It utilizes a Custom CNN Multi-Task architecture with ResNet18 and custom attention layers.",
-      technologies: ["Python", "TensorFlow", "Keras", "CNN ResNet18", "Pandas", "Scikit-learn", "NumPy", "Streamlit",],
+        "The underlying Deep Learning model powering the GiziMeal web application, developed by the AI Engineer division of the CC26-PSU393 team during the Coding Camp 2026 program. It is designed to recognize food types from images and suggest recipes with nutritional info, utilizing a Custom CNN Multi-Task architecture with ResNet18 and custom attention layers.",
+      technologies: ["Python", "TensorFlow", "Keras", "CNN ResNet18", "Pandas", "Scikit-learn", "NumPy",],
       links: [
         {
           type: "Source",
-          href: "",
+          href: "https://github.com/CC26-PSU393-GiziMeal/AI-Engineer/tree/main/Model",
           icon: <Icons.github className="size-3" />,
         },
         {
-          type: "Hugging Face",
-          href: "",
+          type: "Model",
+          href: "https://huggingface.co/CC26-PSU393/gizimeal-model/tree/main",
           icon: <SiHuggingface className="size-3" />,
         },
       ],

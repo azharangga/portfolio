@@ -15,6 +15,8 @@ import { FolderGit2 } from "lucide-react";
 import React, { useState } from "react";
 import { toast } from "sonner";
 
+import { ProjectImageModal } from "@/components/modals/project-image-modal";
+
 interface Props {
   title: string;
   href?: string;
@@ -77,8 +79,8 @@ export function ProjectCard({
       )}
 
       {/* MEDIA */}
-      <Link href={href || "#"} className="block cursor-pointer">
-        {video ? (
+      {video ? (
+        <Link href={href || "#"} className="block cursor-pointer">
           <video
             src={video}
             autoPlay
@@ -87,8 +89,10 @@ export function ProjectCard({
             playsInline
             className="pointer-events-none w-full h-40 object-cover object-top"
           />
-        ) : image && !imageError ? (
-          <div className="relative w-full h-40 overflow-hidden bg-muted">
+        </Link>
+      ) : image && !imageError ? (
+        <ProjectImageModal src={image} title={title}>
+          <div className="relative w-full h-40 overflow-hidden bg-muted cursor-zoom-in">
             {imageLoading && (
               <div className="absolute inset-0 premium-shimmer" />
             )}
@@ -108,12 +112,12 @@ export function ProjectCard({
               )}
             />
           </div>
-        ) : (
-          <div className="relative w-full h-40 flex items-center justify-center bg-muted border-b">
-            <FolderGit2 className="size-12 text-muted-foreground/40" />
-          </div>
-        )}
-      </Link>
+        </ProjectImageModal>
+      ) : (
+        <div className="relative w-full h-40 flex items-center justify-center bg-muted border-b">
+          <FolderGit2 className="size-12 text-muted-foreground/40" />
+        </div>
+      )}
 
       {/* HEADER */}
       <CardHeader className="px-2 pt-3 space-y-1">
