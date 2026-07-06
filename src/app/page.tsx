@@ -5,7 +5,8 @@ import { AboutSection } from "@/components/sections/about";
 import { SkillsSection } from "@/components/sections/skills";
 import { ExperienceSection } from "@/components/sections/experience";
 import { EducationSection } from "@/components/sections/education";
-import { TrainingAndCertificationsSection } from "@/components/sections/training-and-certifications";
+import { TrainingSection } from "@/components/sections/training";
+import { CertificationsSection } from "@/components/sections/certifications";
 import { AchievementsSection } from "@/components/sections/achievements";
 import { ProjectsSection } from "@/components/sections/projects";
 import { GithubSection } from "@/components/sections/github";
@@ -31,7 +32,8 @@ export default function Page() {
             <SkillsSection />
             <ExperienceSection />
             <EducationSection />
-            <TrainingAndCertificationsSection />
+            <TrainingSection />
+            <CertificationsSection />
             <AchievementsSection />
             <ProjectsSection />
             <GithubSection />

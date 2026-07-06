@@ -2,28 +2,28 @@
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { FileText, BookOpen } from "lucide-react";
+import { FileText, Award } from "lucide-react";
 import React from "react";
 import Markdown from "react-markdown";
 import { GalleryModal } from "@/components/modals/gallery-modal";
 import { CertificateModal } from "@/components/modals/certificate-modal";
-import { TrainingItem } from "@/types";
+import { CertificationItem } from "@/types";
 
-interface TrainingCardProps {
+interface CertificationCardProps {
   readonly school: string;
   readonly logoUrl: string;
   readonly href?: string;
-  readonly items: readonly TrainingItem[];
+  readonly items: readonly CertificationItem[];
 }
 
-export const TrainingCard = ({
+export const CertificationCard = ({
   school,
   logoUrl,
   items,
-}: TrainingCardProps) => {
+}: CertificationCardProps) => {
   const isGrouped = items.length > 1;
 
-  // --- RENDERING UNTUK SINGLE ITEM (1 Pelatihan) ---
+  // --- RENDERING UNTUK SINGLE ITEM (1 Sertifikasi) ---
   if (!isGrouped) {
     const item = items[0];
     return (
@@ -36,7 +36,7 @@ export const TrainingCard = ({
               className="object-contain"
             />
             <AvatarFallback>
-              <BookOpen className="size-6 text-muted-foreground" />
+              <Award className="size-6 text-muted-foreground" />
             </AvatarFallback>
           </Avatar>
         </div>
@@ -81,14 +81,14 @@ export const TrainingCard = ({
     );
   }
 
-  // --- RENDERING UNTUK GROUPED ITEM (Banyak Pelatihan) ---
+  // --- RENDERING UNTUK GROUPED ITEM (Banyak Sertifikasi) ---
   return (
     <div className="flex gap-4">
       <div className="flex-none w-12 flex flex-col items-center">
         <Avatar className="size-12 bg-muted-foreground/10">
           <AvatarImage src={logoUrl} alt={school} className="object-contain" />
           <AvatarFallback>
-            <BookOpen className="size-6 text-muted-foreground" />
+            <Award className="size-6 text-muted-foreground" />
           </AvatarFallback>
         </Avatar>
       </div>
@@ -168,7 +168,7 @@ export const TrainingCard = ({
   );
 };
 
-const ActionButtons = ({ item }: { item: TrainingItem }) => (
+const ActionButtons = ({ item }: { item: CertificationItem }) => (
   <div className="flex flex-wrap gap-2 mt-1">
     {item.certificateUrl && (
       <CertificateModal
