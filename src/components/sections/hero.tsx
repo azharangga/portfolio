@@ -8,32 +8,34 @@ import { buttonVariants, Button } from "@/components/ui/button";
 import { CertificateModal } from "@/components/modals/certificate-modal";
 import { cn } from "@/lib/utils";
 import { Typewriter } from "@/components/ui/typewriter";
-import { DATA } from "@/data/resume";
+import { useLanguage } from "@/context/language-context";
 import { BLUR_FADE_DELAY } from "@/lib/constants";
 
 export function HeroSection() {
+  const { resumeData, t } = useLanguage();
+
   return (
     <section id="hero">
       <div className="mx-auto w-full max-w-3xl space-y-8">
         <div className="gap-2 flex justify-between flex-col-reverse md:flex-row">
           <div className="justify-center flex-col flex flex-1 space-y-1.5">
             <BlurFade delay={BLUR_FADE_DELAY}>
-              <p className="mx-auto md:mx-0 text-3xl font-bold tracking-tighter sm:text-4xl xl:text-5xl/none">
-                Hi, I&apos;m {DATA.name} <Image src="/blob-wave-reverse.gif" alt="blob" width={42} height={42} className="inline-block align-middle" unoptimized />
+              <p className="mx-auto md:mx-0 text-3xl font-bold tracking-tighter sm:text-4xl xl:text-5xl/none text-center md:text-left">
+                Hi, I&apos;m {resumeData.name} <Image src="/blob-wave-reverse.gif" alt="blob" width={42} height={42} className="inline-block align-middle" unoptimized />
               </p>
             </BlurFade>
             <BlurFade delay={BLUR_FADE_DELAY + 0.05}>
               <p className="mx-auto md:mx-0 text-base md:text-lg font-medium text-foreground text-center md:text-start">
-                {DATA.rolePrefix || "Specializing in"}{" "}
+                {resumeData.rolePrefix || "Specializing in"}{" "}
                 <Typewriter
-                  words={DATA.roles}
+                  words={resumeData.roles}
                   className="text-primary font-semibold"
                 />
               </p>
             </BlurFade>
             <BlurFade delay={BLUR_FADE_DELAY + 0.08}>
               <Markdown className="text-center md:text-start max-w-[600px] text-pretty font-sans text-sm md:text-base text-muted-foreground">
-                {DATA.description}
+                {resumeData.description}
               </Markdown>
             </BlurFade>
             <BlurFade delay={BLUR_FADE_DELAY + 0.1}>
@@ -46,7 +48,7 @@ export function HeroSection() {
                   )}
                 >
                   <FolderGit2 className="size-4" />
-                  View Projects
+                  {t("view_projects")}
                 </Link>
                 <CertificateModal
                   trigger={
@@ -55,10 +57,10 @@ export function HeroSection() {
                       className="w-full sm:w-auto flex items-center gap-2"
                     >
                       <FileText className="size-4" />
-                      Download CV
+                      {t("download_cv")}
                     </Button>
                   }
-                  href={DATA.resumeUrl}
+                  href={resumeData.resumeUrl}
                   alt="Resume"
                 />
               </div>
@@ -66,7 +68,7 @@ export function HeroSection() {
           </div>
           <BlurFade delay={BLUR_FADE_DELAY}>
             <Avatar className="size-36 mx-auto">
-              <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
+              <AvatarImage alt={resumeData.name} src={resumeData.avatarUrl} />
               <AvatarFallback>
                 <User className="size-16 text-muted-foreground" />
               </AvatarFallback>

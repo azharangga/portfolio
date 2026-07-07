@@ -6,6 +6,8 @@ import Link from "next/link";
 import React from "react";
 import { GraduationCap } from "lucide-react";
 
+import { useLanguage } from "@/context/language-context";
+
 interface EducationCardProps {
   logoUrl: string;
   altText: string;
@@ -25,13 +27,9 @@ export const EducationCard = ({
   period,
   gpa,
 }: EducationCardProps) => {
+  const { lang } = useLanguage();
   return (
-    <Link
-      href={href || "#"}
-      className="block cursor-pointer"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <div className="block">
       <Card className="flex bg-background">
         <div className="flex-none">
           <Avatar className="size-12 m-auto bg-muted-foreground/10">
@@ -62,12 +60,12 @@ export const EducationCard = ({
             )}
             {gpa && (
               <div className="font-sans text-xs mt-1 text-muted-foreground">
-                GPA: {gpa}
+                {lang === "en" ? "GPA" : "IPK"}: {gpa}
               </div>
             )}
           </CardHeader>
         </div>
       </Card>
-    </Link>
+    </div>
   );
 };

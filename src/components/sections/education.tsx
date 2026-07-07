@@ -1,18 +1,19 @@
 import BlurFade from "@/components/magicui/blur-fade";
 import { EducationCard } from "@/components/cards/education-card";
-import { DATA } from "@/data/resume";
+import { useLanguage } from "@/context/language-context";
 import { BLUR_FADE_DELAY } from "@/lib/constants";
 
 export function EducationSection() {
+  const { resumeData, t } = useLanguage();
   const EDUCATION_DELAY = BLUR_FADE_DELAY * 9;
 
   return (
     <section id="education" className="pt-6">
       <div className="flex min-h-0 flex-col gap-y-3">
         <BlurFade delay={EDUCATION_DELAY}>
-          <h2 className="text-xl font-bold">Education</h2>
+          <h2 className="text-xl font-bold">{t("education")}</h2>
         </BlurFade>
-        {DATA.education.map((education, id) => (
+        {resumeData.education.map((education, id) => (
           <BlurFade
             key={education.school + id}
             delay={EDUCATION_DELAY + id * 0.05}

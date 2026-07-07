@@ -28,6 +28,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/context/language-context";
 
 interface ProjectImageModalProps {
   src: string;
@@ -40,6 +41,7 @@ export function ProjectImageModal({
   title,
   children,
 }: ProjectImageModalProps) {
+  const { lang } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -137,7 +139,7 @@ export function ProjectImageModal({
                       side="bottom"
                       className="bg-black text-white border-white/20 text-xs z-[9999]"
                     >
-                      <p>Download</p>
+                      <p>{lang === "en" ? "Download" : "Unduh"}</p>
                     </TooltipContent>
                   </TooltipPortal>
                 </Tooltip>
@@ -163,7 +165,7 @@ export function ProjectImageModal({
                       side="bottom"
                       className="bg-black text-white border-white/20 text-xs z-[9999]"
                     >
-                      <p>{copied ? "Copied!" : "Copy Link"}</p>
+                      <p>{copied ? (lang === "en" ? "Copied!" : "Tersalin!") : (lang === "en" ? "Copy Link" : "Salin Tautan")}</p>
                     </TooltipContent>
                   </TooltipPortal>
                 </Tooltip>
@@ -190,7 +192,7 @@ export function ProjectImageModal({
                     className="bg-black text-white border-white/20 text-xs z-[9999]"
                   >
                     <p>
-                      {isFullscreen ? "Exit Fullscreen" : "Enter Fullscreen"}
+                      {isFullscreen ? (lang === "en" ? "Exit Fullscreen" : "Keluar Layar Penuh") : (lang === "en" ? "Enter Fullscreen" : "Layar Penuh")}
                     </p>
                   </TooltipContent>
                 </TooltipPortal>
@@ -214,7 +216,7 @@ export function ProjectImageModal({
                     side="bottom"
                     className="bg-black text-white border-white/20 text-xs z-[9999]"
                   >
-                    <p>Close</p>
+                    <p>{lang === "en" ? "Close" : "Tutup"}</p>
                   </TooltipContent>
                 </TooltipPortal>
               </Tooltip>
