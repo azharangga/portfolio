@@ -13,6 +13,7 @@ interface EducationCardProps {
   subtitle?: string;
   href?: string;
   period: string;
+  gpa?: string;
 }
 
 export const EducationCard = ({
@@ -22,6 +23,7 @@ export const EducationCard = ({
   subtitle,
   href,
   period,
+  gpa,
 }: EducationCardProps) => {
   return (
     <Link
@@ -56,6 +58,11 @@ export const EducationCard = ({
             {subtitle && (
               <div className="font-sans text-xs mt-1 text-muted-foreground">
                 {subtitle}
+              </div>
+            )}
+            {gpa && (
+              <div className="font-sans text-xs mt-1 text-muted-foreground">
+                GPA: {gpa}
               </div>
             )}
           </CardHeader>

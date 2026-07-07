@@ -24,6 +24,7 @@ export function EducationSection() {
               title={education.school}
               subtitle={education.degree}
               period={(education.start as string) === education.end ? education.start : `${education.start} - ${education.end}`}
+              gpa={education.gpa}
             />
           </BlurFade>
         ))}

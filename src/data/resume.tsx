@@ -48,7 +48,14 @@ export const DATA = {
   location: "Cirebon, Indonesia",
   locationLink: "",
   description:
-    "Web Developer specializing in building modern, scalable, and user-focused web applications. Passionate about creating impactful solutions and continuously exploring new technologies.",
+    "A passionate Web Development and tech enthusiast focused on crafting interactive, modern, and user-friendly web experiences.",
+  rolePrefix: "Currently learning",
+  roles: [
+    "Web Development",
+    "Artificial Intelligence",
+    "Machine Learning",
+    "UI/UX Design",
+  ],
   summary:
     "I’m a Web Developer focused on building responsive web applications and information systems. With a solid foundation in [Computer Science from STMIK IKMI Cirebon](/#education), I have honed my technical skills through [internships, industry-driven projects, and personal initiatives](/#experience). While web development remains my primary area of expertise, I actively expand my knowledge into other fields such as Machine Learning, AI, and UI/UX design to deliver more comprehensive and user-centered digital solutions.",
   avatarUrl: "/profile.png",
@@ -83,14 +90,11 @@ export const DATA = {
     { name: "Postman", icon: SiPostman },
   ],
   navbar: [
-    { href: "/", icon: HomeIcon, label: "Home" },
     { href: "#experience", icon: BriefcaseBusiness, label: "Experience" },
     { href: "#education", icon: GraduationCap, label: "Education" },
     { href: "#training", icon: BookOpen, label: "Training" },
     { href: "#certifications", icon: BadgeCheck, label: "Certifications" },
-    { href: "#achievements", icon: Award, label: "Achievements" },
     { href: "#projects", icon: CodeIcon, label: "Projects" },
-    { href: "#contact", icon: GlobeIcon, label: "Contact" },
   ],
   contact: {
     email: "azharanggakusuma01@gmail.com",
@@ -225,15 +229,17 @@ export const DATA = {
       logoUrl: "/education/ikmi.png",
       start: "2022",
       end: "2026",
+      gpa: "3.46 / 4.00",
     },
     {
       school: "SMK Muhammadiyah Lemahabang",
       href: "https://smkmla-crb.sch.id",
       degree: "Vocational High School Diploma",
       icon: false,
-      logoUrl: "/education/smkmla.jpg",
+      logoUrl: "/education/smkmla.png",
       start: "2017",
       end: "2020",
+      gpa: "84.38 / 100",
     },
   ],
   training: [

@@ -1,12 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, FileText, User } from "lucide-react";
+import { FolderGit2, FileText, User } from "lucide-react";
 import Markdown from "react-markdown";
 import BlurFade from "@/components/magicui/blur-fade";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { buttonVariants, Button } from "@/components/ui/button";
 import { CertificateModal } from "@/components/modals/certificate-modal";
 import { cn } from "@/lib/utils";
+import { Typewriter } from "@/components/ui/typewriter";
 import { DATA } from "@/data/resume";
 import { BLUR_FADE_DELAY } from "@/lib/constants";
 
@@ -22,21 +23,30 @@ export function HeroSection() {
               </p>
             </BlurFade>
             <BlurFade delay={BLUR_FADE_DELAY + 0.05}>
-              <Markdown className="text-center md:text-start max-w-[600px] text-pretty font-sans md:text-lg">
+              <p className="mx-auto md:mx-0 text-base md:text-lg font-medium text-foreground text-center md:text-start">
+                {DATA.rolePrefix || "Specializing in"}{" "}
+                <Typewriter
+                  words={DATA.roles}
+                  className="text-primary font-semibold"
+                />
+              </p>
+            </BlurFade>
+            <BlurFade delay={BLUR_FADE_DELAY + 0.08}>
+              <Markdown className="text-center md:text-start max-w-[600px] text-pretty font-sans text-sm md:text-base text-muted-foreground">
                 {DATA.description}
               </Markdown>
             </BlurFade>
             <BlurFade delay={BLUR_FADE_DELAY + 0.1}>
               <div className="flex gap-2 justify-center md:justify-start mt-4">
                 <Link
-                  href="#contact"
+                  href="#projects"
                   className={cn(
                     buttonVariants({ variant: "default" }),
                     "w-full sm:w-auto flex items-center gap-2"
                   )}
                 >
-                  <Mail className="size-4" />
-                  Contact Me
+                  <FolderGit2 className="size-4" />
+                  View Projects
                 </Link>
                 <CertificateModal
                   trigger={
