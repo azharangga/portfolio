@@ -2,10 +2,12 @@
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { motion } from "framer-motion";
 import BlurFade from "@/components/magicui/blur-fade";
 import { ProjectCard } from "@/components/cards/project-card";
 import { useLanguage } from "@/context/language-context";
 import { BLUR_FADE_DELAY } from "@/lib/constants";
+import { cn } from "@/lib/utils";
 
 export function ProjectsSection() {
   const { resumeData, lang } = useLanguage();
@@ -37,6 +39,13 @@ export function ProjectsSection() {
   const ariaLabelMore = lang === "en" ? "Show More Projects" : "Tampilkan Lebih Banyak";
   const ariaLabelLess = lang === "en" ? "Show Less Projects" : "Tampilkan Lebih Sedikit";
 
+  const counts = {
+    all: resumeData.projects.filter((p) => p.active).length,
+    web: resumeData.projects.filter((p) => p.active && p.category === "web").length,
+    "ui/ux": resumeData.projects.filter((p) => p.active && p.category === "ui/ux").length,
+    "machine-learning": resumeData.projects.filter((p) => p.active && p.category === "machine-learning").length,
+  };
+
   return (
     <section id="projects" className="pt-6">
       <div className="space-y-8 w-full">
@@ -58,7 +67,7 @@ export function ProjectsSection() {
 
         <div className="flex justify-center">
           <BlurFade delay={PROJECTS_DELAY + 0.05}>
-            <div className="flex gap-1 bg-muted/40 p-1 rounded-full border">
+            <div className="flex gap-1 bg-muted/40 p-1 rounded-full border relative">
               {[
                 { value: "all", label: labelAll },
                 { value: "web", label: "Web" },
@@ -66,6 +75,7 @@ export function ProjectsSection() {
                 { value: "machine-learning", label: "ML" },
               ].map((tab) => {
                 const active = filter === tab.value;
+                const count = counts[tab.value as keyof typeof counts] || 0;
                 return (
                   <button
                     key={tab.value}
@@ -73,14 +83,29 @@ export function ProjectsSection() {
                       setFilter(tab.value as any);
                       setShowAll(false);
                     }}
-                    className={
-                      "px-3 py-1 text-xs sm:text-sm rounded-full transition-all duration-200 " +
-                      (active
-                         ? "bg-foreground text-background shadow-sm scale-[1.03]"
-                        : "text-muted-foreground hover:bg-muted scale-[0.98]")
-                    }
+                    className={cn(
+                      "relative px-3 py-1 text-xs sm:text-sm rounded-full transition-colors duration-300 font-medium select-none outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                      active
+                        ? "text-background"
+                        : "text-muted-foreground hover:text-foreground"
+                    )}
                   >
-                    {tab.label}
+                    {active && (
+                      <motion.span
+                        layoutId="activeProjectTab"
+                        className="absolute inset-0 bg-foreground rounded-full"
+                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      />
+                    )}
+                    <span className="relative z-10 flex items-center gap-1">
+                      {tab.label}
+                      <span className={cn(
+                        "text-[9px] font-normal transition-colors duration-300",
+                        active ? "text-background/80" : "text-muted-foreground/70"
+                      )}>
+                        ({count})
+                      </span>
+                    </span>
                   </button>
                 );
               })}
