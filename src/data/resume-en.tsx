@@ -693,6 +693,31 @@ export const DATA_EN = {
   ],
   projects: [
     {
+      title: "Job Tracker",
+      href: "https://job-tracker.projectshowcase.web.id",
+      dates: "",
+      active: true,
+      openSource: true,
+      category: "web",
+      description:
+        "A modern and professional web application specifically designed to help job seekers manage, track, and analyze their entire job application process centrally. It features a premium, minimalist monochrome paper design inspired by Notion to provide clean, intuitive navigation without high cognitive load.",
+      technologies: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI", "Supabase", "PostgreSQL"],
+      links: [
+        {
+          type: "Website",
+          href: "https://job-tracker.projectshowcase.web.id",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "https://github.com/azharangga/job-tracker",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "/projects/job-tracker.png",
+      video: "",
+    },
+    {
       title: "GiziMeal",
       href: "",
       dates: "",
@@ -701,7 +726,7 @@ export const DATA_EN = {
       category: "web",
       description:
         "A web application that uses AI and Computer Vision to identify food ingredients from images and suggest healthy recipes. Features nutritional value tracking, dynamic meal recommendations, and an interactive AI chatbot for personalized nutrition guidance.",
-      technologies: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI", "Supabase", "PostgreSQL", "Python", "FAST API", "Gemini API", "Cloudflare Turnstile"],
+      technologies: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI", "Supabase", "PostgreSQL", "Python", "FAST API", "Gemini API"],
       links: [
         {
           type: "Website",
@@ -731,7 +756,7 @@ export const DATA_EN = {
       category: "web",
       description:
         "A drama streaming platform featuring series and movies from various countries, including K-Dramas, C-Dramas, Thai Dramas, J-Dramas, and Variety Shows. It also includes a co-watching feature allowing users to stream and watch together in real-time.",
-      technologies: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI", "HLS.js", "Supabase", "PostgreSQL", "Python", "FAST API", "Cloudflare Turnstile"],
+      technologies: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI", "HLS.js", "Supabase", "PostgreSQL", "Python", "FAST API"],
       links: [
         {
           type: "Website",
@@ -786,7 +811,7 @@ export const DATA_EN = {
       category: "web",
       description:
         "A comprehensive academic information system designed to streamline and manage various academic processes at STMIK IKMI Cirebon, including course management, grading, and reporting.",
-      technologies: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI", "Supabase", "PostgreSQL", "Cloudflare Turnstile"],
+      technologies: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI", "Supabase", "PostgreSQL"],
       links: [
         {
           type: "Website",

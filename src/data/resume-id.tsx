@@ -604,13 +604,37 @@ export const DATA_ID = {
   ],
   projects: [
     {
+      title: "Job Tracker",
+      href: "https://job-tracker.projectshowcase.web.id",
+      dates: "",
+      active: true,
+      openSource: true,
+      category: "web",
+      technologies: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI", "Supabase", "PostgreSQL"],
+      links: [
+        {
+          type: "Website",
+          href: "https://job-tracker.projectshowcase.web.id",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "https://github.com/azharangga/job-tracker",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "/projects/job-tracker.png",
+      video: "",
+      description: "Aplikasi web modern dan profesional yang dirancang khusus untuk mempermudah pencari kerja dalam mengelola, melacak, dan menganalisis seluruh proses lamaran pekerjaan secara terpusat. Didesain menggunakan pendekatan Notion-inspired paper design yang monokromatis dan berestetika premium untuk memberikan kenyamanan navigasi yang optimal tanpa beban kognitif tinggi.",
+    },
+    {
   title: "GiziMeal",
   href: "",
   dates: "",
   active: true,
   openSource: true,
   category: "web",
-  technologies: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI", "Supabase", "PostgreSQL", "Python", "FAST API", "Gemini API", "Cloudflare Turnstile"],
+  technologies: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI", "Supabase", "PostgreSQL", "Python", "FAST API", "Gemini API"],
   links: [
         {
           type: "Website",
@@ -639,7 +663,7 @@ export const DATA_ID = {
   active: true,
   openSource: false,
   category: "web",
-  technologies: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI", "HLS.js", "Supabase", "PostgreSQL", "Python", "FAST API", "Cloudflare Turnstile"],
+  technologies: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI", "HLS.js", "Supabase", "PostgreSQL", "Python", "FAST API"],
   links: [
         {
           type: "Website",
@@ -692,7 +716,7 @@ export const DATA_ID = {
   active: true,
   openSource: false,
   category: "web",
-  technologies: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI", "Supabase", "PostgreSQL", "Cloudflare Turnstile"],
+  technologies: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI", "Supabase", "PostgreSQL"],
   links: [
         {
           type: "Website",
