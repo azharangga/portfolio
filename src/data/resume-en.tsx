@@ -260,6 +260,21 @@ export const DATA_EN = {
       gallery: [],
     },
     {
+      school: "Badan Ekraf Digital Talent (BDT)",
+      href: "",
+      degree: "AI Productivity",
+      icon: false,
+      logoUrl: "/training/bdt.png",
+      start: "Apr 2026",
+      end: "May 2026",
+      location: "Online",
+      description:
+        "Completed the creative digital talent development program initiated by the government to enhance the capabilities of AI developers. Focused on AI Productivity by completing Practical AI for Productivity and Learning to Use Generative AI classes.",
+      certificateUrl: "https://drive.google.com/file/d/1rvMmCRzievwoSYhDCvEjubwWu-HA-ZrA/view?usp=sharing",
+      credentialId: "",
+      gallery: [],
+    },
+    {
       school: "SMKDEV",
       href: "https://www.smk.dev",
       degree: "Frontend Developer - SMKDEV Bootcamp Scholarship",
