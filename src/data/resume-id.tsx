@@ -870,7 +870,7 @@ export const DATA_ID = {
       ],
   image: "/projects/mn-drupadi.png",
   video: "",
-  description: "Platform blog yang dibuat untuk mendokumentasikan kegiatan kelompok, refleksi, dan sorotan acara untuk tim Modul Nusantara Drupadi selama program PMM 4 di Universitas Pendidikan Ganesha.",
+  description: "Platform blog dan dokumentasi dinamis yang dibuat untuk mempublikasikan kegiatan kelompok, refleksi budaya, dan sorotan acara tim Modul Nusantara Drupadi selama program PMM 4 di Universitas Pendidikan Ganesha. Sistem ini dilengkapi dengan manajemen konten kustom, integrasi media interaktif, serta antarmuka responsif yang nyaman diakses di berbagai perangkat.",
 },
     {
   title: "Movie App - Web-Based Film Discovery Platform",
@@ -959,7 +959,7 @@ export const DATA_ID = {
       ],
   image: "/projects/e-vote.png",
   video: "",
-  description: "Platform pemungutan suara digital yang dirancang untuk memudahkan siswa dalam memberikan suara mereka dalam pemilihan ketua ekstrakurikuler secara efisien.",
+  description: "Platform pemungutan suara digital berbasis web yang aman dan efisien untuk memodernisasi pemilihan ketua ekstrakurikuler. Sistem ini dilengkapi dengan dasbor visualisasi hasil suara waktu nyata (real-time), sistem autentikasi pemilih yang ketat untuk mencegah kecurangan, serta antarmuka intuitif untuk melihat profil kandidat sebelum memilih.",
 },
     {
   title: "Extrakurikuler Multimedia",
@@ -990,7 +990,7 @@ export const DATA_ID = {
       ],
   image: "/projects/multimedia.png",
   video: "",
-  description: "Platform web interaktif yang memungkinkan siswa mendaftar kegiatan ekstrakurikuler multimedia dan melatih pemahaman mereka melalui fitur kuis terintegrasi.",
+  description: "Platform web interaktif untuk manajemen pendaftaran dan pembelajaran ekstrakurikuler multimedia. Sistem ini mempermudah proses registrasi siswa baru, menyediakan modul pembelajaran multimedia terstruktur, serta menyertakan fitur kuis interaktif dengan penilaian otomatis guna mengevaluasi pemahaman materi siswa.",
 },
     {
   title: "UI Design Prototype UBoost",
@@ -999,7 +999,7 @@ export const DATA_ID = {
   active: true,
   openSource: true,
   category: "ui/ux",
-  technologies: ["Figma", "Auto Layout", "Prototyping", "Whimsical"],
+  technologies: ["Figma", "Auto Layout", "Design System", "Interactive Prototyping", "User Flows", "Wireframing", "Whimsical"],
   links: [
         {
           type: "Prototype",
@@ -1023,7 +1023,7 @@ export const DATA_ID = {
   active: true,
   openSource: false,
   category: "ui/ux",
-  technologies: ["Figma", "UI Kits", "Wireframing", "User Flow"],
+  technologies: ["Figma", "Design System", "Wireframing", "User Flows", "Interactive Prototyping", "UI Kit", "Information Architecture"],
   links: [
         {
           type: "Prototype",
@@ -1041,7 +1041,7 @@ export const DATA_ID = {
   description: "Membuat purwarupa UI yang terinspirasi oleh Niagahoster, berfokus pada prinsip desain yang berpusat pada pengguna, hierarki visual yang bersih, dan navigasi intuitif. Proyek ini melibatkan pembuatan wireframe, desain alur pengguna, dan prototyping interaktif untuk meningkatkan pengalaman pengguna secara keseluruhan.",
 },
     {
-  title: "GiziMeal - Model Food Image Classifier and Recommendation Menu",
+  title: "Food Image Classification and Recommendation Menu",
   href: "",
   dates: "",
   active: true,
@@ -1060,9 +1060,81 @@ export const DATA_ID = {
           icon: <SiHuggingface className="size-3" />,
         },
       ],
-  image: "",
+  image: "/projects/gizimeal-model.png",
   video: "",
   description: "Model Deep Learning dasar yang mendukung aplikasi web GiziMeal, dikembangkan oleh divisi AI Engineer dari tim CC26-PSU393 selama program Coding Camp 2026. Dirancang untuk mengenali jenis makanan dari gambar dan menyarankan resep dengan informasi nutrisi, memanfaatkan arsitektur Custom CNN Multi-Task dengan ResNet18 dan lapisan perhatian (attention layers) kustom.",
-}
+},
+    {
+      title: "Tokopedia Review Sentiment Analysis",
+      href: "",
+      dates: "",
+      active: true,
+      openSource: true,
+      category: "machine-learning",
+      technologies: ["Python", "Google Colab", "TensorFlow", "Hugging Face", "scikit-learn", "Sastrawi", "NLTK", "Pandas", "NumPy"],
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/azharangga/tokopedia-review-sentiment-analysis",
+          icon: <Icons.github className="size-3" />,
+        },
+        {
+          type: "Model",
+          href: "https://huggingface.co/azharanggakusuma/tokopedia-review-sentiment-analysis/tree/main",
+          icon: <SiHuggingface className="size-3" />,
+        },
+      ],
+      image: "/projects/sentimen-tokped.png",
+      video: "",
+      description: "Sistem analisis sentimen untuk mengklasifikasikan ulasan pengguna aplikasi Tokopedia dari Google Play Store. Proyek ini membandingkan kinerja model berbasis Machine Learning (LinearSVC, Random Forest) dan Deep Learning (LSTM) menggunakan prapemrosesan teks bahasa Indonesia (Sastrawi & NLTK).",
+    },
+    {
+      title: "Apple Leaf Disease Classification",
+      href: "",
+      dates: "",
+      active: true,
+      openSource: true,
+      category: "machine-learning",
+      technologies: ["Python", "Google Colab", "TensorFlow", "Hugging Face", "scikit-learn", "Pandas", "NumPy", "Matplotlib"],
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/azharangga/apple-leaf-disease-classification",
+          icon: <Icons.github className="size-3" />,
+        },
+        {
+          type: "Model",
+          href: "https://huggingface.co/azharanggakusuma/apple-leaf-disease-classification/tree/main",
+          icon: <SiHuggingface className="size-3" />,
+        },
+      ],
+      image: "/projects/klasifikasi-apel.png",
+      video: "",
+      description: "Sistem klasifikasi gambar berbasis Deep Learning dengan arsitektur CNN kustom untuk mendeteksi 4 kondisi penyakit daun apel (Apple Scab, Black Rot, Cedar Apple Rust, Healthy). Mendukung konversi model ke format TFLite dan TensorFlow.js untuk deployment multi-platform.",
+    },
+    {
+      title: "Bitcoin Price Forecasting",
+      href: "",
+      dates: "",
+      active: true,
+      openSource: true,
+      category: "machine-learning",
+      technologies: ["Python", "Google Colab", "TensorFlow", "Hugging Face", "scikit-learn", "statsmodels", "Pandas", "NumPy", "Matplotlib"],
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/azharangga/bitcoin-price-forecasting",
+          icon: <Icons.github className="size-3" />,
+        },
+        {
+          type: "Model",
+          href: "https://huggingface.co/azharanggakusuma/bitcoin-price-forecasting/tree/main",
+          icon: <SiHuggingface className="size-3" />,
+        },
+      ],
+      image: "/projects/prediksi-bitcoin.png",
+      video: "",
+      description: "Sistem prediksi harga penutupan Bitcoin dengan metode peramalan multi-step (Horizon = 3, Lookback = 96) menggunakan Deep Learning. Membandingkan performa model Baseline LSTM dan Sequence-to-Sequence (Seq2Seq) LSTM yang dilengkapi Attention Mechanism.",
+    }
   ],
 } as const;

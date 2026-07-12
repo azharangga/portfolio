@@ -1149,7 +1149,7 @@ export const DATA_EN = {
     },
     // --- Kategori Machine Learning ---
     {
-      title: "GiziMeal - Model Food Image Classifier and Recommendation Menu",
+      title: "Food Image Classification and Recommendation Menu",
       href: "",
       dates: "",
       active: true,
@@ -1170,7 +1170,82 @@ export const DATA_EN = {
           icon: <SiHuggingface className="size-3" />,
         },
       ],
-      image: "",
+      image: "/projects/gizimeal-model.png",
+      video: "",
+    },
+    {
+      title: "Tokopedia Review Sentiment Analysis",
+      href: "",
+      dates: "",
+      active: true,
+      openSource: true,
+      category: "machine-learning",
+      description:
+        "A sentiment analysis system to classify Tokopedia app reviews from the Google Play Store. It compares Machine Learning (LinearSVC, Random Forest) and Deep Learning (LSTM) models using Indonesian natural language preprocessing.",
+      technologies: ["Python", "Google Colab", "TensorFlow", "Hugging Face", "scikit-learn", "Sastrawi", "NLTK", "Pandas", "NumPy"],
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/azharangga/tokopedia-review-sentiment-analysis",
+          icon: <Icons.github className="size-3" />,
+        },
+        {
+          type: "Model",
+          href: "https://huggingface.co/azharanggakusuma/tokopedia-review-sentiment-analysis/tree/main",
+          icon: <SiHuggingface className="size-3" />,
+        },
+      ],
+      image: "/projects/sentimen-tokped.png",
+      video: "",
+    },
+    {
+      title: "Apple Leaf Disease Classification",
+      href: "",
+      dates: "",
+      active: true,
+      openSource: true,
+      category: "machine-learning",
+      description:
+        "A Deep Learning image classification system utilizing a custom CNN architecture to detect 4 types of apple leaf conditions. Supports model conversion to TFLite and TensorFlow.js formats for multi-platform deployment.",
+      technologies: ["Python", "Google Colab", "TensorFlow", "Hugging Face", "scikit-learn", "Pandas", "NumPy", "Matplotlib"],
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/azharangga/apple-leaf-disease-classification",
+          icon: <Icons.github className="size-3" />,
+        },
+        {
+          type: "Model",
+          href: "https://huggingface.co/azharanggakusuma/apple-leaf-disease-classification/tree/main",
+          icon: <SiHuggingface className="size-3" />,
+        },
+      ],
+      image: "/projects/klasifikasi-apel.png",
+      video: "",
+    },
+    {
+      title: "Bitcoin Price Forecasting",
+      href: "",
+      dates: "",
+      active: true,
+      openSource: true,
+      category: "machine-learning",
+      description:
+        "A Deep Learning time-series forecasting system to predict Bitcoin closing prices using multi-step forecasting (Horizon = 3, Lookback = 96). It compares Baseline LSTM and Seq2Seq LSTM models with an Attention Mechanism.",
+      technologies: ["Python", "Google Colab", "TensorFlow", "Hugging Face", "scikit-learn", "statsmodels", "Pandas", "NumPy", "Matplotlib"],
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/azharangga/bitcoin-price-forecasting",
+          icon: <Icons.github className="size-3" />,
+        },
+        {
+          type: "Model",
+          href: "https://huggingface.co/azharanggakusuma/bitcoin-price-forecasting/tree/main",
+          icon: <SiHuggingface className="size-3" />,
+        },
+      ],
+      image: "/projects/prediksi-bitcoin.png",
       video: "",
     },
   ],
