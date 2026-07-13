@@ -53,12 +53,12 @@ export const DATA_EN = {
   rolePrefix: "Currently learning",
   roles: [
     "Web Development",
-    "Artificial Intelligence",
+    "Generative AI",
     "Machine Learning",
     "UI/UX Design",
   ],
   summary:
-    "I’m a Web Developer focused on building responsive web applications and information systems. With a solid foundation in [Computer Science from STMIK IKMI Cirebon](/#education), I have honed my technical skills through [internships, industry-driven projects, and personal initiatives](/#experience). While web development remains my primary area of expertise, I actively expand my knowledge into other fields such as Machine Learning, AI, and UI/UX design to deliver more comprehensive and user-centered digital solutions.",
+    "I’m a Web Developer focused on building responsive web applications and information systems. With a solid foundation in [Computer Science from STMIK IKMI Cirebon](/#education), I have honed my technical skills through [internships, industry-driven projects, and personal initiatives](/#experience). While web development remains my primary area of expertise, I actively expand my knowledge into other fields such as Machine Learning, Generative AI, and UI/UX design to deliver more comprehensive and user-centered digital solutions.",
   avatarUrl: "/profile.png",
   skills: [
     // Languages
@@ -740,7 +740,7 @@ export const DATA_EN = {
       openSource: true,
       category: "web",
       description:
-        "A web application that uses AI and Computer Vision to identify food ingredients from images and suggest healthy recipes. Features nutritional value tracking, dynamic meal recommendations, and an interactive AI chatbot for personalized nutrition guidance.",
+        "A web application that uses Computer Vision to identify food ingredients from images and suggest healthy recipes. Features nutritional value tracking, dynamic meal recommendations, and an interactive Generative AI chatbot for personalized nutrition guidance.",
       technologies: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI", "Supabase", "PostgreSQL", "Python", "FAST API", "Gemini API"],
       links: [
         {
@@ -825,8 +825,8 @@ export const DATA_EN = {
       openSource: false,
       category: "web",
       description:
-        "A comprehensive academic information system designed to streamline and manage various academic processes at STMIK IKMI Cirebon, including course management, grading, and reporting.",
-      technologies: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI", "Supabase", "PostgreSQL"],
+        "A comprehensive academic information system designed to streamline academic processes at STMIK IKMI Cirebon, featuring an integrated Generative AI chatbot to assist students and staff with academic inquiries, course management, grading, and reporting.",
+      technologies: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI", "Supabase", "PostgreSQL", "Gemini API"],
       links: [
         {
           type: "Website",

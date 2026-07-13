@@ -52,11 +52,11 @@ export const DATA_ID = {
   rolePrefix: "Sedang mempelajari",
   roles: [
     "Web Development",
-    "Artificial Intelligence",
+    "Generative AI",
     "Machine Learning",
     "UI/UX Design",
   ] as const,
-  summary: "Saya adalah seorang Web Developer yang berfokus pada pembangunan aplikasi web dan sistem informasi responsif. Berbekal landasan kuat dalam [ilmu komputer dari STMIK IKMI Cirebon](/#education), saya mengasah keahlian teknis melalui [magang, proyek berbasis industri, serta inisiatif pribadi](/#experience). Meskipun web development merupakan fokus keahlian utama, saya aktif memperluas wawasan ke bidang lain seperti Machine Learning, Artificial Intelligence (AI), dan UI/UX Design demi menghadirkan solusi digital yang lebih komprehensif serta berpusat pada pengguna.",
+  summary: "Saya adalah seorang Web Developer yang berfokus pada pembangunan aplikasi web dan sistem informasi responsif. Berbekal landasan kuat dalam [ilmu komputer dari STMIK IKMI Cirebon](/#education), saya mengasah keahlian teknis melalui [magang, proyek berbasis industri, serta inisiatif pribadi](/#experience). Meskipun web development merupakan fokus keahlian utama, saya aktif memperluas wawasan ke bidang lain seperti Machine Learning, Generative AI, dan UI/UX Design demi menghadirkan solusi digital yang lebih komprehensif serta berpusat pada pengguna.",
   avatarUrl: "/profile.png",
   skills: [
     // Languages
@@ -668,7 +668,7 @@ export const DATA_ID = {
       ],
   image: "/projects/gizimeal.png",
   video: "",
-  description: "Aplikasi web yang memanfaatkan AI dan Computer Vision untuk mengidentifikasi bahan makanan dari gambar dan menyarankan resep sehat. Dilengkapi fitur pelacakan nilai gizi, rekomendasi makanan dinamis, dan chatbot AI interaktif untuk panduan nutrisi yang dipersonalisasi.",
+  description: "Aplikasi web yang memanfaatkan Computer Vision untuk mengidentifikasi bahan makanan dari gambar dan menyarankan resep sehat. Dilengkapi fitur pelacakan nilai gizi, rekomendasi makanan dinamis, serta chatbot Generative AI interaktif untuk panduan nutrisi yang dipersonalisasi.",
 },
     {
   title: "Dramova",
@@ -730,7 +730,7 @@ export const DATA_ID = {
   active: true,
   openSource: false,
   category: "web",
-  technologies: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI", "Supabase", "PostgreSQL"],
+  technologies: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI", "Supabase", "PostgreSQL", "Gemini API"],
   links: [
         {
           type: "Website",
@@ -745,7 +745,7 @@ export const DATA_ID = {
       ],
   image: "/projects/siakad-ikmi.png",
   video: "",
-  description: "Sistem informasi akademik komprehensif yang dirancang untuk menyederhanakan dan mengelola berbagai proses akademik di STMIK IKMI Cirebon, termasuk manajemen mata kuliah, penilaian, dan pelaporan.",
+  description: "Sistem informasi akademik komprehensif yang dirancang untuk menyederhanakan proses akademik di STMIK IKMI Cirebon, dilengkapi dengan chatbot Generative AI terintegrasi untuk membantu mahasiswa dan staf dalam informasi akademik, manajemen mata kuliah, penilaian, dan pelaporan.",
 },
     {
   title: "DataDikti",
