@@ -591,7 +591,7 @@ export const DATA_EN = {
       description:
         "Earned the Junior Web Developer professional competency certification issued by BNSP (Badan Nasional Sertifikasi Profesi) based on the Indonesian National Work Competency Standards (SKKNI). Certified competency covers building web applications using modern languages, database management, and implementing secure coding practices.",
       certificateUrl: "https://drive.google.com/file/d/1JinEBPhcE3jUdOGTYzfSdzXc5gP06XQv/view?usp=sharing",
-      credentialId: "",
+      credentialId: "62019 2513 4 0031008 2024",
       gallery: [],
     },
     {
@@ -605,7 +605,7 @@ export const DATA_EN = {
       description:
         "Earned the Junior Network Administrator professional competency certification issued by BNSP (Badan Nasional Sertifikasi Profesi) based on the Indonesian National Work Competency Standards (SKKNI). Certified competency covers configuring routers and network devices, subnetting, cabling, and basic network administration tasks.",
       certificateUrl: "https://drive.google.com/file/d/1dswbl2eAl75FOpDd9i7orUxqWC1uAxic/view?usp=sharing",
-      credentialId: "",
+      credentialId: "61100 2522 25813 2023",
       gallery: [],
     },
     {
@@ -619,7 +619,7 @@ export const DATA_EN = {
       description:
         "Earned the MikroTik Certified Network Associate (MTCNA) certification, covering basic computer network concepts as well as configuration and management of MikroTik RouterOS devices for small to medium scale network needs.",
       certificateUrl: "https://drive.google.com/file/d/1GpEi-J-VaEIUDzVRLGS6piTFTuu4pAzw/view?usp=sharing",
-      credentialId: "",
+      credentialId: "1907NA8791",
       gallery: [
         {
           image: "/certifications/gallery/mikrotik-1.jpg",
