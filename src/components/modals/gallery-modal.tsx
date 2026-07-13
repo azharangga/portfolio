@@ -331,9 +331,8 @@ export function GalleryModal({ title, items }: GalleryModalProps) {
                     )}
                   >
                   {isLoading && !isError && (
-                    <div className="absolute inset-0 flex flex-col items-center justify-center z-30 gap-3">
-                        <Loader2 className="h-10 w-10 animate-spin text-white/50" />
-                        <p className="text-xs text-white/30 animate-pulse">Loading image...</p>
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-30">
+                      <Loader2 className="h-8 w-8 animate-spin text-white" />
                     </div>
                   )}
 

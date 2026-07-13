@@ -8,6 +8,7 @@ import {
   BookOpen,
   Award,
   BadgeCheck,
+  FileCode,
 } from "lucide-react";
 import {
   SiJavascript,
@@ -1109,13 +1110,13 @@ export const DATA_EN = {
       technologies: ["Figma", "Auto Layout", "Prototyping", "Whimsical"],
       links: [
         {
-          type: "Prototype",
-          href: "https://www.figma.com/proto/XVHfhNJNsVMPExVybbTArj/UBoost--Tugas-Technopreneurship---Copy-?node-id=13-123&p=f&t=GJthkXEK9Ve74fUL-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1",
+          type: "Design",
+          href: "https://www.figma.com/design/XVHfhNJNsVMPExVybbTArj/UBoost--Tugas-Technopreneurship---Copy-?node-id=13-123&t=GJthkXEK9Ve74fUL-1",
           icon: <Icons.figma className="size-3" />,
         },
         {
-          type: "Design",
-          href: "https://www.figma.com/design/XVHfhNJNsVMPExVybbTArj/UBoost--Tugas-Technopreneurship---Copy-?node-id=13-123&t=GJthkXEK9Ve74fUL-1",
+          type: "Prototype",
+          href: "https://www.figma.com/proto/XVHfhNJNsVMPExVybbTArj/UBoost--Tugas-Technopreneurship---Copy-?node-id=13-123&p=f&t=GJthkXEK9Ve74fUL-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1",
           icon: <Icons.figma className="size-3" />,
         },
       ],
@@ -1134,13 +1135,13 @@ export const DATA_EN = {
       technologies: ["Figma", "UI Kits", "Wireframing", "User Flow"],
       links: [
         {
-          type: "Prototype",
-          href: "https://www.figma.com/proto/7xcYSxhg7DJWW42SmLagbI/Case-Study-Niagahoster-by-Azharangga-Kusuma?node-id=35-2117&p=f&t=Ez3jYBbgHcAJHAY2-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=35%3A2117",
+          type: "Design",
+          href: "https://www.figma.com/design/7xcYSxhg7DJWW42SmLagbI/Case-Study-Niagahoster-by-Azharangga-Kusuma?node-id=35-2117&t=Ez3jYBbgHcAJHAY2-1",
           icon: <Icons.figma className="size-3" />,
         },
         {
-          type: "Design",
-          href: "https://www.figma.com/design/7xcYSxhg7DJWW42SmLagbI/Case-Study-Niagahoster-by-Azharangga-Kusuma?node-id=35-2117&t=Ez3jYBbgHcAJHAY2-1",
+          type: "Prototype",
+          href: "https://www.figma.com/proto/7xcYSxhg7DJWW42SmLagbI/Case-Study-Niagahoster-by-Azharangga-Kusuma?node-id=35-2117&p=f&t=Ez3jYBbgHcAJHAY2-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=35%3A2117",
           icon: <Icons.figma className="size-3" />,
         },
       ],
@@ -1169,6 +1170,16 @@ export const DATA_EN = {
           href: "https://huggingface.co/CC26-PSU393/gizimeal-model/tree/main",
           icon: <SiHuggingface className="size-3" />,
         },
+        {
+          type: "Notebook",
+          notebooks: [
+            {
+              title: "Model Training",
+              githubUrl: "https://github.com/CC26-PSU393-GiziMeal/AI-Engineer/blob/main/Model/CC26_PSU393_GiziMeal_(AI).ipynb",
+            },
+          ],
+          icon: <FileCode className="size-3" />,
+        },
       ],
       image: "/projects/gizimeal-model.png",
       video: "",
@@ -1193,6 +1204,20 @@ export const DATA_EN = {
           type: "Model",
           href: "https://huggingface.co/azharanggakusuma/tokopedia-review-sentiment-analysis/tree/main",
           icon: <SiHuggingface className="size-3" />,
+        },
+        {
+          type: "Notebook",
+          notebooks: [
+            {
+              title: "Scraping Data",
+              githubUrl: "https://github.com/azharangga/tokopedia-review-sentiment-analysis/blob/main/scraping.ipynb",
+            },
+            {
+              title: "Model Training",
+              githubUrl: "https://github.com/azharangga/tokopedia-review-sentiment-analysis/blob/main/pelatihan_model.ipynb", 
+            }
+          ],
+          icon: <FileCode className="size-3" />,
         },
       ],
       image: "/projects/sentimen-tokped.png",
@@ -1219,6 +1244,16 @@ export const DATA_EN = {
           href: "https://huggingface.co/azharanggakusuma/apple-leaf-disease-classification/tree/main",
           icon: <SiHuggingface className="size-3" />,
         },
+        {
+          type: "Notebook",
+          notebooks: [
+            {
+              title: "Model Training",
+              githubUrl: "https://github.com/azharangga/apple-leaf-disease-classification/blob/main/pelatihan_model.ipynb",
+            },
+          ],
+          icon: <FileCode className="size-3" />,
+        },
       ],
       image: "/projects/klasifikasi-apel.png",
       video: "",
@@ -1243,6 +1278,16 @@ export const DATA_EN = {
           type: "Model",
           href: "https://huggingface.co/azharanggakusuma/bitcoin-price-forecasting/tree/main",
           icon: <SiHuggingface className="size-3" />,
+        },
+        {
+          type: "Notebook",
+          notebooks: [
+            {
+              title: "Model Training",
+              githubUrl: "https://github.com/azharangga/bitcoin-price-forecasting/blob/main/pelatihan_model.ipynb",
+            },
+          ],
+          icon: <FileCode className="size-3" />,
         },
       ],
       image: "/projects/prediksi-bitcoin.png",

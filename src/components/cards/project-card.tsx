@@ -11,6 +11,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Markdown from "react-markdown";
 import { PrototypeDialog } from "@/components/modals/prototype-dialog";
+import { NotebookDialog } from "@/components/modals/notebook-dialog";
 import { FolderGit2 } from "lucide-react";
 import React, { useState } from "react";
 import { useLanguage } from "@/context/language-context";
@@ -29,7 +30,11 @@ interface Props {
   links?: readonly {
     icon: React.ReactNode;
     type: string;
-    href: string;
+    href?: string;
+    notebooks?: readonly {
+      title: string;
+      githubUrl: string;
+    }[];
   }[];
   openSource?: boolean;
   category?: "web" | "ui/ux" | "machine-learning";
@@ -171,8 +176,8 @@ export function ProjectCard({
         <div className="flex flex-wrap gap-2">
           {links?.map((link, idx) => {
             // --- LOGIC DISABLE ---
-            // 1. Jika link kosong (!link.href) -> Disable
-            const isDisabled = !link.href;
+            // 1. Jika link kosong (!link.href dan !link.notebooks) -> Disable
+            const isDisabled = !link.href && !link.notebooks;
 
             if (isDisabled) {
               return (
@@ -195,7 +200,7 @@ export function ProjectCard({
             // --- JIKA AKTIF (Open Source & Ada Link) ---
 
             // A. Tipe "Prototype" -> Buka Modal
-            if (link.type === "Prototype") {
+            if (link.type === "Prototype" && link.href) {
               return (
                 <PrototypeDialog
                   key={idx}
@@ -206,9 +211,30 @@ export function ProjectCard({
               );
             }
 
+            // B. Tipe "Notebook" -> Buka Modal Notebook
+            if (link.type === "Notebook") {
+              return (
+                <NotebookDialog
+                  key={idx}
+                  title={title}
+                  description={description}
+                  githubUrl={link.href}
+                  notebooks={link.notebooks}
+                  trigger={
+                    <button className="focus:outline-none">
+                      <Badge className="px-2 py-1 text-[10px] opacity-90 hover:opacity-100 transition flex gap-2 cursor-pointer bg-primary text-primary-foreground hover:bg-primary/90">
+                        {link.icon}
+                        {link.type}
+                      </Badge>
+                    </button>
+                  }
+                />
+              );
+            }
+
             // B. Tipe Lainnya (Design, Source, Website) -> Buka Tab Baru
             return (
-              <Link href={link.href} key={idx} target="_blank">
+              <Link href={link.href || "#"} key={idx} target="_blank">
                 <Badge className="px-2 py-1 text-[10px] opacity-90 hover:opacity-100 transition flex gap-2">
                   {link.icon}
                   {link.type}

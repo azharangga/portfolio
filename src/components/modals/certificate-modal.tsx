@@ -268,11 +268,8 @@ export function CertificateModal({
             <div className="w-full h-full pt-16 bg-zinc-950 relative z-10">
               {/* Loading Overlay */}
               {isLoading && (
-                <div className="absolute inset-0 flex flex-col items-center justify-center z-20 bg-zinc-950">
-                  <Loader2 className="h-10 w-10 animate-spin text-white/50" />
-                  <p className="text-xs text-white/50 animate-pulse mt-3 font-medium">
-                    Loading document...
-                  </p>
+                <div className="absolute inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-20">
+                  <Loader2 className="h-8 w-8 animate-spin text-white" />
                 </div>
               )}
 
@@ -300,11 +297,8 @@ export function CertificateModal({
           {contentType === "image" && (
             <>
               {isLoading && !isError && (
-                <div className="absolute inset-0 flex flex-col items-center justify-center z-30 gap-3">
-                  <Loader2 className="h-10 w-10 animate-spin text-white/50" />
-                  <p className="text-xs text-white/30 animate-pulse">
-                    Loading image...
-                  </p>
+                <div className="absolute inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-30">
+                  <Loader2 className="h-8 w-8 animate-spin text-white" />
                 </div>
               )}
               

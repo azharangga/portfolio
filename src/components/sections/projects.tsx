@@ -1,13 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 import BlurFade from "@/components/magicui/blur-fade";
 import { ProjectCard } from "@/components/cards/project-card";
 import { useLanguage } from "@/context/language-context";
 import { BLUR_FADE_DELAY } from "@/lib/constants";
 import { cn } from "@/lib/utils";
+import { NotebookDialog } from "@/components/modals/notebook-dialog";
 
 export function ProjectsSection() {
   const { resumeData, lang } = useLanguage();
@@ -29,8 +30,8 @@ export function ProjectsSection() {
   const titleBadge = lang === "en" ? "My Projects" : "Proyek Saya";
   const mainTitle = lang === "en" ? "Check out my latest work" : "Lihat karya terbaru saya";
   const subtitle = lang === "en" 
-    ? "A showcase of my projects in Web Development, UI/UX Design, and Machine Learning." 
-    : "Galeri proyek saya dalam Web Development, UI/UX Design, dan Machine Learning.";
+    ? "A showcase of my projects in Web Development, Machine Learning, and UI/UX Design." 
+    : "Galeri proyek saya dalam Web Development, Machine Learning, dan UI/UX Design.";
 
   const labelAll = lang === "en" ? "All" : "Semua";
 
@@ -71,8 +72,8 @@ export function ProjectsSection() {
               {[
                 { value: "all", label: labelAll },
                 { value: "web", label: "Web" },
-                { value: "ui/ux", label: "UI/UX" },
                 { value: "machine-learning", label: "ML" },
+                { value: "ui/ux", label: "UI/UX" },
               ].map((tab) => {
                 const active = filter === tab.value;
                 const count = counts[tab.value as keyof typeof counts] || 0;
