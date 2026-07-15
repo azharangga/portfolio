@@ -33,6 +33,7 @@ import {
   SiShadcnui,
   SiTensorflow,
   SiKeras,
+  SiStreamlit,
 } from "react-icons/si";
 
 
@@ -70,6 +71,7 @@ export const DATA_ID = {
     { name: "Node.js", icon: SiNodedotjs },
     { name: "Python", icon: SiPython },
     { name: "FastAPI", icon: SiFastapi },
+    { name: "Streamlit", icon: SiStreamlit },
     // Databases / Backend services
     { name: "MySQL", icon: SiMysql },
     { name: "PostgreSQL", icon: SiPostgresql },
