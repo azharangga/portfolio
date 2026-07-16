@@ -56,6 +56,9 @@ export const metadata: Metadata = {
 };
 
 import { Toaster } from "sonner";
+import { ThemeProvider } from "@/components/layout/theme-provider";
+import { LanguageProvider } from "@/context/language-context";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 export default function RootLayout({
   children,
@@ -71,8 +74,14 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        {children}
-        <Toaster richColors position="top-right" />
+        <ThemeProvider attribute="class" defaultTheme="light">
+          <LanguageProvider>
+            <TooltipProvider delayDuration={0}>
+              {children}
+              <Toaster richColors position="top-right" />
+            </TooltipProvider>
+          </LanguageProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

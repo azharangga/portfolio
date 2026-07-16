@@ -17,6 +17,7 @@ import React, { useState } from "react";
 import { useLanguage } from "@/context/language-context";
 import { toast } from "sonner";
 import { ProjectImageModal } from "@/components/modals/project-image-modal";
+import { slugify } from "@/lib/slugify";
 
 interface Props {
   title: string;
@@ -59,10 +60,7 @@ export function ProjectCard({
   const [imageError, setImageError] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const { lang } = useLanguage();
-
-  const isLongDescription = description.length > 120;
   const readMoreLabel = lang === "en" ? "Read More" : "Selengkapnya";
-  const showLessLabel = lang === "en" ? "Show Less" : "Lebih Sedikit";
 
   return (
     <Card
@@ -137,21 +135,22 @@ export function ProjectCard({
         {dates && <time className="text-xs font-sans">{dates}</time>}
 
         <div className={cn(
-          "prose text-xs text-muted-foreground max-w-full dark:prose-invert transition-all duration-300",
-          !isExpanded && isLongDescription && "line-clamp-3"
+          "prose text-xs text-muted-foreground max-w-full dark:prose-invert",
+          isExpanded ? "" : "line-clamp-3"
         )}>
           <Markdown>
             {description}
           </Markdown>
         </div>
-        {isLongDescription && (
-          <button
-            onClick={() => setIsExpanded(!isExpanded)}
-            className="underline text-[10px] text-primary/80 hover:text-primary font-medium focus:outline-none text-left w-fit mt-1"
-          >
-            {isExpanded ? showLessLabel : readMoreLabel}
-          </button>
-        )}
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            setIsExpanded(!isExpanded);
+          }}
+          className="underline text-[10px] text-primary/80 hover:text-primary font-medium text-left w-fit mt-1 block focus:outline-none"
+        >
+          {isExpanded ? (lang === "en" ? "Show Less" : "Lebih Sedikit") : readMoreLabel}
+        </button>
       </CardHeader>
 
       {/* TAGS */}

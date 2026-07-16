@@ -21,32 +21,26 @@ import { LanguageProvider } from "@/context/language-context";
 
 export default function Page() {
   return (
-    <ThemeProvider attribute="class" defaultTheme="light">
-      <LanguageProvider>
-        <TooltipProvider delayDuration={0}>
-          <div
-            className={cn(
-              "min-h-screen bg-background font-sans antialiased max-w-2xl xl:max-w-3xl mx-auto py-12 sm:py-24 px-6"
-            )}
-          >
-            <main className="flex flex-col min-h-[100dvh]">
-              <HeroSection />
-              <AboutSection />
-              <SkillsSection />
-              <ExperienceSection />
-              <EducationSection />
-              <TrainingSection />
-              <CertificationsSection />
-              <AchievementsSection />
-              <ProjectsSection />
-              <GithubSection />
-              <ContactSection />
-            </main>
-            <Navbar />
-            <ScrollToTop />
-          </div>
-        </TooltipProvider>
-      </LanguageProvider>
-    </ThemeProvider>
+    <div
+      className={cn(
+        "min-h-screen bg-background font-sans antialiased max-w-2xl xl:max-w-3xl mx-auto py-12 sm:py-24 px-6"
+      )}
+    >
+      <main className="flex flex-col min-h-[100dvh]">
+        <HeroSection />
+        <AboutSection />
+        <SkillsSection />
+        <ExperienceSection />
+        <EducationSection />
+        <TrainingSection />
+        <CertificationsSection />
+        <AchievementsSection />
+        <ProjectsSection />
+        <GithubSection />
+        <ContactSection />
+      </main>
+      <Navbar />
+      <ScrollToTop />
+    </div>
   );
 }

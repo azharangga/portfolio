@@ -34,3 +34,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# project detail page feature files
+/src/app/projects/
+/src/components/project-detail-client.tsx
+/src/data/project-details.ts
+/src/data/project-details-en.ts
+/src/data/project-details-id.ts
+/src/lib/slugify.ts
