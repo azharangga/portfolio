@@ -254,11 +254,11 @@ export const DATA_EN = {
       icon: false,
       logoUrl: "/training/codingcamp.jpg",
       start: "Feb 2026",
-      end: "Present",
+      end: "Jul 2026",
       location: "Online",
       description:
         "Participated in the Coding Camp 2026 organized by DBS Foundation, specializing in the AI Engineer learning path. Gained hands-on experience in machine learning development, focusing on deep learning and artificial intelligence concepts along with their practical implementation.",
-      certificateUrl: "",
+      certificateUrl: "https://drive.google.com/file/d/1g0zLdMUygILTd_4rsUkPNssARhN2nIhg/view?usp=sharing",
       credentialId: "",
       gallery: [],
     },
