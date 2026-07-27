@@ -7,7 +7,7 @@ type Language = "en" | "id";
 
 const translations = {
   en: {
-    about: "About",
+    about: "About Me",
     skills: "Skills",
     experience: "Experience",
     education: "Education",
