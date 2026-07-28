@@ -47,7 +47,7 @@ export const DATA_EN = {
   name: "Azharangga Kusuma",
   initials: "AK",
   url: "https://azharangga.me",
-  resumeUrl: "https://drive.google.com/file/d/1X_SnQEuhr76gO9XAfMJqdaXHTFwwL_MG/view?usp=sharing", 
+  resumeUrl: "https://drive.google.com/file/d/13EqsJGtofkR5V49OZ43egybYCF6hYttW/view?usp=sharing", 
   location: "Cirebon, Indonesia",
   locationLink: "",
   showOpenSourceBadge: false, // Set to false to hide "Open Source" / "Closed Source" badges across all project cards
