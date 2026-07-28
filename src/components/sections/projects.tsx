@@ -142,6 +142,7 @@ export function ProjectsSection() {
                       video={project.video}
                       links={project.links}
                       openSource={project.openSource}
+                      showOpenSourceBadge={resumeData.showOpenSourceBadge}
                       category={project.category}
                     />
                   </BlurFade>

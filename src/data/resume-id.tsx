@@ -50,6 +50,7 @@ export const DATA_ID = {
   resumeUrl: "https://drive.google.com/file/d/1X_SnQEuhr76gO9XAfMJqdaXHTFwwL_MG/view?usp=sharing",
   location: "Cirebon, Indonesia",
   locationLink: "",
+  showOpenSourceBadge: false, // Ubah ke false untuk menyembunyikan status "Open Source" / "Closed Source" pada semua kartu proyek
   description: "Seorang antusias Web Development dan teknologi yang berdedikasi untuk menciptakan pengalaman web yang interaktif, modern, dan ramah pengguna.",
   rolePrefix: "Sedang mempelajari",
   roles: [
@@ -742,7 +743,7 @@ export const DATA_ID = {
         },
         {
           type: "Source",
-          href: "",
+          href: "https://github.com/azharangga/siakad-ikmi",
           icon: <Icons.github className="size-3" />,
         },
       ],
@@ -807,7 +808,7 @@ export const DATA_ID = {
   title: "Material Inventory Information System",
   href: "",
   dates: "",
-  active: true,
+  active: false,
   openSource: false,
   category: "web",
   technologies: ["PHP", "Bootstrap", "MySQL", "JavaScript"],
@@ -855,7 +856,7 @@ export const DATA_ID = {
   title: "Modul Nusantara - Drupadi",
   href: "",
   dates: "",
-  active: true,
+  active: false,
   openSource: false,
   category: "web",
   technologies: ["PHP", "Tailwind CSS", "MySQL", "JavaScript"],
@@ -937,7 +938,7 @@ export const DATA_ID = {
   title: "E-Vote - Student Voting System",
   href: "",
   dates: "",
-  active: true,
+  active: false,
   openSource: false,
   category: "web",
   technologies: [
@@ -968,7 +969,7 @@ export const DATA_ID = {
   title: "Extrakurikuler Multimedia",
   href: "",
   dates: "",
-  active: true,
+  active: false,
   openSource: false,
   category: "web",
   technologies: [

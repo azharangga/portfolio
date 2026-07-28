@@ -50,6 +50,7 @@ export const DATA_EN = {
   resumeUrl: "https://drive.google.com/file/d/1X_SnQEuhr76gO9XAfMJqdaXHTFwwL_MG/view?usp=sharing", 
   location: "Cirebon, Indonesia",
   locationLink: "",
+  showOpenSourceBadge: false, // Set to false to hide "Open Source" / "Closed Source" badges across all project cards
   description:
     "A passionate Web Development and tech enthusiast focused on crafting interactive, modern, and user-friendly web experiences.",
   rolePrefix: "Currently learning",
@@ -838,7 +839,7 @@ export const DATA_EN = {
         },
         {
           type: "Source",
-          href: "",
+          href: "https://github.com/azharangga/siakad-ikmi",
           icon: <Icons.github className="size-3" />,
         },
       ],
@@ -904,7 +905,7 @@ export const DATA_EN = {
       title: "Material Inventory Information System",
       href: "",
       dates: "",
-      active: true,
+      active: false,
       openSource: false,
       category: "web",
       description:
@@ -954,7 +955,7 @@ export const DATA_EN = {
       title: "Modul Nusantara - Drupadi",
       href: "",
       dates: "",
-      active: true,
+      active: false,
       openSource: false,
       category: "web",
       description:
@@ -1039,7 +1040,7 @@ export const DATA_EN = {
       title: "E-Vote - Student Voting System",
       href: "",
       dates: "",
-      active: true,
+      active: false,
       openSource: false,
       category: "web",
       description:
@@ -1071,7 +1072,7 @@ export const DATA_EN = {
       title: "Extrakurikuler Multimedia",
       href: "",
       dates: "",
-      active: true,
+      active: false,
       openSource: false,
       category: "web",
       description:

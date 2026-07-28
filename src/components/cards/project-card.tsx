@@ -38,6 +38,7 @@ interface Props {
     }[];
   }[];
   openSource?: boolean;
+  showOpenSourceBadge?: boolean;
   category?: "web" | "ui/ux" | "machine-learning";
   className?: string;
 }
@@ -53,6 +54,7 @@ export function ProjectCard({
   video,
   links,
   openSource,
+  showOpenSourceBadge = true,
   category,
   className,
 }: Props) {
@@ -70,7 +72,7 @@ export function ProjectCard({
       )}
     >
       {/* ⭐ Mini badge — top-right (Open Source / Closed Source) */}
-      {typeof openSource === "boolean" && (
+      {showOpenSourceBadge && typeof openSource === "boolean" && (
         <div className="absolute top-2 right-2 z-20">
           <span
             className={cn(
