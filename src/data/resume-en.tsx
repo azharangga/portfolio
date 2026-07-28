@@ -889,7 +889,7 @@ export const DATA_EN = {
       links: [
         {
           type: "Website",
-          href: "",
+          href: "https://pusdatin.kesug.com",
           icon: <Icons.globe className="size-3" />,
         },
         {
