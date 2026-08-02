@@ -166,7 +166,7 @@ export default function Navbar() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 10, scale: 0.95 }}
                     transition={{ duration: 0.15 }}
-                    className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 bg-background border rounded-lg shadow-xl p-1 z-50 flex flex-col gap-1 min-w-[150px] pointer-events-auto"
+                    className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 bg-background border rounded-lg shadow-xl p-1 z-50 flex flex-col gap-1 min-w-[160px] pointer-events-auto"
                   >
                     <button
                       onClick={() => {
@@ -174,14 +174,14 @@ export default function Navbar() {
                         setIsOpen(false);
                       }}
                       className={cn(
-                        "flex items-center justify-between px-3 py-1.5 text-xs rounded-md font-medium transition-colors w-full text-left",
+                        "flex items-center justify-between px-3 py-1.5 text-xs rounded-md font-medium transition-colors w-full text-left whitespace-nowrap gap-3",
                         lang === "en"
                           ? "bg-foreground text-background"
                           : "hover:bg-muted text-foreground"
                       )}
                     >
                       <span>English</span>
-                      {lang === "en" && <Check className="size-3" />}
+                      {lang === "en" && <Check className="size-3 flex-shrink-0" />}
                     </button>
                     <button
                       onClick={() => {
@@ -189,14 +189,14 @@ export default function Navbar() {
                         setIsOpen(false);
                       }}
                       className={cn(
-                        "flex items-center justify-between px-3 py-1.5 text-xs rounded-md font-medium transition-colors w-full text-left",
+                        "flex items-center justify-between px-3 py-1.5 text-xs rounded-md font-medium transition-colors w-full text-left whitespace-nowrap gap-3",
                         lang === "id"
                           ? "bg-foreground text-background"
                           : "hover:bg-muted text-foreground"
                       )}
                     >
                       <span>Bahasa Indonesia</span>
-                      {lang === "id" && <Check className="size-3" />}
+                      {lang === "id" && <Check className="size-3 flex-shrink-0" />}
                     </button>
                   </motion.div>
                 )}

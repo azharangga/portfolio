@@ -16,7 +16,6 @@ import { FolderGit2 } from "lucide-react";
 import React, { useState } from "react";
 import { useLanguage } from "@/context/language-context";
 import { toast } from "sonner";
-import { ProjectImageModal } from "@/components/modals/project-image-modal";
 import { slugify } from "@/lib/slugify";
 
 interface Props {
@@ -90,8 +89,8 @@ export function ProjectCard({
       )}
 
       {/* MEDIA */}
-      {video ? (
-        <Link href={href || "#"} className="block cursor-pointer">
+      <Link href={`/projects/${slugify(title)}`} className="block cursor-pointer group/img overflow-hidden">
+        {video ? (
           <video
             src={video}
             autoPlay
@@ -100,10 +99,8 @@ export function ProjectCard({
             playsInline
             className="pointer-events-none w-full h-40 object-cover object-top"
           />
-        </Link>
-      ) : image && !imageError ? (
-        <ProjectImageModal src={image} title={title}>
-          <div className="relative w-full h-40 overflow-hidden bg-muted cursor-zoom-in">
+        ) : image && !imageError ? (
+          <div className="relative w-full h-40 overflow-hidden bg-muted">
             {imageLoading && (
               <div className="absolute inset-0 premium-shimmer" />
             )}
@@ -118,21 +115,25 @@ export function ProjectCard({
                 setImageError(true);
               }}
               className={cn(
-                "w-full h-40 object-cover dark:brightness-[0.9] dark:hover:brightness-100 transition-opacity duration-300",
+                "w-full h-40 object-cover dark:brightness-[0.9] dark:hover:brightness-100 group-hover/img:scale-105 transition-all duration-300",
                 imageLoading ? "opacity-0" : "opacity-100"
               )}
             />
           </div>
-        </ProjectImageModal>
-      ) : (
-        <div className="relative w-full h-40 flex items-center justify-center bg-muted border-b">
-          <FolderGit2 className="size-12 text-muted-foreground/40" />
-        </div>
-      )}
+        ) : (
+          <div className="relative w-full h-40 flex items-center justify-center bg-muted border-b">
+            <FolderGit2 className="size-12 text-muted-foreground/40" />
+          </div>
+        )}
+      </Link>
 
       {/* HEADER */}
       <CardHeader className="px-2 pt-3 space-y-1">
-        <CardTitle className="text-base">{title}</CardTitle>
+        <Link href={`/projects/${slugify(title)}`} className="hover:underline block">
+          <CardTitle className="text-base font-bold text-foreground hover:text-primary transition-colors cursor-pointer">
+            {title}
+          </CardTitle>
+        </Link>
 
         {dates && <time className="text-xs font-sans">{dates}</time>}
 

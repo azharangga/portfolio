@@ -715,7 +715,7 @@ export const DATA_EN = {
       title: "Job Tracker",
       href: "https://job-tracker.projectshowcase.web.id",
       dates: "",
-      active: true,
+      active: false,
       openSource: true,
       category: "web",
       description:
@@ -800,7 +800,7 @@ export const DATA_EN = {
       title: "FIFA World Cup 2026",
       href: "",
       dates: "",
-      active: true,
+      active: false,
       openSource: true,
       category: "web",
       description:
@@ -850,7 +850,7 @@ export const DATA_EN = {
       title: "DataDikti",
       href: "",
       dates: "",
-      active: true,
+      active: false,
       openSource: true,
       category: "web",
       description:

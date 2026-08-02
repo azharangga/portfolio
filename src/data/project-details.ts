@@ -8,57 +8,63 @@ export interface ProjectDetail {
   title: string;
   tagline: string;
   coverImage: string;
-  coverVideo?: string;
   category: string;
-  status: "Completed" | "Ongoing" | "Archived";
-  year: string;
   role: string;
   duration: string;
   type: "Personal" | "Team";
-  version: string;
-  license: string;
-  visibility: "Open Source" | "Private";
-  lastUpdated: string;
+  status?: "Completed" | "Ongoing" | "Archived";
+  year?: string;
+  version?: string;
+  license?: string;
+  visibility?: "Open Source" | "Private";
+  lastUpdated?: string;
+  coverVideo?: string;
   links: {
     website?: string;
     source?: string;
     apiDocs?: string;
+    model?: string;
     notebook?: string;
     figma?: string;
+    prototype?: string;
     presentation?: string;
     videoDemo?: string;
     downloadDocs?: string;
   };
   overview: string;
+  disclaimer?: string;
   problemBackground: string;
   solutionApproach: {
     design: string;
-    techExplanation: string;
+    techExplanation?: string;
     workflow: string[];
   };
   featureDocs: {
     title: string;
     description: string;
-    problemSolved: string;
-    howItWorks: string;
-    techUsed: string[];
-    benefit: string;
-    image: string;
+  }[];
+  contributors?: {
+    name: string;
+    role: string;
+    avatar?: string;
+    cohortId?: string;
+    github?: string;
+    linkedin?: string;
   }[];
   techStack: {
     category: string;
-    items: { name: string; version?: string; reason: string; role: string; iconName: string }[];
+    items: { name: string; iconName?: string; version?: string; reason?: string; role?: string }[];
   }[];
-  finalResultImpact: {
+  finalResultImpact?: {
     description: string;
     metrics: { label: string; value: string; description: string }[];
   };
   gallery: {
     image: string;
     title: string;
-    caption: string;
+    caption?: string;
   }[];
-  lessonsLearned: {
+  lessonsLearned?: {
     experience: string;
     technicalPivot: string;
     evaluation: string;
@@ -67,11 +73,85 @@ export interface ProjectDetail {
   };
 }
 
-export function getIcon(name: string) {
-  const IconComponent = (SiIcons as any)[name];
-  if (IconComponent) {
-    return React.createElement(IconComponent, { className: "size-5 text-foreground/80" });
+export function getIcon(name?: string) {
+  if (!name) return null;
+
+  // 1. Direct match on SiIcons
+  if ((SiIcons as any)[name]) {
+    return React.createElement((SiIcons as any)[name], { className: "size-4 text-foreground/80" });
   }
+
+  // 2. Normalize technology name mapping to react-icons/si icon component names
+  const cleanName = name.toLowerCase().replace(/[^a-z0-9]/g, "");
+  
+  const iconMapping: Record<string, string> = {
+    php: "SiPhp",
+    mysql: "SiMysql",
+    javascript: "SiJavascript",
+    js: "SiJavascript",
+    bootstrap: "SiBootstrap",
+    reactjs: "SiReact",
+    react: "SiReact",
+    nextjs: "SiNextdotjs",
+    next: "SiNextdotjs",
+    typescript: "SiTypescript",
+    ts: "SiTypescript",
+    tailwindcss: "SiTailwindcss",
+    tailwind: "SiTailwindcss",
+    python: "SiPython",
+    fastapi: "SiFastapi",
+    supabase: "SiSupabase",
+    postgresql: "SiPostgresql",
+    postgres: "SiPostgresql",
+    figma: "SiFigma",
+    tensorflow: "SiTensorflow",
+    keras: "SiKeras",
+    pytorch: "SiPytorch",
+    pandas: "SiPandas",
+    numpy: "SiNumpy",
+    scikitlearn: "SiScikitlearn",
+    googlecolab: "SiGooglecolab",
+    huggingface: "SiHuggingface",
+    git: "SiGit",
+    jquery: "SiJquery",
+    shadcnui: "SiShadcnui",
+    shadcn: "SiShadcnui",
+    leafletjs: "SiLeaflet",
+    leaflet: "SiLeaflet",
+    geminiapi: "SiGoogle",
+    gemini: "SiGoogle",
+    html: "SiHtml5",
+    html5: "SiHtml5",
+    css: "SiCss3",
+    css3: "SiCss3",
+    whimsical: "SiWhimsical",
+    autolayout: "SiFigma",
+    designsystem: "SiFigma",
+    userflows: "SiFigma",
+    wireframing: "SiFigma",
+    uikit: "SiFigma",
+    interactiveprototyping: "SiFigma",
+    tmdbapi: "SiThemoviedatabase",
+    pddiktiapi: "SiBookstack",
+    statsmodels: "SiPython",
+    matplotlib: "SiPython",
+    nltk: "SiPython",
+    sastrawi: "SiPython",
+    hlsjs: "SiJavascript",
+    hls: "SiJavascript"
+  };
+
+  const matchedKey = iconMapping[cleanName];
+  if (matchedKey && (SiIcons as any)[matchedKey]) {
+    return React.createElement((SiIcons as any)[matchedKey], { className: "size-4 text-foreground/80" });
+  }
+
+  // 3. Try PascalCase with Si prefix (e.g. "SiPhp", "SiMysql")
+  const pascalName = "Si" + name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+  if ((SiIcons as any)[pascalName]) {
+    return React.createElement((SiIcons as any)[pascalName], { className: "size-4 text-foreground/80" });
+  }
+
   return null;
 }
 
@@ -125,14 +205,9 @@ export function getProjectDetailFallback(slug: string, title: string, descriptio
     coverImage: projectImage,
     category: category.toUpperCase(),
     status: "Completed",
-    year: "2026",
     role: labelText.role,
     duration: labelText.duration,
     type: "Personal",
-    version: "v1.0.0",
-    license: "MIT",
-    visibility: "Open Source",
-    lastUpdated: "July 2026",
     links: {
       website: links?.find((l: any) => l.type === "Website")?.href,
       source: links?.find((l: any) => l.type === "Source")?.href,
@@ -144,9 +219,7 @@ export function getProjectDetailFallback(slug: string, title: string, descriptio
         category: isId ? "Teknologi Utama" : "Technologies Used",
         items: tags.map((t) => ({
           name: t,
-          reason: isId ? "Teknologi utama untuk membangun antarmuka dan logika." : "Essential driver for building user interaction and layouts.",
-          role: "Development Tool / Library",
-          iconName: "Si" + t.replace(/\.js/g, "").replace(/\s/g, "").replace(/\-/g, "")
+          iconName: t
         }))
       }
     ],
@@ -164,30 +237,11 @@ export function getProjectDetailFallback(slug: string, title: string, descriptio
     featureDocs: [
       {
         title: isId ? "Desain UI Responsif" : "Responsive UI Design",
-        description: isId ? "Mendukung penyesuaian tata letak otomatis dari layar kecil hingga layar besar." : "Auto layout scaling across custom viewport sizes.",
-        problemSolved: isId ? "Tampilan rusak di perangkat seluler." : "Broken layouts on mobile devices.",
-        howItWorks: isId ? "Menggunakan breakpoints responsif Tailwind CSS." : "Applies Tailwind CSS breakpoint classes.",
-        techUsed: tags as string[],
-        benefit: isId ? "Akses mudah di mana saja." : "Easy cross-platform readability.",
-        image: projectImage
+        description: isId ? "Mendukung penyesuaian tata letak otomatis dari layar kecil hingga layar besar." : "Auto layout scaling across custom viewport sizes."
       }
     ],
-    finalResultImpact: {
-      description: labelText.resultDesc,
-      metrics: [
-        { label: "Performance", value: "98/100", description: "Lighthouse mobile audit evaluation score" },
-        { label: "Component Reusability", value: "85%", description: "Ratio of reusable UI tokens used" }
-      ]
-    },
     gallery: [
       { image: projectImage, title: isId ? "Halaman Tampilan Utama" : "Primary Screen View", caption: isId ? "Representasi antarmuka utama dari proyek." : "Primary user interface layout of this project." }
-    ],
-    lessonsLearned: {
-      experience: "Learned optimization best practices and modern CSS styling.",
-      technicalPivot: "Decided to keep data storage serverless to reduce hosting costs.",
-      evaluation: "Project meets standard expectations and works smoothly.",
-      improvements: "Add comprehensive dashboard analytics charts.",
-      growth: "Enhanced rapid front-end prototyping methodologies."
-    }
+    ]
   };
 }

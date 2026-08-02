@@ -17,8 +17,8 @@ export function generateStaticParams() {
 export default async function Page({ params }: PageProps) {
   const { slug } = await params;
   
-  // Find if matching project exists
-  const projectExists = DATA_EN.projects.some((p) => slugify(p.title) === slug);
+  // Find if matching active project exists
+  const projectExists = DATA_EN.projects.some((p) => p.active && slugify(p.title) === slug);
   if (!projectExists) {
     notFound();
   }

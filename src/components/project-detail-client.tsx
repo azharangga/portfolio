@@ -1,16 +1,18 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
-  ArrowLeft, Calendar, User, Clock, Cpu, Globe, Code, 
-  FileText, FileCode, Layers, Menu, X, ArrowRight, ExternalLink, Languages
+  ArrowLeft, User, Layers, Menu, X, Languages, Check, Clock,
+  Tag, FolderGit2, Globe, Code, FileText, FileCode
 } from "lucide-react";
 import { useLanguage } from "@/context/language-context";
 import { ModeToggle } from "@/components/layout/mode-toggle";
+import { ScrollToTop } from "@/components/layout/scroll-to-top";
 import Markdown from "react-markdown";
+import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import { 
   PROJECT_DETAILS_EN, 
   PROJECT_DETAILS_ID, 
@@ -19,19 +21,34 @@ import {
   ProjectDetail 
 } from "@/data/project-details";
 import { slugify } from "@/lib/slugify";
-import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
 
 export default function ProjectDetailClient({ slug }: { slug: string }) {
-  const { lang, resumeData, toggleLanguage } = useLanguage();
+  const { lang, setLang, resumeData } = useLanguage();
 
   const [activeSection, setActiveSection] = useState("overview");
   const [scrollProgress, setScrollProgress] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+  const [avatarErrors, setAvatarErrors] = useState<Record<string, boolean>>({});
 
-  // Load correct project detail data
+  // Language Dropdown state
+  const [langDropdownOpen, setLangDropdownOpen] = useState(false);
+  const langRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (langRef.current && !langRef.current.contains(event.target as Node)) {
+        setLangDropdownOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // Load correct project detail data for active project
   const projectList = resumeData.projects;
-  const matchingProject = projectList.find(p => slugify(p.title) === slug);
+  const matchingProject = projectList.find(p => p.active && slugify(p.title) === slug);
   
   const isId = lang === "id";
   const detailsDb = isId ? PROJECT_DETAILS_ID : PROJECT_DETAILS_EN;
@@ -41,7 +58,6 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
     if (detailsDb[slug]) {
       detail = detailsDb[slug];
     } else {
-      // Generate fallback dynamically
       detail = getProjectDetailFallback(
         slug, 
         matchingProject.title, 
@@ -53,16 +69,26 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
       );
     }
   } else {
+    // Fallback if accessed
     const firstDetail = Object.values(detailsDb)[0];
     detail = detailsDb[slug] || firstDetail;
   }
 
-  // Related Projects logic (3 related projects)
+  // Map category strictly to 1 of 3 canonical categories from the home page: Web Development, Machine Learning, or UI/UX Design
+  const rawCat = (matchingProject?.category || detail?.category || "").toLowerCase();
+  let displayCategory = "Web Development";
+  if (rawCat.includes("ui") || rawCat.includes("ux") || rawCat.includes("design")) {
+    displayCategory = "UI/UX Design";
+  } else if (rawCat.includes("machine") || rawCat.includes("learning") || rawCat.includes("ml")) {
+    displayCategory = "Machine Learning";
+  }
+
+  // Related active projects (3 items at bottom)
   const relatedProjects = projectList
     .filter(p => p.active && slugify(p.title) !== slug)
     .slice(0, 3);
 
-  // Next / Previous projects for bottom navigation
+  // Next / Previous active projects navigation
   const activeProjects = projectList.filter(p => p.active);
   const currentIndex = activeProjects.findIndex(p => slugify(p.title) === slug);
   const prevProject = currentIndex > 0 ? activeProjects[currentIndex - 1] : null;
@@ -80,19 +106,18 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // 8 standard editorial sections
+  // 6 specific requested sections
   const sections = [
     { id: "overview", label: isId ? "Ringkasan" : "Overview" },
-    { id: "problem", label: isId ? "Permasalahan" : "Problem Background" },
-    { id: "solution", label: isId ? "Solusi" : "Solution Approach" },
-    { id: "techstack", label: isId ? "Teknologi" : "Tech Stack" },
-    { id: "features", label: isId ? "Implementasi & Fitur" : "Features & Implementation" },
-    { id: "results", label: isId ? "Hasil Akhir" : "Final Result & Impact" },
-    { id: "gallery", label: isId ? "Galeri Proyek" : "Project Gallery" },
-    { id: "lessons", label: isId ? "Pelajaran" : "Lessons Learned" }
+    { id: "problem", label: isId ? "Latar Belakang Masalah" : "Problem Background" },
+    { id: "solution", label: isId ? "Pendekatan Solusi" : "Solution Approach" },
+    { id: "techstack", label: "Tech Stack" },
+    { id: "features", label: isId ? "Fitur Utama" : "Key Features" },
+    ...(detail.contributors && detail.contributors.length > 0 ? [{ id: "team", label: isId ? "Tim Proyek" : "Project Team" }] : []),
+    { id: "gallery", label: isId ? "Galeri Proyek" : "Project Gallery" }
   ];
 
-  // Intersection Observer to update active navigation item
+  // Intersection Observer for scroll spy
   useEffect(() => {
     const observerOptions = {
       root: null,
@@ -132,43 +157,129 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
     }
   };
 
+  // Helper to render text strictly as bullet points without paragraphs
+  const renderAsBulletPoints = (text: string) => {
+    if (!text) return null;
+    const rawLines = text.split(/\n+/);
+    const items: string[] = [];
+
+    rawLines.forEach((line) => {
+      const trimmed = line.trim();
+      if (!trimmed) return;
+      if (trimmed.startsWith("###") || trimmed.startsWith("##")) return; // Skip headers
+
+      if (trimmed.startsWith("- ") || trimmed.startsWith("* ") || trimmed.startsWith("• ")) {
+        items.push(trimmed.replace(/^[-*•]\s*/, ""));
+      } else {
+        // Split paragraph into distinct sentence bullets
+        const sentences = trimmed.split(/(?<=\.)\s+/);
+        sentences.forEach((s) => {
+          const cleanSentence = s.trim().replace(/^[-*•]\s*/, "");
+          if (cleanSentence.length > 5) {
+            items.push(cleanSentence);
+          }
+        });
+      }
+    });
+
+    if (items.length === 0) return null;
+
+    return (
+      <ul className="space-y-2.5 list-disc pl-5 text-sm text-muted-foreground leading-relaxed">
+        {items.map((item, idx) => (
+          <li key={idx} className="pl-1">
+            <Markdown components={{ p: ({ children }) => <span>{children}</span> }}>
+              {item}
+            </Markdown>
+          </li>
+        ))}
+      </ul>
+    );
+  };
+
+  const galleryImages = detail.gallery && detail.gallery.length > 0 
+    ? detail.gallery 
+    : [{ image: detail.coverImage, title: detail.title, caption: detail.tagline }];
+
+  // Tech stack items: prioritize home page project technologies if matchingProject exists
+  const homeTechs = matchingProject?.technologies;
+  const allTechItems = homeTechs && homeTechs.length > 0
+    ? homeTechs.map(t => ({ name: t, iconName: t }))
+    : detail.techStack 
+      ? detail.techStack.flatMap(group => group.items)
+      : [];
+
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-foreground selection:text-background pb-24">
-      {/* Page scroll indicator */}
+      {/* Scroll indicator bar */}
       <div 
-        className="fixed top-0 left-0 h-1 bg-foreground z-50 transition-all duration-75"
+        className="fixed top-0 left-0 h-[2px] bg-foreground z-50 transition-all duration-75"
         style={{ width: `${scrollProgress}%` }}
       />
 
-      {/* Floating Header Navigation */}
+      {/* Floating Header Navbar matching main page styling & animations */}
       <header className="sticky top-0 z-40 w-full border-b bg-background/80 backdrop-blur-md">
         <div className="max-w-[1200px] mx-auto px-6 h-14 flex items-center justify-between">
           <Link href="/#projects" className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground hover:text-foreground transition-colors">
             <ArrowLeft className="size-4" />
-            {isId ? "Kembali" : "Back"}
+            {isId ? "Kembali ke Proyek" : "Back to Projects"}
           </Link>
+
           <div className="flex items-center gap-3">
-            <div className="hidden lg:flex items-center gap-1 mr-2">
-              <span className="text-xs text-muted-foreground px-2 py-0.5 rounded-full border bg-muted/30">
-                {detail.category}
-              </span>
-              <span className="text-xs font-medium text-emerald-500 border border-emerald-500/20 bg-emerald-500/10 px-2 py-0.5 rounded-full">
-                {detail.status}
-              </span>
+            {/* Animated Language Dropdown matching home page navbar */}
+            <div ref={langRef} className="relative">
+              <button
+                onClick={() => setLangDropdownOpen(!langDropdownOpen)}
+                className="flex items-center gap-1.5 px-2.5 py-1.5 border rounded-lg hover:bg-muted/40 text-xs font-semibold transition-colors cursor-pointer bg-background"
+                aria-label="Toggle language"
+              >
+                <Languages className="size-3.5 text-foreground/80" />
+                <span>{lang === "en" ? "EN" : "ID"}</span>
+              </button>
+              
+              <AnimatePresence>
+                {langDropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute right-0 top-full mt-2 bg-background border rounded-lg shadow-xl p-1 z-50 flex flex-col gap-1 min-w-[160px]"
+                  >
+                    <button
+                      onClick={() => {
+                        setLang("en");
+                        setLangDropdownOpen(false);
+                      }}
+                      className={cn(
+                        "flex items-center justify-between px-3 py-1.5 text-xs rounded-md font-medium transition-colors w-full text-left cursor-pointer whitespace-nowrap gap-3",
+                        lang === "en" ? "bg-foreground text-background" : "hover:bg-muted text-foreground"
+                      )}
+                    >
+                      <span>English</span>
+                      {lang === "en" && <Check className="size-3 flex-shrink-0" />}
+                    </button>
+                    <button
+                      onClick={() => {
+                        setLang("id");
+                        setLangDropdownOpen(false);
+                      }}
+                      className={cn(
+                        "flex items-center justify-between px-3 py-1.5 text-xs rounded-md font-medium transition-colors w-full text-left cursor-pointer whitespace-nowrap gap-3",
+                        lang === "id" ? "bg-foreground text-background" : "hover:bg-muted text-foreground"
+                      )}
+                    >
+                      <span>Bahasa Indonesia</span>
+                      {lang === "id" && <Check className="size-3 flex-shrink-0" />}
+                    </button>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
 
-            <button
-              onClick={toggleLanguage}
-              className="flex items-center gap-1.5 px-2 py-1 border rounded-lg hover:bg-muted/40 text-[10px] font-semibold transition-colors cursor-pointer select-none bg-background"
-              title={lang === "en" ? "Switch to Indonesian" : "Switch to English"}
-            >
-              <Languages className="size-3" />
-              <span>{lang === "en" ? "EN" : "ID"}</span>
-            </button>
-
+            {/* Main theme toggle matching home page */}
             <ModeToggle />
             
-            {/* Mobile TOC trigger */}
             <button 
               onClick={() => setMobileMenuOpen(true)}
               className="lg:hidden p-1.5 hover:bg-muted rounded-lg transition-colors border"
@@ -180,7 +291,7 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
         </div>
       </header>
 
-      {/* Mobile Drawer menu */}
+      {/* Mobile Drawer Menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <div className="fixed inset-0 z-50 lg:hidden">
@@ -199,7 +310,7 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
               className="fixed right-0 top-0 bottom-0 w-80 bg-background border-l p-6 shadow-2xl flex flex-col"
             >
               <div className="flex justify-between items-center mb-8">
-                <span className="text-sm font-semibold uppercase tracking-wider">{isId ? "Navigasi Dok" : "Doc Navigation"}</span>
+                <span className="text-sm font-semibold uppercase tracking-wider">{isId ? "Navigasi Proyek" : "Project Navigation"}</span>
                 <button onClick={() => setMobileMenuOpen(false)} className="p-1 hover:bg-muted rounded-full">
                   <X className="size-5" />
                 </button>
@@ -229,303 +340,342 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
         {/* SIDEBAR NAVIGATION (Desktop) */}
         <aside className="hidden lg:block sticky top-24 self-start max-h-[calc(100vh-120px)] overflow-y-auto pr-4">
           <div className="mb-4">
-            <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground/60 mb-2">
-              {isId ? "Navigasi Dok" : "Doc Navigation"}
+            <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground/70 mb-2">
+              {isId ? "Navigasi Proyek" : "Project Navigation"}
             </p>
             <div className="h-[1px] bg-border w-full mb-4" />
           </div>
-          <nav className="space-y-1">
+          <nav className="space-y-1.5">
             {sections.map((sec) => (
               <button
                 key={sec.id}
                 onClick={() => scrollTo(sec.id)}
-                className={`w-full text-left block py-1.5 px-3 text-xs font-medium rounded-lg transition-all ${
+                className={`relative w-full text-left flex items-center py-2 px-3.5 text-xs font-medium rounded-xl transition-all duration-200 cursor-pointer ${
                   activeSection === sec.id
-                    ? "bg-muted font-bold text-foreground border-l-2 border-foreground rounded-l-none pl-2.5"
-                    : "text-muted-foreground hover:text-foreground hover:pl-4"
+                    ? "bg-muted font-bold text-foreground shadow-sm"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted/40"
                 }`}
               >
-                {sec.label}
+                {activeSection === sec.id && (
+                  <span className="absolute left-1.5 top-1/2 -translate-y-1/2 w-1 h-4 bg-foreground rounded-full transition-all" />
+                )}
+                <span className={activeSection === sec.id ? "pl-1.5" : ""}>
+                  {sec.label}
+                </span>
               </button>
             ))}
           </nav>
         </aside>
 
         {/* MAIN EDITORIAL CONTENT */}
-        <article className="space-y-20 min-w-0">
+        <article className="space-y-10 min-w-0">
           
-          {/* HERO SECTION */}
-          <section className="space-y-8">
-            <div className="space-y-4">
+          {/* HEADER SECTION (Title, Tagline, Role, Duration, Project Type, Category) */}
+          <section className="space-y-6 border-b pb-8">
+            <div className="space-y-3">
               <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-foreground">{detail.title}</h1>
-              <p className="text-lg sm:text-xl text-muted-foreground font-medium max-w-2xl">{detail.tagline}</p>
+              <p className="text-lg sm:text-xl text-muted-foreground font-medium max-w-2xl leading-relaxed">{detail.tagline}</p>
             </div>
 
-            {/* Quick Metadata Info Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 border rounded-xl bg-muted/10">
-              <div className="space-y-1">
-                <span className="text-[10px] uppercase font-semibold text-muted-foreground/70 flex items-center gap-1">
-                  <User className="size-3" /> {isId ? "Peran" : "Role"}
-                </span>
-                <p className="text-xs font-medium text-foreground">{detail.role}</p>
-              </div>
-              <div className="space-y-1">
-                <span className="text-[10px] uppercase font-semibold text-muted-foreground/70 flex items-center gap-1">
-                  <Clock className="size-3" /> {isId ? "Durasi" : "Duration"}
-                </span>
-                <p className="text-xs font-medium text-foreground">{detail.duration} ({detail.year})</p>
-              </div>
-              <div className="space-y-1">
-                <span className="text-[10px] uppercase font-semibold text-muted-foreground/70 flex items-center gap-1">
-                  <Layers className="size-3" /> {isId ? "Tipe Proyek" : "Project Type"}
-                </span>
-                <p className="text-xs font-medium text-foreground">{detail.type}</p>
-              </div>
-              <div className="space-y-1">
-                <span className="text-[10px] uppercase font-semibold text-muted-foreground/70 flex items-center gap-1">
-                  <Cpu className="size-3" /> {isId ? "Lisensi / Versi" : "License / Version"}
-                </span>
-                <p className="text-xs font-medium text-foreground">{detail.license} ({detail.version})</p>
-              </div>
-            </div>
-
-            {/* Actions Links */}
-            <div className="flex flex-wrap gap-2">
-              {detail.links.website && (
-                <Link href={detail.links.website} target="_blank" className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-foreground text-background hover:opacity-90 transition-all">
-                  <Globe className="size-3.5" />
-                  {isId ? "Kunjungi Website" : "Visit Website"}
-                </Link>
-              )}
-              {detail.links.source && (
-                <Link href={detail.links.source} target="_blank" className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg border hover:bg-muted/40 transition-all">
-                  <Code className="size-3.5" />
-                  {isId ? "Kode Sumber" : "Source Code"}
-                </Link>
-              )}
-              {detail.links.apiDocs && (
-                <Link href={detail.links.apiDocs} target="_blank" className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg border hover:bg-muted/40 transition-all">
-                  <FileText className="size-3.5" />
-                  {isId ? "Dokumentasi API" : "API Docs"}
-                </Link>
-              )}
-              {detail.links.figma && (
-                <Link href={detail.links.figma} target="_blank" className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg border hover:bg-muted/40 transition-all">
-                  <FileCode className="size-3.5" />
-                  Figma Design
-                </Link>
-              )}
-            </div>
-
-            {/* Project Image 16:9 Cover Banner */}
-            <div className="relative w-full aspect-[16/9] overflow-hidden rounded-xl border bg-muted">
-              {detail.coverImage ? (
-                <Image 
-                  src={detail.coverImage} 
-                  alt={detail.title} 
-                  fill 
-                  priority
-                  className="object-cover object-top hover:scale-[1.01] transition-transform duration-500 dark:brightness-[0.9]"
-                />
-              ) : (
-                <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/30">
-                  No Image Available
+            {/* Meta Info Bar: Role, Duration, Project Type, Category */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 p-4 border rounded-xl bg-muted/10">
+              <div className="flex items-center gap-3">
+                <div className="p-2 rounded-lg bg-muted border flex-shrink-0">
+                  <User className="size-4 text-foreground/80" />
                 </div>
-              )}
+                <div className="min-w-0">
+                  <span className="text-[10px] uppercase font-bold text-muted-foreground/70 tracking-wider block">{isId ? "Peran" : "Role"}</span>
+                  <p className="text-xs font-semibold text-foreground truncate">{detail.role}</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div className="p-2 rounded-lg bg-muted border flex-shrink-0">
+                  <Clock className="size-4 text-foreground/80" />
+                </div>
+                <div className="min-w-0">
+                  <span className="text-[10px] uppercase font-bold text-muted-foreground/70 tracking-wider block">{isId ? "Durasi" : "Duration"}</span>
+                  <p className="text-xs font-semibold text-foreground truncate">{detail.duration || (isId ? "1 Bulan" : "1 Month")}</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div className="p-2 rounded-lg bg-muted border flex-shrink-0">
+                  <FolderGit2 className="size-4 text-foreground/80" />
+                </div>
+                <div className="min-w-0">
+                  <span className="text-[10px] uppercase font-bold text-muted-foreground/70 tracking-wider block">{isId ? "Tipe Proyek" : "Project Type"}</span>
+                  <p className="text-xs font-semibold text-foreground truncate">{detail.type}</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div className="p-2 rounded-lg bg-muted border flex-shrink-0">
+                  <Tag className="size-4 text-foreground/80" />
+                </div>
+                <div className="min-w-0">
+                  <span className="text-[10px] uppercase font-bold text-muted-foreground/70 tracking-wider block">{isId ? "Kategori" : "Category"}</span>
+                  <p className="text-xs font-semibold text-foreground truncate">{displayCategory}</p>
+                </div>
+              </div>
             </div>
+
+            {/* Action Links */}
+            {detail.links && (detail.links.website || detail.links.source || detail.links.apiDocs || detail.links.figma || detail.links.prototype || detail.links.model || detail.links.notebook) && (
+              <div className="flex flex-wrap gap-2 pt-1">
+                {detail.links.website && (
+                  <Link href={detail.links.website} target="_blank" className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-foreground text-background hover:opacity-90 transition-all">
+                    <Globe className="size-3.5" />
+                    {isId ? "Kunjungi Website" : "Visit Website"}
+                  </Link>
+                )}
+                {detail.links.source && (
+                  <Link href={detail.links.source} target="_blank" className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg border hover:bg-muted/40 transition-all">
+                    <Code className="size-3.5" />
+                    {isId ? "Kode Sumber" : "Source Code"}
+                  </Link>
+                )}
+                {detail.links.model && (
+                  <Link href={detail.links.model} target="_blank" className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg border hover:bg-muted/40 transition-all">
+                    <FolderGit2 className="size-3.5" />
+                    {isId ? "Model Hugging Face" : "Hugging Face Model"}
+                  </Link>
+                )}
+                {detail.links.notebook && (
+                  <Link href={detail.links.notebook} target="_blank" className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg border hover:bg-muted/40 transition-all">
+                    <FileCode className="size-3.5" />
+                    {isId ? "Notebook Pelatihan" : "Training Notebook"}
+                  </Link>
+                )}
+                {detail.links.apiDocs && (
+                  <Link href={detail.links.apiDocs} target="_blank" className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg border hover:bg-muted/40 transition-all">
+                    <FileText className="size-3.5" />
+                    {isId ? "Dokumentasi API" : "API Docs"}
+                  </Link>
+                )}
+                {detail.links.figma && (
+                  <Link href={detail.links.figma} target="_blank" className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg border hover:bg-muted/40 transition-all">
+                    <FileCode className="size-3.5" />
+                    {isId ? "Desain Figma" : "Figma Design"}
+                  </Link>
+                )}
+                {detail.links.prototype && (
+                  <Link href={detail.links.prototype} target="_blank" className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg border hover:bg-muted/40 transition-all">
+                    <FileCode className="size-3.5" />
+                    {isId ? "Purwarupa Figma" : "Figma Prototype"}
+                  </Link>
+                )}
+              </div>
+            )}
           </section>
 
-          {/* PROJECT OVERVIEW */}
+          {/* DISCLAIMER SECTION (Optional, placed right before Overview) */}
+          {detail.disclaimer && (
+            <section id="disclaimer" className="space-y-3 scroll-mt-24">
+              <div className="p-4 border rounded-xl bg-amber-500/5 border-amber-500/20 text-foreground space-y-1.5">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
+                  Disclaimer
+                </h3>
+                <div className="prose dark:prose-invert max-w-none text-xs text-muted-foreground leading-relaxed">
+                  <Markdown>{detail.disclaimer}</Markdown>
+                </div>
+              </div>
+            </section>
+          )}
+
+          {/* 1. OVERVIEW */}
           <section id="overview" className="space-y-4 scroll-mt-24">
             <h2 className="text-xl sm:text-2xl font-bold tracking-tight border-b pb-2">
-              {isId ? "Ringkasan Proyek" : "Project Overview"}
+              {isId ? "Ringkasan" : "Overview"}
             </h2>
             <div className="prose dark:prose-invert max-w-none text-sm text-muted-foreground leading-relaxed">
               <Markdown>{detail.overview}</Markdown>
             </div>
           </section>
 
-          {/* PROBLEM BACKGROUND */}
+          {/* 2. PROBLEM BACKGROUND (Bullet points without paragraphs) */}
           <section id="problem" className="space-y-4 scroll-mt-24">
             <h2 className="text-xl sm:text-2xl font-bold tracking-tight border-b pb-2">
               {isId ? "Latar Belakang Masalah" : "Problem Background"}
             </h2>
-            <div className="prose dark:prose-invert max-w-none text-sm text-muted-foreground leading-relaxed">
-              <Markdown>{detail.problemBackground}</Markdown>
-            </div>
+            {renderAsBulletPoints(detail.problemBackground)}
           </section>
 
-          {/* SOLUTION APPROACH */}
+          {/* 3. SOLUTION APPROACH (Bullet points without paragraphs) */}
           <section id="solution" className="space-y-6 scroll-mt-24">
             <h2 className="text-xl sm:text-2xl font-bold tracking-tight border-b pb-2">
               {isId ? "Pendekatan Solusi" : "Solution Approach"}
             </h2>
-            <div className="prose dark:prose-invert max-w-none text-sm text-muted-foreground leading-relaxed space-y-4">
-              <Markdown>{detail.solutionApproach.design}</Markdown>
-              <Markdown>{detail.solutionApproach.techExplanation}</Markdown>
-            </div>
+            {renderAsBulletPoints(
+              `${detail.solutionApproach.design || ""}\n${detail.solutionApproach.techExplanation || ""}`
+            )}
 
-            {/* Workflow steps */}
-            <div className="space-y-3">
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-foreground">
-                {isId ? "Alur Kerja Sistem" : "System Workflow"}
-              </h3>
-              <ol className="relative border-l border-border pl-6 space-y-4">
-                {detail.solutionApproach.workflow.map((flow, index) => (
-                  <li key={index} className="relative">
-                    <span className="absolute -left-[30px] top-0 flex size-5 items-center justify-center rounded-full bg-muted border text-[10px] font-bold text-foreground">
-                      {index + 1}
-                    </span>
-                    <p className="text-xs text-muted-foreground">{flow}</p>
-                  </li>
-                ))}
-              </ol>
-            </div>
+            {detail.solutionApproach.workflow && detail.solutionApproach.workflow.length > 0 && (
+              <div className="space-y-3 pt-2">
+                <h3 className="text-xs font-semibold uppercase tracking-wider text-foreground">
+                  {isId ? "Alur Kerja Sistem" : "System Workflow"}
+                </h3>
+                <ol className="space-y-3">
+                  {detail.solutionApproach.workflow.map((flow, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <span className="flex-shrink-0 flex size-6 items-center justify-center rounded-full bg-muted border text-xs font-bold text-foreground">
+                        {index + 1}
+                      </span>
+                      <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed pt-0.5">{flow}</p>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            )}
           </section>
 
-          {/* TECHNOLOGY STACK */}
-          <section id="techstack" className="space-y-6 scroll-mt-24">
+          {/* 4. TECH STACK (Icon + Technology Name) */}
+          <section id="techstack" className="space-y-4 scroll-mt-24">
             <h2 className="text-xl sm:text-2xl font-bold tracking-tight border-b pb-2">
-              {isId ? "Teknologi & Alasan Penggunaan" : "Technology Stack & Rationale"}
+              Tech Stack
             </h2>
-            <div className="space-y-6">
-              {detail.techStack.map((stack, idx) => (
-                <div key={idx} className="space-y-3">
-                  <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                    {stack.category}
-                  </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {stack.items.map((tech, tIdx) => (
-                      <div key={tIdx} className="border rounded-xl p-4 flex gap-4 bg-muted/5">
-                        <div className="flex-shrink-0 mt-0.5">
-                          {getIcon(tech.iconName) || <Layers className="size-5" />}
-                        </div>
-                        <div className="space-y-1">
-                          <div className="flex items-center gap-1.5">
-                            <span className="text-xs font-bold text-foreground">{tech.name}</span>
-                            {tech.version && (
-                              <span className="text-[9px] font-mono text-muted-foreground px-1 border rounded bg-muted/20">
-                                {tech.version}
-                              </span>
-                            )}
-                          </div>
-                          <p className="text-[10px] text-muted-foreground font-medium uppercase tracking-wide">Role: {tech.role}</p>
-                          <p className="text-xs text-muted-foreground/80 leading-relaxed">{tech.reason}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* FEATURE DOCUMENTATION */}
-          <section id="features" className="space-y-6 scroll-mt-24">
-            <h2 className="text-xl sm:text-2xl font-bold tracking-tight border-b pb-2">
-              {isId ? "Implementasi & Fitur" : "Features & Implementation"}
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {detail.featureDocs.map((feat, index) => (
-                <div key={index} className="border rounded-xl overflow-hidden bg-muted/5 flex flex-col justify-between hover:border-foreground/20 transition-all">
-                  <div className="p-5 space-y-3">
-                    <h3 className="text-sm font-semibold text-foreground">{feat.title}</h3>
-                    <p className="text-xs text-muted-foreground leading-relaxed">{feat.description}</p>
-                    
-                    <div className="pt-2 space-y-1">
-                      <p className="text-[10px] font-semibold uppercase text-muted-foreground">{isId ? "Masalah Terpecahkan" : "Problem Solved"}</p>
-                      <p className="text-xs text-muted-foreground/80">{feat.problemSolved}</p>
-                    </div>
-                  </div>
-                  <div className="bg-muted p-3 border-t">
-                    <span className="text-[10px] font-bold text-muted-foreground/80 uppercase">
-                      Tech: {feat.techUsed.join(", ")}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* FINAL RESULT & IMPACT */}
-          <section id="results" className="space-y-6 scroll-mt-24">
-            <h2 className="text-xl sm:text-2xl font-bold tracking-tight border-b pb-2">
-              {isId ? "Hasil Akhir & Metrik" : "Final Result & Impact"}
-            </h2>
-            <p className="text-sm sm:text-base leading-relaxed text-muted-foreground max-w-3xl">
-              {detail.finalResultImpact.description}
-            </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {detail.finalResultImpact.metrics.map((metric, idx) => (
-                <div key={idx} className="border rounded-xl p-4 bg-muted/10 space-y-1 hover:bg-muted/20 transition-colors">
-                  <span className="text-[10px] uppercase font-semibold text-muted-foreground">{metric.label}</span>
-                  <p className="text-2xl font-bold text-foreground">{metric.value}</p>
-                  <p className="text-[10px] text-muted-foreground">{metric.description}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* PROJECT GALLERY */}
-          <section id="gallery" className="space-y-6 scroll-mt-24">
-            <h2 className="text-xl sm:text-2xl font-bold tracking-tight border-b pb-2">
-              {isId ? "Galeri Proyek (Tangkapan Layar)" : "Project Gallery (Screenshots)"}
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {detail.gallery.map((item, idx) => (
+            <div className="flex flex-wrap gap-2.5 pt-2">
+              {allTechItems.map((tech, idx) => (
                 <div 
                   key={idx} 
-                  className="group border rounded-xl overflow-hidden bg-muted/5 cursor-pointer hover:border-foreground/30 transition-all duration-300"
-                  onClick={() => setLightboxImage(item.image)}
+                  className="flex items-center gap-2.5 px-3.5 py-2 border rounded-xl bg-muted/10 hover:bg-muted/20 transition-colors"
                 >
-                  <div className="relative aspect-[16/10] bg-muted w-full overflow-hidden">
-                    <Image 
-                      src={item.image} 
-                      alt={item.title} 
-                      fill 
-                      className="object-cover object-top hover:scale-105 transition-transform duration-500 dark:brightness-[0.9]"
-                    />
-                  </div>
-                  <div className="p-4 border-t space-y-1">
-                    <h4 className="text-xs font-bold text-foreground group-hover:text-primary transition-colors">{item.title}</h4>
-                    <p className="text-[11px] text-muted-foreground leading-relaxed">{item.caption}</p>
-                  </div>
+                  <span className="flex-shrink-0">
+                    {(tech.iconName && getIcon(tech.iconName)) || getIcon(tech.name) || <Layers className="size-4 text-foreground/80" />}
+                  </span>
+                  <span className="text-xs font-semibold text-foreground">{tech.name}</span>
                 </div>
               ))}
             </div>
           </section>
 
-          {/* LESSONS LEARNED */}
-          <section id="lessons" className="space-y-6 scroll-mt-24">
+          {/* 5. KEY FEATURES */}
+          <section id="features" className="space-y-6 scroll-mt-24">
             <h2 className="text-xl sm:text-2xl font-bold tracking-tight border-b pb-2">
-              {isId ? "Pelajaran & Retrospektif" : "Lessons Learned & Retrospective"}
+              {isId ? "Fitur Utama" : "Key Features"}
             </h2>
-            <div className="grid grid-cols-1 gap-4 text-xs sm:text-sm">
-              <div className="border rounded-xl p-5 bg-muted/10 space-y-2">
-                <h3 className="font-semibold text-foreground">{isId ? "Evaluasi Keputusan Teknis" : "Technical Pivot & Rationale"}</h3>
-                <p className="text-muted-foreground leading-relaxed">{detail.lessonsLearned.technicalPivot}</p>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="border rounded-xl p-5 bg-muted/5 space-y-2">
-                  <h3 className="font-semibold text-foreground">{isId ? "Hal yang Akan Diperbaiki" : "Future Improvements"}</h3>
-                  <p className="text-muted-foreground leading-relaxed text-xs">{detail.lessonsLearned.improvements}</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {detail.featureDocs.map((feat, index) => (
+                <div key={index} className="border rounded-xl p-5 bg-muted/5 space-y-2 hover:border-foreground/20 transition-all">
+                  <h3 className="text-sm font-bold text-foreground">{feat.title}</h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{feat.description}</p>
                 </div>
-                <div className="border rounded-xl p-5 bg-muted/5 space-y-2">
-                  <h3 className="font-semibold text-foreground">{isId ? "Pengembangan Diri" : "Engineering Growth"}</h3>
-                  <p className="text-muted-foreground leading-relaxed text-xs">{detail.lessonsLearned.growth}</p>
-                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* PROJECT TEAM SECTION */}
+          {detail.contributors && detail.contributors.length > 0 && (
+            <section id="team" className="space-y-6 scroll-mt-24">
+              <h2 className="text-xl sm:text-2xl font-bold tracking-tight border-b pb-2">
+                {isId ? "Tim Proyek" : "Project Team"}
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                {detail.contributors.map((member, idx) => {
+                  const initials = member.name
+                    .split(" ")
+                    .map((n) => n[0])
+                    .join("")
+                    .substring(0, 2)
+                    .toUpperCase();
+
+                  return (
+                    <div key={idx} className="border rounded-xl p-4 bg-muted/5 flex items-center gap-3.5 hover:border-foreground/20 transition-all">
+                      {/* CIRCLE AVATAR */}
+                      <div className="relative size-11 rounded-full overflow-hidden flex-shrink-0 bg-primary/10 border border-primary/20 flex items-center justify-center">
+                        {member.avatar && !avatarErrors[member.name] ? (
+                          <Image
+                            src={member.avatar}
+                            alt={member.name}
+                            fill
+                            className="object-cover"
+                            onError={() => setAvatarErrors((prev) => ({ ...prev, [member.name]: true }))}
+                          />
+                        ) : (
+                          <span className="text-xs font-bold text-primary">{initials}</span>
+                        )}
+                      </div>
+
+                      {/* INFO & BUTTONS */}
+                      <div className="flex-1 min-w-0 space-y-1">
+                        <h3 className="text-xs font-bold text-foreground truncate">{member.name}</h3>
+                        <p className="text-[10px] font-medium text-muted-foreground truncate">{member.role}</p>
+
+                        {/* GITHUB & LINKEDIN BUTTONS */}
+                        <div className="flex items-center gap-1.5 pt-1">
+                          {member.github && (
+                            <Link
+                              href={member.github}
+                              target="_blank"
+                              className="inline-flex items-center gap-1 text-[10px] font-semibold text-muted-foreground hover:text-foreground border rounded px-1.5 py-0.5 bg-background hover:bg-muted/40 transition-colors"
+                            >
+                              <FaGithub className="size-3 text-foreground/80" />
+                              <span>GitHub</span>
+                            </Link>
+                          )}
+                          {member.linkedin && (
+                            <Link
+                              href={member.linkedin}
+                              target="_blank"
+                              className="inline-flex items-center gap-1 text-[10px] font-semibold text-muted-foreground hover:text-foreground border rounded px-1.5 py-0.5 bg-background hover:bg-muted/40 transition-colors"
+                            >
+                              <FaLinkedin className="size-3 text-[#0A66C2]" />
+                              <span>LinkedIn</span>
+                            </Link>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
+            </section>
+          )}
+
+          {/* 6. PROJECT GALLERY (2 Images per Row Grid, Full fit without cropping, with Screen Name Box) */}
+          <section id="gallery" className="space-y-6 scroll-mt-24">
+            <h2 className="text-xl sm:text-2xl font-bold tracking-tight border-b pb-2">
+              {isId ? "Galeri Proyek" : "Project Gallery"}
+            </h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {galleryImages.map((item, idx) => (
+                <div 
+                  key={idx} 
+                  className="group border rounded-xl overflow-hidden bg-muted/5 p-3 space-y-3 cursor-pointer hover:border-foreground/40 transition-all duration-300 flex flex-col justify-between"
+                  onClick={() => setLightboxImage(item.image)}
+                >
+                  <div className="relative w-full aspect-[16/10] bg-muted/40 rounded-lg overflow-hidden border flex items-center justify-center">
+                    <Image 
+                      src={item.image} 
+                      alt={item.title || `Gallery screenshot ${idx + 1}`} 
+                      fill 
+                      className="object-contain hover:scale-[1.02] transition-transform duration-300"
+                    />
+                  </div>
+
+                  <div className="pt-1 px-1 space-y-1">
+                    <span className="text-[9px] font-bold uppercase tracking-wider text-muted-foreground/70 border px-1.5 py-0.5 rounded bg-muted/20">
+                      {isId ? `Tampilan ${idx + 1}` : `Screen ${idx + 1}`}
+                    </span>
+                    <h4 className="text-xs font-bold text-foreground group-hover:text-primary transition-colors">{item.title}</h4>
+                    {item.caption && (
+                      <p className="text-[11px] text-muted-foreground leading-relaxed">{item.caption}</p>
+                    )}
+                  </div>
+                </div>
+              ))}
             </div>
           </section>
 
           <hr className="border-border" />
 
-          {/* NEXT / PREVIOUS PROJECT NAVIGATION */}
-          <div className="flex justify-between items-center gap-4 py-6">
+          {/* NEXT / PREVIOUS ACTIVE PROJECT NAVIGATION */}
+          <div className="flex justify-between items-center gap-4 py-4">
             {prevProject ? (
               <Link href={`/projects/${slugify(prevProject.title)}`} className="group flex flex-col text-left">
                 <span className="text-[10px] font-bold uppercase text-muted-foreground/60 group-hover:-translate-x-1 transition-transform">
-                  &larr; Previous Case Study
+                  &larr; {isId ? "Proyek Sebelumnya" : "Previous Project"}
                 </span>
                 <span className="text-xs font-semibold text-foreground group-hover:text-primary transition-colors">
                   {prevProject.title}
@@ -536,7 +686,7 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
             {nextProject ? (
               <Link href={`/projects/${slugify(nextProject.title)}`} className="group flex flex-col text-right">
                 <span className="text-[10px] font-bold uppercase text-muted-foreground/60 group-hover:translate-x-1 transition-transform">
-                  Next Case Study &rarr;
+                  {isId ? "Proyek Selanjutnya" : "Next Project"} &rarr;
                 </span>
                 <span className="text-xs font-semibold text-foreground group-hover:text-primary transition-colors">
                   {nextProject.title}
@@ -545,25 +695,25 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
             ) : <div />}
           </div>
 
-          {/* RELATED PROJECTS */}
+          {/* RELATED CASE STUDIES SECTION */}
           {relatedProjects.length > 0 && (
             <section className="space-y-6">
               <h2 className="text-sm font-bold uppercase tracking-wider text-muted-foreground">
-                {isId ? "Proyek Terkait" : "Related Case Studies"}
+                {isId ? "PROYEK LAINNYA" : "OTHER PROJECTS"}
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 {relatedProjects.map((p, idx) => (
-                  <Link href={`/projects/${slugify(p.title)}`} key={idx} className="group border rounded-xl overflow-hidden bg-muted/5 hover:border-foreground/40 hover:shadow-sm transition-all duration-300">
-                    <div className="relative aspect-[16/10] bg-muted w-full">
+                  <Link href={`/projects/${slugify(p.title)}`} key={idx} className="group border rounded-xl overflow-hidden bg-muted/5 hover:border-foreground/40 hover:shadow-sm transition-all duration-300 flex flex-col justify-between">
+                    <div className="relative aspect-[16/10] bg-muted/30 w-full overflow-hidden flex items-center justify-center p-1.5">
                       {p.image ? (
-                        <Image src={p.image} alt={p.title} fill className="object-cover object-top dark:brightness-[0.9]" />
+                        <Image src={p.image} alt={p.title} fill className="object-contain p-1.5 dark:brightness-[0.95] group-hover:scale-105 transition-transform duration-300" />
                       ) : (
                         <div className="absolute inset-0 flex items-center justify-center text-[10px]">No Image</div>
                       )}
                     </div>
-                    <div className="p-3 space-y-1">
-                      <span className="text-[8px] uppercase font-bold text-muted-foreground px-1 py-0.5 border rounded bg-muted/20">
-                        {p.category}
+                    <div className="p-3 space-y-1 bg-background/50 border-t">
+                      <span className="text-[8px] uppercase font-bold text-muted-foreground px-1.5 py-0.5 border rounded-md bg-muted/20">
+                        {p.category.replace(/&/g, "and")}
                       </span>
                       <h4 className="text-xs font-bold text-foreground group-hover:text-primary transition-colors line-clamp-1">{p.title}</h4>
                     </div>
@@ -573,7 +723,7 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
             </section>
           )}
 
-          {/* CONTACT CTA */}
+          {/* CONTACT CTA BANNER */}
           <section className="border rounded-xl p-8 bg-foreground text-background text-center space-y-4">
             <h2 className="text-xl sm:text-2xl font-bold tracking-tight">{isId ? "Mari Diskusikan Proyek Anda" : "Let's Build Something Together"}</h2>
             <p className="text-xs sm:text-sm text-background/80 max-w-md mx-auto">
@@ -583,7 +733,7 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
             </p>
             <div className="pt-2 flex justify-center gap-4">
               <Link href="https://www.linkedin.com/in/azharanggakusuma" target="_blank" className="px-4 py-2 rounded-lg bg-background text-foreground hover:opacity-90 transition-opacity text-xs font-bold">
-                LinkedIn Profile
+                {isId ? "Profil LinkedIn" : "LinkedIn Profile"}
               </Link>
               <Link href="mailto:azharanggakusuma01@gmail.com" className="px-4 py-2 rounded-lg border border-background/20 hover:bg-background/10 transition-colors text-xs font-bold">
                 {isId ? "Kirim Email" : "Send Email"}
@@ -627,6 +777,8 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
           </div>
         )}
       </AnimatePresence>
+      {/* SCROLL TO TOP BUTTON */}
+      <ScrollToTop />
     </div>
   );
 }
