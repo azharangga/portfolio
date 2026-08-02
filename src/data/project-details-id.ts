@@ -144,9 +144,21 @@ export const PROJECT_DETAILS_ID: Record<string, ProjectDetail> = {
       { name: "M. Dava Arya Nada Putra", role: "Full-Stack Web Developer", avatar: "/team/dava.png", github: "https://github.com/mdavaarya", linkedin: "https://www.linkedin.com/in/m-dava-arya-nada-putra-a2ba8a3a5" },
       { name: "Muhammad Ihsanul Dzaky", role: "Full-Stack Web Developer", avatar: "/team/dzaky.png", github: "https://github.com/ihsanulDzaky", linkedin: "https://www.linkedin.com/in/muhammad-ihsanul-dzaky" }
     ],
-    gallery: [
-      { image: "/projects/detail/gizimeal/gizimeal.png", title: "Antarmuka Halaman Utama", caption: "Dasbor interaktif menampilkan kalkulator kalori dan log makanan." },
-      { image: "/projects/detail/gizimeal/gizimeal-model.png", title: "Dasbor Metrik Model AI", caption: "Visualisasi kurva pelatihan model CNN kustom dan akurasi prediksi." }
+     gallery: [
+      { image: "/projects/detail/gizimeal/daftar-akun.png", title: "Halaman Daftar Akun", caption: "" },
+      { image: "/projects/detail/gizimeal/masuk-akun.png", title: "Halaman Login", caption: "" },
+      { image: "/projects/detail/gizimeal/beranda.png", title: "Halaman Beranda", caption: "" },
+      { image: "/projects/detail/gizimeal/tentang-kami.png", title: "Halaman Tentang Kami", caption: "" },
+      { image: "/projects/detail/gizimeal/deteksi.png", title: "Halaman Deteksi Makanan", caption: "" },
+      { image: "/projects/detail/gizimeal/hasil-deteksi.png", title: "Halaman Hasil Deteksi Makanan", caption: "" },
+      { image: "/projects/detail/gizimeal/rekomendasi-menu.png", title: "Halaman Rekomendasi Menu", caption: "" },
+      { image: "/projects/detail/gizimeal/kalkulator.png", title: "Halaman Kalkulator Kalori", caption: "" },
+      { image: "/projects/detail/gizimeal/tabel-gizi.png", title: "Halaman Tabel Gizi", caption: "" },
+      { image: "/projects/detail/gizimeal/chatbot.png", title: "Halaman Chatbot", caption: "" },
+      { image: "/projects/detail/gizimeal/referensi.png", title: "Halaman Referensi Gizi", caption: "" },
+      { image: "/projects/detail/gizimeal/faq.png", title: "Halaman FAQ", caption: "" },
+      { image: "/projects/detail/gizimeal/pengaturan-akun.png", title: "Halaman Kelola Akun", caption: "" },
+      { image: "/projects/detail/gizimeal/riwayat-deteksi.png", title: "Halaman Riwayat Deteksi", caption: "" },
     ]
   },
   dramova: {
