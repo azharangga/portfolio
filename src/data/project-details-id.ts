@@ -11,7 +11,7 @@ export const PROJECT_DETAILS_ID: Record<string, ProjectDetail> = {
     coverImage: "/projects/job-tracker.png",
     category: "Web Development",
     role: "Full Stack Developer",
-    duration: "2 Bulan",
+    duration: "1 Bulan",
     type: "Personal",
     links: {
       website: "https://job-tracker.projectshowcase.web.id",
@@ -137,12 +137,12 @@ export const PROJECT_DETAILS_ID: Record<string, ProjectDetail> = {
       }
     ],
     contributors: [
-      { name: "Azharangga Kusuma", role: "AI Engineer dan Project Manager", avatar: "/team/azhar.jpg", github: "https://github.com/azharangga", linkedin: "https://linkedin.com/in/azharangga" },
-      { name: "Putri Nabilla", role: "AI Engineer", avatar: "/team/putri.jpg", github: "https://github.com", linkedin: "https://linkedin.com" },
-      { name: "Farina Setya Rahesti", role: "Data Scientist", avatar: "/team/farina.jpg", github: "https://github.com", linkedin: "https://linkedin.com" },
-      { name: "Mahaputri Buana Devwitasari", role: "Data Scientist", avatar: "/team/buana.jpg", github: "https://github.com", linkedin: "https://linkedin.com" },
-      { name: "M. Dava Arya Nada Putra", role: "Full-Stack Web Developer", avatar: "/team/dava.jpg", github: "https://github.com", linkedin: "https://linkedin.com" },
-      { name: "Muhammad Ihsanul Dzaky", role: "Full-Stack Web Developer", avatar: "/team/dzaky.jpg", github: "https://github.com", linkedin: "https://linkedin.com" }
+      { name: "Azharangga Kusuma", role: "AI Engineer dan Project Manager", avatar: "/team/angga.png", github: "https://github.com/azharangga", linkedin: "https://linkedin.com/in/azharanggakusuma" },
+      { name: "Putri Nabilla", role: "AI Engineer", avatar: "/team/billa.png", github: "https://github.com/putribila", linkedin: "https://linkedin.com/in/putri-nabilla-77a670223" },
+      { name: "Farina Setya Rahesti", role: "Data Scientist", avatar: "/team/farina.png", github: "https://github.com/farinasetyarahesti", linkedin: "https://www.linkedin.com/in/farina-setya-91474a3ab" },
+      { name: "Mahaputri Buana Devwitasari", role: "Data Scientist", avatar: "/team/buana.png", github: "https://github.com/mahaputribuanaa", linkedin: "https://www.linkedin.com/in/mahaputri-buana-87b924332" },
+      { name: "M. Dava Arya Nada Putra", role: "Full-Stack Web Developer", avatar: "/team/dava.png", github: "https://github.com/mdavaarya", linkedin: "https://www.linkedin.com/in/m-dava-arya-nada-putra-a2ba8a3a5" },
+      { name: "Muhammad Ihsanul Dzaky", role: "Full-Stack Web Developer", avatar: "/team/dzaky.png", github: "https://github.com/ihsanulDzaky", linkedin: "https://www.linkedin.com/in/muhammad-ihsanul-dzaky" }
     ],
     gallery: [
       { image: "/projects/detail/gizimeal/gizimeal.png", title: "Antarmuka Halaman Utama", caption: "Dasbor interaktif menampilkan kalkulator kalori dan log makanan." },
@@ -156,7 +156,7 @@ export const PROJECT_DETAILS_ID: Record<string, ProjectDetail> = {
     coverImage: "/projects/dramova.png",
     category: "Web Development",
     role: "Full Stack Developer",
-    duration: "3 Bulan",
+    duration: "-",
     type: "Personal",
     links: {
       website: "https://dramova.projectshowcase.web.id",
@@ -224,7 +224,7 @@ export const PROJECT_DETAILS_ID: Record<string, ProjectDetail> = {
     coverImage: "/projects/fifa-wc26.png",
     category: "Web Development",
     role: "Front-end Developer",
-    duration: "2 Bulan",
+    duration: "1 Bulan",
     type: "Personal",
     links: {
       website: "https://fifa-wc26.projectshowcase.web.id",
@@ -284,7 +284,7 @@ export const PROJECT_DETAILS_ID: Record<string, ProjectDetail> = {
     coverImage: "/projects/siakad-ikmi.png",
     category: "Web Development",
     role: "Full Stack Developer",
-    duration: "3 Bulan",
+    duration: "7 Bulan",
     type: "Personal",
     links: {
       website: "https://siakad-ikmi.projectshowcase.web.id",
@@ -419,7 +419,7 @@ export const PROJECT_DETAILS_ID: Record<string, ProjectDetail> = {
     coverImage: "/projects/pusdatin.png",
     category: "Web Development",
     role: "Full Stack Developer",
-    duration: "3 Bulan",
+    duration: "4 Bulan",
     type: "Personal",
     links: {
       website: "https://pusdatin.kesug.com",
@@ -669,12 +669,12 @@ export const PROJECT_DETAILS_ID: Record<string, ProjectDetail> = {
       }
     ],
     contributors: [
-      { name: "Azharangga Kusuma", role: "AI Engineer dan Project Manager", avatar: "/team/azhar.jpg", github: "https://github.com/azharangga", linkedin: "https://linkedin.com/in/azharangga" },
-      { name: "Putri Nabilla", role: "AI Engineer", avatar: "/team/putri.jpg", github: "https://github.com", linkedin: "https://linkedin.com" },
-      { name: "Farina Setya Rahesti", role: "Data Scientist", avatar: "/team/farina.jpg", github: "https://github.com", linkedin: "https://linkedin.com" },
-      { name: "Mahaputri Buana Devwitasari", role: "Data Scientist", avatar: "/team/buana.jpg", github: "https://github.com", linkedin: "https://linkedin.com" },
-      { name: "M. Dava Arya Nada Putra", role: "Full-Stack Web Developer", avatar: "/team/dava.jpg", github: "https://github.com", linkedin: "https://linkedin.com" },
-      { name: "Muhammad Ihsanul Dzaky", role: "Full-Stack Web Developer", avatar: "/team/dzaky.jpg", github: "https://github.com", linkedin: "https://linkedin.com" }
+      { name: "Azharangga Kusuma", role: "AI Engineer dan Project Manager", avatar: "/team/angga.png", github: "https://github.com/azharangga", linkedin: "https://linkedin.com/in/azharanggakusuma" },
+      { name: "Putri Nabilla", role: "AI Engineer", avatar: "/team/billa.png", github: "https://github.com/putribila", linkedin: "https://linkedin.com/in/putri-nabilla-77a670223" },
+      { name: "Farina Setya Rahesti", role: "Data Scientist", avatar: "/team/farina.png", github: "https://github.com/farinasetyarahesti", linkedin: "https://www.linkedin.com/in/farina-setya-91474a3ab" },
+      { name: "Mahaputri Buana Devwitasari", role: "Data Scientist", avatar: "/team/buana.png", github: "https://github.com/mahaputribuanaa", linkedin: "https://www.linkedin.com/in/mahaputri-buana-87b924332" },
+      { name: "M. Dava Arya Nada Putra", role: "Full-Stack Web Developer", avatar: "/team/dava.png", github: "https://github.com/mdavaarya", linkedin: "https://www.linkedin.com/in/m-dava-arya-nada-putra-a2ba8a3a5" },
+      { name: "Muhammad Ihsanul Dzaky", role: "Full-Stack Web Developer", avatar: "/team/dzaky.png", github: "https://github.com/ihsanulDzaky", linkedin: "https://www.linkedin.com/in/muhammad-ihsanul-dzaky" }
     ],
     gallery: [
       { image: "/projects/detail/food-image-classification-and-recommendation-menu/gizimeal-model.png", title: "Dasbor Metrik Model AI", caption: "Visualisasi kurva pelatihan model CNN kustom dan akurasi prediksi." }
@@ -755,7 +755,7 @@ export const PROJECT_DETAILS_ID: Record<string, ProjectDetail> = {
     coverImage: "/projects/klasifikasi-apel.png",
     category: "Machine Learning",
     role: "Deep Learning Engineer",
-    duration: "1.5 Bulan",
+    duration: "1 Bulan",
     type: "Personal",
     links: {
       source: "https://github.com/azharangga/apple-leaf-disease-classification",
@@ -822,7 +822,7 @@ export const PROJECT_DETAILS_ID: Record<string, ProjectDetail> = {
     coverImage: "/projects/prediksi-bitcoin.png",
     category: "Machine Learning",
     role: "Data Scientist",
-    duration: "1.5 Bulan",
+    duration: "1 Bulan",
     type: "Personal",
     links: {
       source: "https://github.com/azharangga/bitcoin-price-forecasting",
