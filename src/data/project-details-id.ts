@@ -73,7 +73,7 @@ export const PROJECT_DETAILS_ID: Record<string, ProjectDetail> = {
   gizimeal: {
     slug: "gizimeal",
     title: "GiziMeal",
-    tagline: "Perencanaan Nutrisi & Meal Planner Otomatis Berbasis AI",
+    tagline: "Kenali bahan, pahami gizinya, sajikan menu bergizi seimbang.",
     coverImage: "/projects/gizimeal.png",
     category: "Web Development",
     role: "AI Engineer dan Project Manager",
@@ -226,7 +226,21 @@ export const PROJECT_DETAILS_ID: Record<string, ProjectDetail> = {
       }
     ],
     gallery: [
-      { image: "/projects/detail/dramova/dramova.png", title: "Katalog Drama Utama", caption: "Kartu bertema gelap premium yang menyoroti episode tren." }
+      { image: "/projects/detail/dramova/daftar-akun.png", title: "Halaman Daftar Akun", caption: "Formulir pendaftaran akun pengguna baru untuk menikmati layanan streaming Dramova." },
+      { image: "/projects/detail/dramova/masuk-akun.png", title: "Halaman Login", caption: "Antarmuka otentikasi masuk akun pengguna yang praktis." },
+      { image: "/projects/detail/dramova/beranda.png", title: "Halaman Beranda", caption: "Tampilan utama platform yang menampilkan tayangan unggulan dan drama populer." },
+      { image: "/projects/detail/dramova/jelajahi.png", title: "Halaman Jelajahi Katalog", caption: "Katalog pencarian lengkap dengan opsi penyaringan genre dan kategori tayangan." },
+      { image: "/projects/detail/dramova/serial.png", title: "Halaman Serial", caption: "Daftar direktori serial drama favorit dari berbagai negara." },
+      { image: "/projects/detail/dramova/detail-drama.png", title: "Halaman Detail Drama", caption: "Informasi rincian sinopsis, rating, pemeran, dan daftar episode drama." },
+      { image: "/projects/detail/dramova/menonton-drama.png", title: "Halaman Menonton Drama", caption: "Antarmuka pemutar video responsif untuk menikmati tayangan episode drama." },
+      { image: "/projects/detail/dramova/movie.png", title: "Halaman Movie", caption: "Koleksi pilihan film layar lebar terbaik dari berbagai genre." },
+      { image: "/projects/detail/dramova/nobar.png", title: "Halaman Nobar", caption: "Fitur Watch Party untuk mencari dan bergabung ke dalam ruang nonton bareng." },
+      { image: "/projects/detail/dramova/buat-room-nobar.png", title: "Membuat Room Nobar", caption: "Formulir pembuatan ruang nonton bersama baru dan opsi privasi room." },
+      { image: "/projects/detail/dramova/undang-teman-nobar.png", title: "Undang Teman Nobar", caption: "Fitur pembagian tautan undangan untuk mengajak teman bergabung ke ruang nobar." },
+      { image: "/projects/detail/dramova/gabung-room-nobar.png", title: "Gabung Room Nobar", caption: "Proses masuk pengguna ke dalam room nonton bareng yang aktif." },
+      { image: "/projects/detail/dramova/room-nobar.png", title: "Halaman Room Nobar", caption: "Tampilan pemutar video sinkron secara real-time dengan fitur obrolan grup." },
+      { image: "/projects/detail/dramova/riwayat-menonton.png", title: "Halaman Riwayat Menonton", caption: "Catatan histori riwayat episode dan film yang pernah ditonton pengguna." },
+      { image: "/projects/detail/dramova/kelola-akun.png", title: "Halaman Kelola Akun", caption: "Pengaturan profil pribadi pengguna, kata sandi, dan pengelolaan preferensi." },
     ]
   },
   "fifa-world-cup-2026": {

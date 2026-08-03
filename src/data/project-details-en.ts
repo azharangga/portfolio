@@ -73,7 +73,7 @@ export const PROJECT_DETAILS_EN: Record<string, ProjectDetail> = {
   gizimeal: {
     slug: "gizimeal",
     title: "GiziMeal",
-    tagline: "AI-Powered Automatic Nutrition Planning and Meal Recommendation Platform",
+    tagline: "Identify ingredients, understand their nutrition, create balanced meals.",
     coverImage: "/projects/gizimeal.png",
     category: "Web Development",
     role: "AI Engineer and Project Manager",
@@ -226,13 +226,27 @@ export const PROJECT_DETAILS_EN: Record<string, ProjectDetail> = {
       }
     ],
     gallery: [
-      { image: "/projects/detail/dramova/dramova.png", title: "Main Drama Catalog", caption: "Premium dark-themed cards highlighting trending episodes." }
+      { image: "/projects/detail/dramova/daftar-akun.png", title: "Sign Up Page", caption: "User registration form to enjoy Dramova streaming services." },
+      { image: "/projects/detail/dramova/masuk-akun.png", title: "Login Page", caption: "Convenient user account authentication sign-in interface." },
+      { image: "/projects/detail/dramova/beranda.png", title: "Home Page", caption: "Main platform page showcasing featured titles and popular dramas." },
+      { image: "/projects/detail/dramova/jelajahi.png", title: "Browse Catalog Page", caption: "Comprehensive search catalog with genre and category filtering options." },
+      { image: "/projects/detail/dramova/serial.png", title: "Series Directory Page", caption: "Directory list of trending drama series across different regions." },
+      { image: "/projects/detail/dramova/detail-drama.png", title: "Drama Details Page", caption: "Detailed information page with synopsis, ratings, cast, and episode lists." },
+      { image: "/projects/detail/dramova/menonton-drama.png", title: "Video Player Page", caption: "Responsive video player interface to stream drama episodes seamlessly." },
+      { image: "/projects/detail/dramova/movie.png", title: "Movie Collection Page", caption: "Curated selection of top feature films across various genres." },
+      { image: "/projects/detail/dramova/nobar.png", title: "Watch Party Page", caption: "Watch Party feature to browse and join active group watch rooms." },
+      { image: "/projects/detail/dramova/buat-room-nobar.png", title: "Create Watch Party Room", caption: "Form to create new synchronized watch rooms with privacy controls." },
+      { image: "/projects/detail/dramova/undang-teman-nobar.png", title: "Invite Friends to Watch Party", caption: "Invitation link sharing feature to invite friends to watch together." },
+      { image: "/projects/detail/dramova/gabung-room-nobar.png", title: "Join Watch Party Room", caption: "Smooth user onboarding flow into active synchronized watch rooms." },
+      { image: "/projects/detail/dramova/room-nobar.png", title: "Watch Party Room Page", caption: "Real-time synchronized video playback with live group chat." },
+      { image: "/projects/detail/dramova/riwayat-menonton.png", title: "Watch History Page", caption: "Historical log of watched episodes and movies." },
+      { image: "/projects/detail/dramova/kelola-akun.png", title: "Account Management Page", caption: "User profile settings, security updates, and account preferences." },
     ]
   },
   "fifa-world-cup-2026": {
     slug: "fifa-world-cup-2026",
     title: "FIFA World Cup 2026",
-    tagline: "Live Match Broadcast & Real-time Tournament Statistics Platform",
+    tagline: "Live Match Broadcast and Real-time Tournament Statistics Platform",
     coverImage: "/projects/fifa-wc26.png",
     category: "Web Development",
     role: "Front-end Developer",
