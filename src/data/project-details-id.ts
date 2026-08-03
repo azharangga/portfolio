@@ -145,20 +145,20 @@ export const PROJECT_DETAILS_ID: Record<string, ProjectDetail> = {
       { name: "Muhammad Ihsanul Dzaky", role: "Full-Stack Web Developer", avatar: "/team/dzaky.png", github: "https://github.com/ihsanulDzaky", linkedin: "https://www.linkedin.com/in/muhammad-ihsanul-dzaky" }
     ],
      gallery: [
-      { image: "/projects/detail/gizimeal/daftar-akun.png", title: "Halaman Daftar Akun", caption: "" },
-      { image: "/projects/detail/gizimeal/masuk-akun.png", title: "Halaman Login", caption: "" },
-      { image: "/projects/detail/gizimeal/beranda.png", title: "Halaman Beranda", caption: "" },
-      { image: "/projects/detail/gizimeal/tentang-kami.png", title: "Halaman Tentang Kami", caption: "" },
-      { image: "/projects/detail/gizimeal/deteksi.png", title: "Halaman Deteksi Makanan", caption: "" },
-      { image: "/projects/detail/gizimeal/hasil-deteksi.png", title: "Halaman Hasil Deteksi Makanan", caption: "" },
-      { image: "/projects/detail/gizimeal/rekomendasi-menu.png", title: "Halaman Rekomendasi Menu", caption: "" },
-      { image: "/projects/detail/gizimeal/kalkulator.png", title: "Halaman Kalkulator Kalori", caption: "" },
-      { image: "/projects/detail/gizimeal/tabel-gizi.png", title: "Halaman Tabel Gizi", caption: "" },
-      { image: "/projects/detail/gizimeal/chatbot.png", title: "Halaman Chatbot", caption: "" },
-      { image: "/projects/detail/gizimeal/referensi.png", title: "Halaman Referensi Gizi", caption: "" },
-      { image: "/projects/detail/gizimeal/faq.png", title: "Halaman FAQ", caption: "" },
-      { image: "/projects/detail/gizimeal/pengaturan-akun.png", title: "Halaman Kelola Akun", caption: "" },
-      { image: "/projects/detail/gizimeal/riwayat-deteksi.png", title: "Halaman Riwayat Deteksi", caption: "" },
+      { image: "/projects/detail/gizimeal/daftar-akun.png", title: "Halaman Daftar Akun", caption: "Formulir pendaftaran akun pengguna baru untuk memulai perjalanan gizi seimbang." },
+      { image: "/projects/detail/gizimeal/masuk-akun.png", title: "Halaman Login", caption: "Antarmuka autentikasi masuk akun pengguna yang aman." },
+      { image: "/projects/detail/gizimeal/beranda.png", title: "Halaman Beranda", caption: "Halaman utama platform GiziMeal yang menampilkan ringkasan fitur dan informasi nutrisi." },
+      { image: "/projects/detail/gizimeal/tentang-kami.png", title: "Halaman Tentang Kami", caption: "Informasi mengenai visi, misi, dan tim pengembangan GiziMeal." },
+      { image: "/projects/detail/gizimeal/deteksi.png", title: "Halaman Deteksi Makanan", caption: "Fitur unggah foto bahan makanan untuk diidentifikasi secara otomatis oleh AI." },
+      { image: "/projects/detail/gizimeal/hasil-deteksi.png", title: "Halaman Hasil Deteksi Makanan", caption: "Tampilan hasil analisis bahan makanan terdeteksi beserta rincian kandungan nutrisinya." },
+      { image: "/projects/detail/gizimeal/rekomendasi-menu.png", title: "Halaman Rekomendasi Menu", caption: "Daftar rekomendasi resep menu makanan bergizi berbasis bahan yang dimiliki pengguna." },
+      { image: "/projects/detail/gizimeal/kalkulator.png", title: "Halaman Kalkulator Kalori", caption: "Alat perhitungan kebutuhan kalori harian BMR dan TDEE secara personal." },
+      { image: "/projects/detail/gizimeal/tabel-gizi.png", title: "Halaman Tabel Gizi", caption: "Daftar direktori informasi nutrisi bahan makanan yang terstruktur." },
+      { image: "/projects/detail/gizimeal/chatbot.png", title: "Halaman Chatbot", caption: "Asisten AI interaktif untuk berkonsultasi seputar pertanyaan gizi dan pola makan." },
+      { image: "/projects/detail/gizimeal/referensi.png", title: "Halaman Referensi Gizi", caption: "Kumpulan rujukan dan pedoman Angka Kecukupan Gizi (AKG) resmi." },
+      { image: "/projects/detail/gizimeal/faq.png", title: "Halaman FAQ", caption: "Jawaban atas pertanyaan umum mengenai penggunaan dan fitur GiziMeal." },
+      { image: "/projects/detail/gizimeal/pengaturan-akun.png", title: "Halaman Kelola Akun", caption: "Pengaturan profil pengguna, kata sandi, dan preferensi akun." },
+      { image: "/projects/detail/gizimeal/riwayat-deteksi.png", title: "Halaman Riwayat Deteksi", caption: "Catatan histori hasil analisis bahan makanan yang pernah dilakukan pengguna." },
     ]
   },
   dramova: {
@@ -484,7 +484,18 @@ export const PROJECT_DETAILS_ID: Record<string, ProjectDetail> = {
       }
     ],
     gallery: [
-      { image: "/projects/detail/pusdatin-kab-cirebon/pusdatin.png", title: "Dasbor Utama Pusdatin", caption: "Halaman ringkasan rekapitulasi data sektoral desa Kabupaten Cirebon." }
+      { image: "/projects/detail/pusdatin-kab-cirebon/beranda.png", title: "Halaman Beranda", caption: "Halaman depan portal Pusat Data dan Informasi Kabupaten Cirebon." },
+      { image: "/projects/detail/pusdatin-kab-cirebon/login.png", title: "Halaman Login", caption: "Antarmuka otentikasi masuk pengguna sesuai peran hak akses." },
+      { image: "/projects/detail/pusdatin-kab-cirebon/dashboard-user.png", title: "Halaman Dashboard User", caption: "Ringkasan dasbor informasi pendataan untuk pengguna tingkat desa." },
+      { image: "/projects/detail/pusdatin-kab-cirebon/pengisian-formulir.png", title: "Halaman Pengisian Formulir", caption: "Formulir input dan pembaruan data sektoral desa secara terstruktur." },
+      { image: "/projects/detail/pusdatin-kab-cirebon/dashboard-admin.png", title: "Halaman Dashboard Admin", caption: "Dasbor utama administrator untuk memantau data seluruh desa." },
+      { image: "/projects/detail/pusdatin-kab-cirebon/data-tahun.png", title: "Halaman Data Tahun", caption: "Pengelolaan periode tahun anggaran pendataan sektoral." },
+      { image: "/projects/detail/pusdatin-kab-cirebon/data-user.png", title: "Halaman Data User", caption: "Manajemen akun pengguna dan penetapan peran akses pengguna." },
+      { image: "/projects/detail/pusdatin-kab-cirebon/rekap-data.png", title: "Halaman Rekap Data", caption: "Rekapitulasi agregasi data sektoral lintas desa dan kecamatan." },
+      { image: "/projects/detail/pusdatin-kab-cirebon/export-data.png", title: "Export Data", caption: "Fitur konfigurasi pencetakan dan ekspor data laporan." },
+      { image: "/projects/detail/pusdatin-kab-cirebon/hasil-export-data.png", title: "Hasil Export Data", caption: "Pratinjau hasil pengunduhan laporan dokumen format PDF/Excel." },
+      { image: "/projects/detail/pusdatin-kab-cirebon/manajemen-menu.png", title: "Halaman Manajemen Menu", caption: "Pengaturan struktur menu navigasi aplikasi sistem." },
+      { image: "/projects/detail/pusdatin-kab-cirebon/manajemen-form.png", title: "Halaman Manajemen Form", caption: "Pengelolaan skema formulir pendataan sektoral terintegrasi." },
     ]
   },
 

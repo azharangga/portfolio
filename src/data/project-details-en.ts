@@ -145,20 +145,20 @@ export const PROJECT_DETAILS_EN: Record<string, ProjectDetail> = {
       { name: "Muhammad Ihsanul Dzaky", role: "Full-Stack Web Developer", avatar: "/team/dzaky.png", github: "https://github.com/ihsanulDzaky", linkedin: "https://www.linkedin.com/in/muhammad-ihsanul-dzaky" }
     ],
     gallery: [
-      { image: "/projects/detail/gizimeal/daftar-akun.png", title: "Halaman Daftar Akun", caption: "" },
-      { image: "/projects/detail/gizimeal/masuk-akun.png", title: "Halaman Login", caption: "" },
-      { image: "/projects/detail/gizimeal/beranda.png", title: "Halaman Beranda", caption: "" },
-      { image: "/projects/detail/gizimeal/tentang-kami.png", title: "Halaman Tentang Kami", caption: "" },
-      { image: "/projects/detail/gizimeal/deteksi.png", title: "Halaman Deteksi Makanan", caption: "" },
-      { image: "/projects/detail/gizimeal/hasil-deteksi.png", title: "Halaman Hasil Deteksi Makanan", caption: "" },
-      { image: "/projects/detail/gizimeal/rekomendasi-menu.png", title: "Halaman Rekomendasi Menu", caption: "" },
-      { image: "/projects/detail/gizimeal/kalkulator.png", title: "Halaman Kalkulator Kalori", caption: "" },
-      { image: "/projects/detail/gizimeal/tabel-gizi.png", title: "Halaman Tabel Gizi", caption: "" },
-      { image: "/projects/detail/gizimeal/chatbot.png", title: "Halaman Chatbot", caption: "" },
-      { image: "/projects/detail/gizimeal/referensi.png", title: "Halaman Referensi Gizi", caption: "" },
-      { image: "/projects/detail/gizimeal/faq.png", title: "Halaman FAQ", caption: "" },
-      { image: "/projects/detail/gizimeal/pengaturan-akun.png", title: "Halaman Kelola Akun", caption: "" },
-      { image: "/projects/detail/gizimeal/riwayat-deteksi.png", title: "Halaman Riwayat Deteksi", caption: "" },
+      { image: "/projects/detail/gizimeal/daftar-akun.png", title: "Sign Up Page", caption: "User registration form to start a balanced nutrition journey." },
+      { image: "/projects/detail/gizimeal/masuk-akun.png", title: "Login Page", caption: "Secure user authentication sign-in interface." },
+      { image: "/projects/detail/gizimeal/beranda.png", title: "Home Page", caption: "GiziMeal main platform landing page displaying feature highlights and nutrition info." },
+      { image: "/projects/detail/gizimeal/tentang-kami.png", title: "About Us Page", caption: "Information about GiziMeal's vision, mission, and development team." },
+      { image: "/projects/detail/gizimeal/deteksi.png", title: "Food Detection Page", caption: "Food ingredient image upload feature for automated AI identification." },
+      { image: "/projects/detail/gizimeal/hasil-deteksi.png", title: "Detection Results Page", caption: "Analysis breakdown of detected food ingredients and estimated nutritional content." },
+      { image: "/projects/detail/gizimeal/rekomendasi-menu.png", title: "Menu Recommendation Page", caption: "Personalized nutritious meal recipe recommendations based on detected ingredients." },
+      { image: "/projects/detail/gizimeal/kalkulator.png", title: "Calorie Calculator Page", caption: "Personal BMR and TDEE daily calorie requirement calculation tool." },
+      { image: "/projects/detail/gizimeal/tabel-gizi.png", title: "Nutrition Table Page", caption: "Structured directory of food ingredient nutritional facts." },
+      { image: "/projects/detail/gizimeal/chatbot.png", title: "Chatbot Assistant Page", caption: "Interactive AI assistant for dietary and nutrition consultations." },
+      { image: "/projects/detail/gizimeal/referensi.png", title: "Nutrition Reference Page", caption: "Official Dietary Recommended Intake guidelines and health references." },
+      { image: "/projects/detail/gizimeal/faq.png", title: "FAQ Page", caption: "Frequently asked questions regarding GiziMeal platform features." },
+      { image: "/projects/detail/gizimeal/pengaturan-akun.png", title: "Account Settings Page", caption: "User profile management, password updates, and account preferences." },
+      { image: "/projects/detail/gizimeal/riwayat-deteksi.png", title: "Detection History Page", caption: "Historical records of past food ingredient AI detection analyses." },
     ]
   },
   dramova: {
@@ -484,7 +484,18 @@ export const PROJECT_DETAILS_EN: Record<string, ProjectDetail> = {
       }
     ],
     gallery: [
-      { image: "/projects/detail/pusdatin-kab-cirebon/pusdatin.png", title: "Main Pusdatin Dashboard", caption: "Sectoral village data recapitulation dashboard for Cirebon Regency." }
+      { image: "/projects/detail/pusdatin-kab-cirebon/beranda.png", title: "Home Page", caption: "Landing page for the Data and Information Center of Cirebon Regency." },
+      { image: "/projects/detail/pusdatin-kab-cirebon/login.png", title: "Login Page", caption: "Role-based user authentication sign-in interface." },
+      { image: "/projects/detail/pusdatin-kab-cirebon/dashboard-user.png", title: "User Dashboard Page", caption: "Data collection dashboard summary tailored for village-level users." },
+      { image: "/projects/detail/pusdatin-kab-cirebon/pengisian-formulir.png", title: "Form Entry Page", caption: "Structured data entry form for updating village sectoral information." },
+      { image: "/projects/detail/pusdatin-kab-cirebon/dashboard-admin.png", title: "Admin Dashboard Page", caption: "Central administrator dashboard to monitor cross-village data." },
+      { image: "/projects/detail/pusdatin-kab-cirebon/data-tahun.png", title: "Fiscal Year Data Page", caption: "Management of fiscal year periods for sectoral data collection." },
+      { image: "/projects/detail/pusdatin-kab-cirebon/data-user.png", title: "User Data Page", caption: "User account management and role-based permission assignment." },
+      { image: "/projects/detail/pusdatin-kab-cirebon/rekap-data.png", title: "Data Recapitulation Page", caption: "Aggregated sectoral data recapitulation across villages and sub-districts." },
+      { image: "/projects/detail/pusdatin-kab-cirebon/export-data.png", title: "Export Data Page", caption: "Configuration feature for document printing and data exports." },
+      { image: "/projects/detail/pusdatin-kab-cirebon/hasil-export-data.png", title: "Export Results Preview", caption: "Document preview for generated PDF and Excel data reports." },
+      { image: "/projects/detail/pusdatin-kab-cirebon/manajemen-menu.png", title: "Menu Management Page", caption: "Configuration settings for system application menu structure." },
+      { image: "/projects/detail/pusdatin-kab-cirebon/manajemen-form.png", title: "Form Management Page", caption: "Integrated schema management for sectoral data forms." },
     ]
   },
 
