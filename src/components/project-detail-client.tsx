@@ -27,6 +27,7 @@ import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
 import { PrototypeDialog } from "@/components/modals/prototype-dialog";
 import { NotebookDialog } from "@/components/modals/notebook-dialog";
+import { ProjectGalleryModal } from "@/components/modals/project-gallery-modal";
 import {
   Tooltip,
   TooltipContent,
@@ -40,7 +41,8 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
   const [activeSection, setActiveSection] = useState("overview");
   const [scrollProgress, setScrollProgress] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+  const [galleryModalOpen, setGalleryModalOpen] = useState(false);
+  const [selectedGalleryIndex, setSelectedGalleryIndex] = useState(0);
   const [avatarErrors, setAvatarErrors] = useState<Record<string, boolean>>({});
   const [avatarLoading, setAvatarLoading] = useState<Record<string, boolean>>({});
   const [galleryLoading, setGalleryLoading] = useState<Record<number, boolean>>({});
@@ -757,11 +759,16 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
 
                 return (
                   <div 
-                    key={idx} 
-                    className="group border rounded-xl overflow-hidden bg-card p-3 space-y-3 cursor-pointer hover:border-foreground/40 transition-all duration-300 flex flex-col justify-between"
-                    onClick={() => !isImgError && setLightboxImage(item.image)}
+                    key={idx}
+                    className="group border rounded-xl overflow-hidden bg-card hover:border-foreground/40 transition-all duration-300 flex flex-col justify-between cursor-pointer"
+                    onClick={() => {
+                      if (!isImgError) {
+                        setSelectedGalleryIndex(idx);
+                        setGalleryModalOpen(true);
+                      }
+                    }}
                   >
-                    <div className="relative w-full rounded-lg overflow-hidden border bg-background flex items-center justify-center min-h-[160px]">
+                    <div className="relative w-full overflow-hidden bg-muted/20 flex items-center justify-center">
                       {!isImgError ? (
                         <>
                           {isImgLoading && (
@@ -791,19 +798,28 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
                       )}
                     </div>
 
-                    <div className="pt-1 px-1 space-y-1">
-                      <span className="text-[9px] font-bold uppercase tracking-wider text-muted-foreground/70 border px-1.5 py-0.5 rounded bg-muted/20">
+                    <div className="p-3 space-y-1">
+                      <span className="text-[9px] font-bold uppercase tracking-wider text-muted-foreground/70 px-1.5 py-0.5 border rounded-md bg-muted/20">
                         {isId ? `Tampilan ${idx + 1}` : `Screen ${idx + 1}`}
                       </span>
                       <h4 className="text-xs font-bold text-foreground group-hover:text-primary transition-colors">{item.title}</h4>
                       {item.caption && (
-                        <p className="text-[11px] text-muted-foreground leading-relaxed">{item.caption}</p>
+                        <p className="text-[11px] text-muted-foreground leading-relaxed line-clamp-2">{item.caption}</p>
                       )}
                     </div>
                   </div>
                 );
               })}
             </div>
+
+            {/* FULL FEATURED GALLERY SLIDER MODAL */}
+            <ProjectGalleryModal
+              isOpen={galleryModalOpen}
+              onOpenChange={setGalleryModalOpen}
+              title={detail.title}
+              items={galleryImages}
+              initialIndex={selectedGalleryIndex}
+            />
           </section>
 
           <hr className="border-border" />
@@ -845,19 +861,24 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
                   const isRelError = relatedErrors[idx] || !p.image;
 
                   return (
-                    <Link href={`/projects/${slugify(p.title)}`} key={idx} className="group border rounded-xl overflow-hidden bg-muted/5 hover:border-foreground/40 hover:shadow-sm transition-all duration-300 flex flex-col justify-between">
-                      <div className="relative aspect-[16/10] bg-muted/30 w-full overflow-hidden flex items-center justify-center p-1.5">
+                    <Link 
+                      href={`/projects/${slugify(p.title)}`} 
+                      key={idx} 
+                      className="group border rounded-xl overflow-hidden bg-card hover:border-foreground/40 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+                    >
+                      <div className="relative w-full overflow-hidden bg-muted/20 flex items-center justify-center">
                         {!isRelError ? (
                           <>
                             {isRelLoading && (
-                              <div className="absolute inset-0 premium-shimmer z-10" />
+                              <div className="absolute inset-0 min-h-[140px] premium-shimmer z-10" />
                             )}
                             <Image 
                               src={p.image!} 
                               alt={p.title} 
-                              fill 
+                              width={600}
+                              height={375}
                               className={cn(
-                                "object-contain p-1.5 dark:brightness-[0.95] group-hover:scale-105 transition-all duration-300",
+                                "w-full h-auto object-contain dark:brightness-[0.95] group-hover:scale-[1.02] transition-all duration-300",
                                 isRelLoading ? "opacity-0" : "opacity-100"
                               )} 
                               onLoad={() => setRelatedLoading((prev) => ({ ...prev, [idx]: false }))}
@@ -868,14 +889,15 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
                             />
                           </>
                         ) : (
-                          <div className="absolute inset-0 flex items-center justify-center text-[10px] text-muted-foreground/40 flex-col gap-1">
-                            <FolderGit2 className="size-6" />
-                            <span>No Image</span>
+                          <div className="py-10 flex flex-col items-center justify-center gap-1.5 text-muted-foreground/40">
+                            <FolderGit2 className="size-8" />
+                            <span className="text-[10px]">No Image</span>
                           </div>
                         )}
                       </div>
-                      <div className="p-3 space-y-1 bg-background/50 border-t">
-                        <span className="text-[8px] uppercase font-bold text-muted-foreground px-1.5 py-0.5 border rounded-md bg-muted/20">
+
+                      <div className="p-3 space-y-1">
+                        <span className="text-[8px] uppercase font-bold text-muted-foreground/70 px-1.5 py-0.5 border rounded-md bg-muted/20">
                           {p.category.replace(/&/g, "and")}
                         </span>
                         <h4 className="text-xs font-bold text-foreground group-hover:text-primary transition-colors line-clamp-1">{p.title}</h4>
@@ -908,39 +930,6 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
         </article>
       </main>
 
-      {/* LIGHTBOX MODAL */}
-      <AnimatePresence>
-        {lightboxImage && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-background/90 p-4">
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="absolute inset-0 cursor-zoom-out"
-              onClick={() => setLightboxImage(null)}
-            />
-            <motion.div 
-              initial={{ scale: 0.95 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0.95 }}
-              className="relative max-w-5xl max-h-[85vh] aspect-[16/10] w-full border rounded-xl overflow-hidden bg-muted shadow-2xl"
-            >
-              <Image 
-                src={lightboxImage} 
-                alt="Zoomed view" 
-                fill 
-                className="object-contain"
-              />
-              <button 
-                onClick={() => setLightboxImage(null)} 
-                className="absolute top-4 right-4 p-2 bg-background/85 border backdrop-blur text-foreground rounded-full hover:bg-background transition-colors"
-              >
-                <X className="size-5" />
-              </button>
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
       {/* SCROLL TO TOP BUTTON */}
       <ScrollToTop />
     </div>

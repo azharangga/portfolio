@@ -33,12 +33,14 @@ import { useLanguage } from "@/context/language-context";
 interface ProjectImageModalProps {
   src: string;
   title: string;
+  caption?: string;
   children: React.ReactNode;
 }
 
 export function ProjectImageModal({
   src,
   title,
+  caption,
   children,
 }: ProjectImageModalProps) {
   const { lang } = useLanguage();
@@ -276,7 +278,10 @@ export function ProjectImageModal({
                 />
               </div>
 
-              <div className="relative w-full h-full z-10 p-4 sm:p-12 pt-20 sm:pt-20">
+              <div className={cn(
+                "relative w-full h-full z-10 p-4 sm:p-12 pt-20 sm:pt-20",
+                caption && "pb-16 sm:pb-20"
+              )}>
                 <Image
                   src={src}
                   alt={title}
@@ -294,6 +299,15 @@ export function ProjectImageModal({
                   }}
                 />
               </div>
+
+              {/* Bottom Caption Overlay */}
+              {caption && !isLoading && (
+                <div className="absolute bottom-0 left-0 right-0 z-40 p-4 sm:p-6 bg-gradient-to-t from-black/90 via-black/60 to-transparent text-center">
+                  <p className="text-xs sm:text-sm text-white/90 font-medium max-w-3xl mx-auto leading-relaxed drop-shadow-md">
+                    {caption}
+                  </p>
+                </div>
+              )}
             </>
           )}
         </div>
