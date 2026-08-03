@@ -6,7 +6,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   ArrowLeft, User, Layers, Menu, X, Languages, Check, Clock,
-  Tag, FolderGit2, Globe, Code, FileText, FileCode
+  Tag, FolderGit2, Globe, Code, FileText, FileCode, CheckCircle2
 } from "lucide-react";
 import { useLanguage } from "@/context/language-context";
 import { ModeToggle } from "@/components/layout/mode-toggle";
@@ -20,8 +20,13 @@ import {
   getIcon,
   ProjectDetail 
 } from "@/data/project-details";
+import { Icons } from "@/components/icons";
 import { slugify } from "@/lib/slugify";
 import { cn } from "@/lib/utils";
+import { Badge } from "@/components/ui/badge";
+import { toast } from "sonner";
+import { PrototypeDialog } from "@/components/modals/prototype-dialog";
+import { NotebookDialog } from "@/components/modals/notebook-dialog";
 import {
   Tooltip,
   TooltipContent,
@@ -381,7 +386,7 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
         {/* MAIN EDITORIAL CONTENT */}
         <article className="space-y-10 min-w-0">
           
-          {/* HEADER SECTION (Title, Tagline, Role, Duration, Project Type, Category) */}
+          {/* HEADER SECTION (Title, Tagline, Role, Duration, Project Type, Category, Status) */}
           <section className="space-y-6 border-b pb-8">
             <div className="space-y-3">
               <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-foreground">{detail.title}</h1>
@@ -440,53 +445,117 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
               </div>
             </div>
 
-            {/* Action Links */}
-            {detail.links && (detail.links.website || detail.links.source || detail.links.apiDocs || detail.links.figma || detail.links.prototype || detail.links.model || detail.links.notebook) && (
-              <div className="flex flex-wrap gap-2 pt-1">
-                {detail.links.website && (
-                  <Link href={detail.links.website} target="_blank" className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-foreground text-background hover:opacity-90 transition-all">
-                    <Globe className="size-3.5" />
-                    {isId ? "Kunjungi Website" : "Visit Website"}
-                  </Link>
-                )}
-                {detail.links.source && (
-                  <Link href={detail.links.source} target="_blank" className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg border hover:bg-muted/40 transition-all">
-                    <Code className="size-3.5" />
-                    {isId ? "Kode Sumber" : "Source Code"}
-                  </Link>
-                )}
-                {detail.links.model && (
-                  <Link href={detail.links.model} target="_blank" className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg border hover:bg-muted/40 transition-all">
-                    <FolderGit2 className="size-3.5" />
-                    {isId ? "Model Hugging Face" : "Hugging Face Model"}
-                  </Link>
-                )}
-                {detail.links.notebook && (
-                  <Link href={detail.links.notebook} target="_blank" className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg border hover:bg-muted/40 transition-all">
-                    <FileCode className="size-3.5" />
-                    {isId ? "Notebook Pelatihan" : "Training Notebook"}
-                  </Link>
-                )}
-                {detail.links.apiDocs && (
-                  <Link href={detail.links.apiDocs} target="_blank" className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg border hover:bg-muted/40 transition-all">
-                    <FileText className="size-3.5" />
-                    {isId ? "Dokumentasi API" : "API Docs"}
-                  </Link>
-                )}
-                {detail.links.figma && (
-                  <Link href={detail.links.figma} target="_blank" className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg border hover:bg-muted/40 transition-all">
-                    <FileCode className="size-3.5" />
-                    {isId ? "Desain Figma" : "Figma Design"}
-                  </Link>
-                )}
-                {detail.links.prototype && (
-                  <Link href={detail.links.prototype} target="_blank" className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg border hover:bg-muted/40 transition-all">
-                    <FileCode className="size-3.5" />
-                    {isId ? "Purwarupa Figma" : "Figma Prototype"}
-                  </Link>
-                )}
-              </div>
-            )}
+            {/* Action Links (Sourced from project-details dataset) */}
+            {(() => {
+              // Build link items array from detail.links (project-details-id.ts / project-details-en.ts)
+              const detailLinksList = [
+                ...(detail.links?.website ? [{ type: "Website", href: detail.links.website, icon: <Icons.globe className="size-3.5" /> }] : []),
+                ...(detail.links?.source ? [{ type: "Source", href: detail.links.source, icon: <Icons.github className="size-3.5" /> }] : []),
+                ...(detail.links?.prototype ? [{ type: "Prototype", href: detail.links.prototype, icon: <Icons.figma className="size-3.5" /> }] : []),
+                ...(detail.links?.notebook ? [{ type: "Notebook", href: detail.links.notebook, icon: <Icons.doc className="size-3.5" /> }] : []),
+                ...(detail.links?.apiDocs ? [{ type: "API Docs", href: detail.links.apiDocs, icon: <Icons.doc className="size-3.5" /> }] : []),
+                ...(detail.links?.figma ? [{ type: "Design", href: detail.links.figma, icon: <Icons.figma className="size-3.5" /> }] : []),
+                ...(detail.links?.model ? [{ type: "Model", href: detail.links.model, icon: <FolderGit2 className="size-3.5" /> }] : []),
+              ];
+
+              // Primary authority: detail.links. Fallback: matchingProject.links from resumeData
+              const projectLinks = detailLinksList.length > 0 
+                ? detailLinksList 
+                : (matchingProject?.links || []);
+
+              if (!projectLinks || projectLinks.length === 0) return null;
+
+              // Helper for English button labels
+              const getLinkLabel = (type: string) => {
+                const typeLower = type.toLowerCase();
+                if (typeLower.includes("website")) return "Visit Website";
+                if (typeLower.includes("source")) return "Source Code";
+                if (typeLower.includes("prototype")) return "Figma Prototype";
+                if (typeLower.includes("notebook")) return "Training Notebook";
+                if (typeLower.includes("api") || typeLower.includes("doc")) return "API Docs";
+                if (typeLower.includes("design") || typeLower.includes("figma")) return "Figma Design";
+                if (typeLower.includes("model")) return "Hugging Face Model";
+                return type;
+              };
+
+              return (
+                <div className="flex flex-wrap gap-2 pt-1">
+                  {projectLinks.map((linkItem: any, idx: number) => {
+                    const isDisabled = !linkItem.href && !linkItem.notebooks;
+                    const label = getLinkLabel(linkItem.type);
+                    const isPrimary = idx === 0 && !isDisabled;
+
+                    // Cloned icon with exact size-3.5 for detail page
+                    const iconElement = React.isValidElement(linkItem.icon)
+                      ? React.cloneElement(linkItem.icon as React.ReactElement<any>, { className: "size-3.5" })
+                      : <Globe className="size-3.5" />;
+
+                    // Disabled State Button with Toast
+                    if (isDisabled) {
+                      return (
+                        <button
+                          key={idx}
+                          onClick={() => toast.error(`Resource "${linkItem.type}" is private and cannot be accessed.`)}
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg border opacity-40 cursor-not-allowed bg-muted/20 text-muted-foreground"
+                        >
+                          {iconElement}
+                          <span>{label}</span>
+                        </button>
+                      );
+                    }
+
+                    // Prototype Dialog
+                    if (linkItem.type === "Prototype" && linkItem.href) {
+                      return (
+                        <PrototypeDialog
+                          key={idx}
+                          href={linkItem.href}
+                          label={label}
+                          icon={iconElement}
+                        />
+                      );
+                    }
+
+                    // Notebook Dialog
+                    if (linkItem.type === "Notebook") {
+                      return (
+                        <NotebookDialog
+                          key={idx}
+                          title={detail.title}
+                          description={detail.tagline}
+                          githubUrl={linkItem.href}
+                          notebooks={linkItem.notebooks}
+                          trigger={
+                            <button className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg border hover:bg-muted/40 transition-all cursor-pointer">
+                              {iconElement}
+                              <span>{label}</span>
+                            </button>
+                          }
+                        />
+                      );
+                    }
+
+                    // Standard Link Button
+                    return (
+                      <Link
+                        key={idx}
+                        href={linkItem.href || "#"}
+                        target="_blank"
+                        className={cn(
+                          "inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg transition-all",
+                          isPrimary
+                            ? "bg-foreground text-background hover:opacity-90 shadow-sm"
+                            : "border hover:bg-muted/40 text-foreground"
+                        )}
+                      >
+                        {iconElement}
+                        <span>{label}</span>
+                      </Link>
+                    );
+                  })}
+                </div>
+              );
+            })()}
           </section>
 
           {/* DISCLAIMER SECTION (Optional, placed right before Overview) */}
@@ -576,9 +645,17 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {detail.featureDocs.map((feat, index) => (
-                <div key={index} className="border rounded-xl p-5 bg-muted/5 space-y-2 hover:border-foreground/20 transition-all">
-                  <h3 className="text-sm font-bold text-foreground">{feat.title}</h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed">{feat.description}</p>
+                <div 
+                  key={index} 
+                  className="group border rounded-xl p-5 bg-card hover:bg-muted/10 space-y-2.5 hover:border-foreground/30 transition-all duration-300 shadow-sm relative overflow-hidden flex flex-col justify-between"
+                >
+                  <div className="flex items-center justify-between gap-3 border-b pb-2.5">
+                    <h3 className="text-sm font-bold text-foreground group-hover:text-primary transition-colors">{feat.title}</h3>
+                    <span className="text-[10px] font-bold text-muted-foreground/70 px-2 py-0.5 rounded border bg-muted/30 flex-shrink-0">
+                      0{index + 1}
+                    </span>
+                  </div>
+                  <p className="text-xs text-muted-foreground leading-relaxed pt-0.5">{feat.description}</p>
                 </div>
               ))}
             </div>
