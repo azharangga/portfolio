@@ -314,6 +314,7 @@ export const PROJECT_DETAILS_EN: Record<string, ProjectDetail> = {
     type: "Personal",
     links: {
       website: "https://siakad-ikmi.projectshowcase.web.id",
+      source: "https://github.com/azharangga/siakad-ikmi",
     },
     overview: "SIAKAD IKMI is a web-based Academic Information System developed to support the digitalization of academic services at STMIK IKMI Cirebon. The platform integrates various academic services into a single system, from course plan selection (KRS), academic record management, and independent document printing to information access via a Generative AI chatbot assistant. By delivering modern, fast, and accessible services, SIAKAD IKMI aims to improve academic administrative efficiency while providing a better user experience for students, lecturers, and staff.",
     disclaimer: "All data used in this project consists of dummy records created for development and demonstration purposes. No actual student, lecturer, staff, or academic data is used or displayed, maintaining data privacy and confidentiality.",

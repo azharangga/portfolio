@@ -314,6 +314,7 @@ export const PROJECT_DETAILS_ID: Record<string, ProjectDetail> = {
     type: "Personal",
     links: {
       website: "https://siakad-ikmi.projectshowcase.web.id",
+      source: "https://github.com/azharangga/siakad-ikmi",
     },
     overview: "SIAKAD IKMI merupakan platform Sistem Informasi Akademik berbasis web yang dikembangkan untuk mendukung digitalisasi layanan akademik di lingkungan STMIK IKMI Cirebon. Platform ini mengintegrasikan berbagai layanan akademik dalam satu sistem, mulai dari pengisian Kartu Rencana Studi (KRS), pengelolaan data akademik, pencetakan dokumen secara mandiri, hingga akses informasi melalui asisten chatbot berbasis Generative AI. Dengan menghadirkan layanan yang modern, cepat, dan mudah diakses, SIAKAD IKMI bertujuan meningkatkan efisiensi administrasi akademik sekaligus memberikan pengalaman pengguna yang lebih baik bagi mahasiswa, dosen, dan tenaga kependidikan.",
     disclaimer: "Seluruh data yang digunakan dalam proyek ini menggunakan data dummy yang dibuat untuk keperluan pengembangan dan demonstrasi aplikasi. Tidak ada data asli mahasiswa, dosen, tenaga kependidikan, maupun informasi akademik lainnya yang digunakan atau ditampilkan, sehingga privasi dan kerahasiaan data tetap terjaga.",
