@@ -427,7 +427,7 @@ export const PROJECT_DETAILS_EN: Record<string, ProjectDetail> = {
   "pusdatin-kab-cirebon": {
     slug: "pusdatin-kab-cirebon",
     title: "Pusdatin Kab. Cirebon",
-    tagline: "Integrated Village and Sub-district Data Management Platform for Cirebon Regency.",
+    tagline: "Manage village data in a centralized, structured, and efficient way.",
     coverImage: "/projects/pusdatin.png",
     category: "Web Development",
     role: "Full Stack Developer",
@@ -437,16 +437,17 @@ export const PROJECT_DETAILS_EN: Record<string, ProjectDetail> = {
       website: "https://pusdatin.kesug.com",
       source: "https://github.com/azharangga/pusdatin-kabcirebon",
     },
-    overview: "PUSDATIN Kabupaten Cirebon is an integrated web platform designed to support centralized, structured, and efficient data collection, management, and reporting for villages and sub-districts in Cirebon Regency. The system helps village governments and related stakeholders input, update, manage, and export sectoral data through an interactive management dashboard with user authentication, role-based access control, and report export features in PDF and Excel formats.",
-    problemBackground: "- **Unconsolidated Village Data**: Managing sectoral data across villages and sub-districts independently hinders county-level reporting and analytics.\n- **Time-Consuming Report Generation**: Compiling village progress reports is slow due to manual data collection methods.\n- **Unstandardized Data Formats**: Inconsistent data recording formats make information hard to analyze and evaluate.",
+    overview: "PUSDATIN Kabupaten Cirebon is an integrated web platform designed to support centralized and efficient data collection, management, and recapitulation for villages and sub-districts in Cirebon Regency. The system helps village governments and related stakeholders input, update, manage, and generate sectoral data reports through a single integrated dashboard. With a more organized workflow and easier access, the platform is designed to improve administrative efficiency and simplify cross-region reporting.",
+    problemBackground: "- **Village Data Is Scattered**: Data on village potential, infrastructure, population, and territorial information is often managed separately, making retrieval and recapitulation less efficient.\n- **Reporting Takes More Time**: Preparing sectoral reports still involves many manual steps, which slows administrative workflows and increases the risk of errors.\n- **Data Monitoring Is Not Centralized**: There is no fully centralized system that presents village data comprehensively in a single dashboard for related stakeholders.",
     solutionApproach: {
-      design: "- **Centralized Data Management Platform**: Provides a single unified system to structure and manage village sectoral data.\n- **Interactive Management Dashboard**: Presents data summaries through an intuitive dashboard for easy monitoring and evaluation.\n- **Role-Based Access Control**: Secures data operations with user authentication and structured permission boundaries.\n- **Automated Report Exporting**: Enables document generation in PDF and Excel formats for administrative compliance.",
+      design: "- **Centralized Data Platform**: Brings village and sub-district data into one system so data management becomes more organized, accessible, and efficient.\n- **Digital Recapitulation and Reporting**: Provides a digital workflow for data recapitulation and report generation to make administration faster and more structured.\n- **Interactive Monitoring Dashboard**: Displays data in a dashboard format that helps users monitor and understand information more quickly.\n- **Role-Based Access System**: Implements user role separation to protect data and ensure each party only accesses the features relevant to them.",
       workflow: [
-        "Users sign in to the system according to their assigned permissions.",
-        "Village administrators input or update sectoral data using management forms.",
-        "System stores and aggregates data into a centralized database.",
-        "Dashboard displays real-time data summaries for tracking.",
-        "Users export sectoral data reports in PDF or Excel format as needed."
+        "Users access the main page and sign in to the system.",
+        "Users log in according to their assigned roles.",
+        "Admins or village users input and update sectoral data.",
+        "The system stores data centrally in the database.",
+        "Data can be recapitulated and filtered as needed.",
+        "Reports can be exported to PDF or Excel."
       ]
     },
     techStack: [
@@ -462,24 +463,24 @@ export const PROJECT_DETAILS_EN: Record<string, ProjectDetail> = {
     ],
     featureDocs: [
       {
-        title: "Village Sectoral Data Management",
-        description: "Allows users to add, update, and delete village and sub-district sectoral data in a structured manner from one platform."
+        title: "Village Sector Data Management",
+        description: "Enables users to manage various village and sub-district sectoral data in a structured way, including creating, updating, and deleting records in a centralized platform."
       },
       {
         title: "Authentication and Role-Based Access Control",
-        description: "Restricts platform features and data visibility based on user roles and permissions."
+        description: "Controls user permissions based on roles such as superadmin, admin, and village users, ensuring that each user can only access authorized features."
       },
       {
-        title: "Data Recapitulation Dashboard",
-        description: "Displays structured data summaries in an interactive dashboard for effective monitoring."
+        title: "Data Recapitulation and Reporting",
+        description: "Provides cross-village and cross-district data recapitulation with filtering options to simplify monitoring and report preparation."
       },
       {
-        title: "Report Export",
-        description: "Enables users to export formatted PDF and Excel reports for administrative and documentation needs."
+        title: "Document Export",
+        description: "Allows users to generate reports in PDF and Excel formats for administrative, documentation, and data sharing purposes."
       },
       {
-        title: "Master Data Management",
-        description: "Supports the management of users, application menus, data categories, and fiscal years to maintain consistent and well-organized information."
+        title: "User and Fiscal Year Management",
+        description: "Supports the management of users, application menus, and fiscal periods to keep the system organized and maintainable."
       }
     ],
     gallery: [

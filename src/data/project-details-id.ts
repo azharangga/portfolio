@@ -427,7 +427,7 @@ export const PROJECT_DETAILS_ID: Record<string, ProjectDetail> = {
   "pusdatin-kab-cirebon": {
     slug: "pusdatin-kab-cirebon",
     title: "Pusdatin Kab. Cirebon",
-    tagline: "Platform Pendataan Terpadu Desa dan Kelurahan Kabupaten Cirebon.",
+    tagline: "Kelola data desa secara terpusat, terstruktur, dan efisien.",
     coverImage: "/projects/pusdatin.png",
     category: "Web Development",
     role: "Full Stack Developer",
@@ -437,16 +437,17 @@ export const PROJECT_DETAILS_ID: Record<string, ProjectDetail> = {
       website: "https://pusdatin.kesug.com",
       source: "https://github.com/azharangga/pusdatin-kabcirebon",
     },
-    overview: "PUSDATIN Kabupaten Cirebon adalah platform web terpadu yang dirancang untuk mendukung pendataan, pengelolaan, dan rekapitulasi data desa dan kelurahan di wilayah Kabupaten Cirebon secara terpusat, terstruktur, dan efisien. Sistem ini memfasilitasi pemerintah desa dan pihak terkait dalam menginput, memperbarui, mengelola, serta mengekspor data sektoral melalui dashboard manajemen interaktif yang dilengkapi autentikasi pengguna, pengaturan hak akses, dan fitur ekspor laporan dalam format PDF dan Excel.",
-    problemBackground: "- **Pendataan Desa Masih Terpisah**: Pengelolaan data sektoral di setiap desa dan kelurahan sering kali dilakukan secara terpisah sehingga menyulitkan proses rekapitulasi di tingkat kabupaten.\n- **Proses Pelaporan Membutuhkan Waktu**: Penyusunan laporan perkembangan desa membutuhkan waktu yang relatif lama karena pengumpulan data masih berbasis proses manual.\n- **Format Data Kurang Terstandarisasi**: Perbedaan format dalam pencatatan data menyebabkan penyajian informasi menjadi kurang konsisten dan sulit dianalisis.",
+    overview: "PUSDATIN Kabupaten Cirebon adalah platform web terpadu yang dirancang untuk mendukung pendataan, pengelolaan, dan rekapitulasi data desa dan kelurahan di wilayah Kabupaten Cirebon secara lebih terpusat dan efisien. Sistem ini membantu pemerintah desa dan pihak terkait dalam menginput, memperbarui, mengelola, serta menyusun laporan data sektoral melalui satu dashboard yang terintegrasi. Dengan alur kerja yang lebih rapi dan akses yang lebih mudah, platform ini dirancang untuk meningkatkan efisiensi administrasi serta mempermudah proses pelaporan data lintas wilayah.",
+    problemBackground: "- **Data Desa Masih Tersebar**: Data potensi, sarana prasarana, kependudukan, dan kewilayahan sering dikelola secara terpisah sehingga proses pencarian dan rekapitulasi menjadi kurang efisien.\n- **Pelaporan Membutuhkan Waktu Lebih Lama**: Penyusunan laporan data sektoral masih membutuhkan banyak langkah manual sehingga memperlambat proses administrasi dan meningkatkan risiko kesalahan.\n- **Pemantauan Data Belum Terpusat**: Belum tersedia sistem yang mampu menampilkan kondisi data desa secara menyeluruh dalam satu dashboard yang mudah diakses oleh pihak terkait.",
     solutionApproach: {
-      design: "- **Platform Pendataan Terpusat**: Menyediakan satu sistem terpadu untuk mengelola seluruh data sektoral desa dan kelurahan secara terstruktur.\n- **Dashboard Manajemen Interaktif**: Menyajikan ringkasan data melalui tampilan dasbor yang intuitif untuk memudahkan pemantauan dan evaluasi.\n- **Pengaturan Hak Akses Berbasis Peran**: Mengamankan pengelolaan data dengan sistem autentikasi dan pembagian hak akses pengguna yang jelas.\n- **Fitur Ekspor Laporan Otomatis**: Memfasilitasi pencetakan dan pengunduhan laporan dalam format PDF dan Excel untuk kebutuhan administrasi.",
+      design: "- **Platform Data Terpusat**: Menggabungkan seluruh data desa dan kelurahan ke dalam satu sistem agar pengelolaan data menjadi lebih rapi, mudah diakses, dan efisien.\n- **Digitalisasi Rekapitulasi dan Pelaporan**: Menyediakan proses rekap data dan pembuatan laporan secara digital sehingga administrasi dapat dilakukan lebih cepat dan terstruktur.\n- **Dashboard Monitoring Interaktif**: Menyajikan data dalam bentuk dashboard yang memudahkan pengguna memantau dan memahami kondisi data secara lebih cepat.\n- **Sistem Hak Akses Pengguna**: Menerapkan pembagian peran pengguna untuk menjaga keamanan data dan memastikan setiap pihak hanya mengakses fitur yang sesuai.",
       workflow: [
-        "Pengguna masuk ke sistem sesuai hak akses yang dimiliki.",
-        "Pemerintah desa menginput atau memperbarui data sektoral melalui formulir manajemen.",
-        "Sistem menyimpan dan mengagregasi data ke dalam basis data terpusat.",
-        "Dashboard menampilkan rekapitulasi data secara real-time untuk pemantauan.",
-        "Pengguna dapat mengekspor laporan data sektoral dalam format PDF atau Excel sesuai kebutuhan."
+        "Pengguna membuka halaman utama dan masuk ke sistem.",
+        "Pengguna login sesuai role masing-masing.",
+        "Admin atau user desa menginput dan memperbarui data sektoral.",
+        "Sistem menyimpan data ke database secara terpusat.",
+        "Data dapat direkap dan difilter sesuai kebutuhan.",
+        "Laporan dapat diekspor ke PDF atau Excel."
       ]
     },
     techStack: [
@@ -463,23 +464,23 @@ export const PROJECT_DETAILS_ID: Record<string, ProjectDetail> = {
     featureDocs: [
       {
         title: "Manajemen Data Sektoral Desa",
-        description: "Memungkinkan pengguna mengelola berbagai data sektoral desa dan kelurahan secara terstruktur, mulai dari penambahan, pembaruan, hingga penghapusan data melalui satu platform terintegrasi."
+        description: "Memungkinkan pengguna mengelola berbagai jenis data sektoral desa dan kelurahan secara terstruktur, mulai dari penambahan, pembaruan, hingga penghapusan data dalam satu platform terpusat."
       },
       {
-        title: "Otentikasi dan Role-Based Access Control",
-        description: "Mengelola hak akses pengguna berdasarkan peran sehingga setiap pengguna hanya dapat mengakses fitur dan data sesuai dengan kewenangannya."
+        title: "Autentikasi dan Role-Based Access Control",
+        description: "Mengatur hak akses pengguna berdasarkan peran, seperti superadmin, admin, dan user desa, sehingga setiap pengguna hanya dapat mengakses fitur sesuai kewenangannya."
       },
       {
-        title: "Dashboard Rekapitulasi Data",
-        description: "Menyajikan ringkasan dan rekapitulasi data dalam bentuk dashboard interaktif untuk memudahkan pemantauan kondisi dan perkembangan data setiap desa."
+        title: "Rekapitulasi dan Pelaporan Data",
+        description: "Menyediakan fitur rekap data lintas desa dan kecamatan dengan filter yang memudahkan proses pemantauan dan penyusunan laporan."
       },
       {
-        title: "Ekspor Laporan",
-        description: "Memungkinkan pengguna menghasilkan laporan dalam format PDF maupun Excel sehingga data dapat digunakan untuk kebutuhan administrasi, dokumentasi, dan pelaporan."
+        title: "Ekspor Dokumen",
+        description: "Memungkinkan pengguna menghasilkan laporan dalam format PDF dan Excel untuk kebutuhan administrasi, dokumentasi, dan distribusi data."
       },
       {
-        title: "Manajemen Master Data",
-        description: "Menyediakan fitur pengelolaan data pendukung seperti pengguna, menu aplikasi, kategori data, dan tahun anggaran agar seluruh informasi tetap konsisten dan terstruktur."
+        title: "Manajemen Pengguna dan Tahun Anggaran",
+        description: "Menyediakan pengelolaan data pengguna, menu aplikasi, dan periode tahun anggaran agar sistem tetap terstruktur dan mudah dikelola."
       }
     ],
     gallery: [
