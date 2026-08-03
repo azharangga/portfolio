@@ -22,6 +22,12 @@ import {
 } from "@/data/project-details";
 import { slugify } from "@/lib/slugify";
 import { cn } from "@/lib/utils";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 export default function ProjectDetailClient({ slug }: { slug: string }) {
   const { lang, setLang, resumeData } = useLanguage();
@@ -31,6 +37,11 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
   const [avatarErrors, setAvatarErrors] = useState<Record<string, boolean>>({});
+  const [avatarLoading, setAvatarLoading] = useState<Record<string, boolean>>({});
+  const [galleryLoading, setGalleryLoading] = useState<Record<number, boolean>>({});
+  const [galleryErrors, setGalleryErrors] = useState<Record<number, boolean>>({});
+  const [relatedLoading, setRelatedLoading] = useState<Record<number, boolean>>({});
+  const [relatedErrors, setRelatedErrors] = useState<Record<number, boolean>>({});
 
   // Language Dropdown state
   const [langDropdownOpen, setLangDropdownOpen] = useState(false);
@@ -377,25 +388,24 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
               <p className="text-lg sm:text-xl text-muted-foreground font-medium max-w-2xl leading-relaxed">{detail.tagline}</p>
             </div>
 
-            {/* Meta Info Bar: Role, Duration, Project Type, Category */}
+            {/* Meta Info Bar: Role, Project Type, Category, Duration (Far Right) */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 p-4 border rounded-xl bg-muted/10">
               <div className="flex items-center gap-3">
                 <div className="p-2 rounded-lg bg-muted border flex-shrink-0">
                   <User className="size-4 text-foreground/80" />
                 </div>
-                <div className="min-w-0">
+                <div className="min-w-0 flex-1">
                   <span className="text-[10px] uppercase font-bold text-muted-foreground/70 tracking-wider block">{isId ? "Peran" : "Role"}</span>
-                  <p className="text-xs font-semibold text-foreground truncate">{detail.role}</p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded-lg bg-muted border flex-shrink-0">
-                  <Clock className="size-4 text-foreground/80" />
-                </div>
-                <div className="min-w-0">
-                  <span className="text-[10px] uppercase font-bold text-muted-foreground/70 tracking-wider block">{isId ? "Durasi" : "Duration"}</span>
-                  <p className="text-xs font-semibold text-foreground truncate">{detail.duration || (isId ? "1 Bulan" : "1 Month")}</p>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <p className="text-xs font-semibold text-foreground truncate cursor-default">{detail.role}</p>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p className="text-xs">{detail.role}</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
                 </div>
               </div>
 
@@ -403,7 +413,7 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
                 <div className="p-2 rounded-lg bg-muted border flex-shrink-0">
                   <FolderGit2 className="size-4 text-foreground/80" />
                 </div>
-                <div className="min-w-0">
+                <div className="min-w-0 flex-1">
                   <span className="text-[10px] uppercase font-bold text-muted-foreground/70 tracking-wider block">{isId ? "Tipe Proyek" : "Project Type"}</span>
                   <p className="text-xs font-semibold text-foreground truncate">{detail.type}</p>
                 </div>
@@ -413,9 +423,19 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
                 <div className="p-2 rounded-lg bg-muted border flex-shrink-0">
                   <Tag className="size-4 text-foreground/80" />
                 </div>
-                <div className="min-w-0">
+                <div className="min-w-0 flex-1">
                   <span className="text-[10px] uppercase font-bold text-muted-foreground/70 tracking-wider block">{isId ? "Kategori" : "Category"}</span>
                   <p className="text-xs font-semibold text-foreground truncate">{displayCategory}</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div className="p-2 rounded-lg bg-muted border flex-shrink-0">
+                  <Clock className="size-4 text-foreground/80" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <span className="text-[10px] uppercase font-bold text-muted-foreground/70 tracking-wider block">{isId ? "Durasi" : "Duration"}</span>
+                  <p className="text-xs font-semibold text-foreground truncate">{detail.duration || (isId ? "1 Bulan" : "1 Month")}</p>
                 </div>
               </div>
             </div>
@@ -579,18 +599,33 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
                     .substring(0, 2)
                     .toUpperCase();
 
+                  const isMemberLoading = avatarLoading[member.name] ?? true;
+                  const isMemberError = avatarErrors[member.name] || !member.avatar;
+
                   return (
                     <div key={idx} className="border rounded-xl p-4 bg-muted/5 flex items-center gap-3.5 hover:border-foreground/20 transition-all">
                       {/* CIRCLE AVATAR */}
                       <div className="relative size-11 rounded-full overflow-hidden flex-shrink-0 bg-primary/10 border border-primary/20 flex items-center justify-center">
-                        {member.avatar && !avatarErrors[member.name] ? (
-                          <Image
-                            src={member.avatar}
-                            alt={member.name}
-                            fill
-                            className="object-cover"
-                            onError={() => setAvatarErrors((prev) => ({ ...prev, [member.name]: true }))}
-                          />
+                        {!isMemberError ? (
+                          <>
+                            {isMemberLoading && (
+                              <div className="absolute inset-0 premium-shimmer z-10" />
+                            )}
+                            <Image
+                              src={member.avatar!}
+                              alt={member.name}
+                              fill
+                              className={cn(
+                                "object-cover transition-opacity duration-300",
+                                isMemberLoading ? "opacity-0" : "opacity-100"
+                              )}
+                              onLoad={() => setAvatarLoading((prev) => ({ ...prev, [member.name]: false }))}
+                              onError={() => {
+                                setAvatarLoading((prev) => ({ ...prev, [member.name]: false }));
+                                setAvatarErrors((prev) => ({ ...prev, [member.name]: true }));
+                              }}
+                            />
+                          </>
                         ) : (
                           <span className="text-xs font-bold text-primary">{initials}</span>
                         )}
@@ -632,39 +667,65 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
             </section>
           )}
 
-          {/* 6. PROJECT GALLERY (2 Images per Row Grid, Full fit without cropping, with Screen Name Box) */}
+          {/* 6. PROJECT GALLERY */}
           <section id="gallery" className="space-y-6 scroll-mt-24">
             <h2 className="text-xl sm:text-2xl font-bold tracking-tight border-b pb-2">
               {isId ? "Galeri Proyek" : "Project Gallery"}
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {galleryImages.map((item, idx) => (
-                <div 
-                  key={idx} 
-                  className="group border rounded-xl overflow-hidden bg-muted/5 p-3 space-y-3 cursor-pointer hover:border-foreground/40 transition-all duration-300 flex flex-col justify-between"
-                  onClick={() => setLightboxImage(item.image)}
-                >
-                  <div className="relative w-full aspect-[16/10] bg-muted/40 rounded-lg overflow-hidden border flex items-center justify-center">
-                    <Image 
-                      src={item.image} 
-                      alt={item.title || `Gallery screenshot ${idx + 1}`} 
-                      fill 
-                      className="object-contain hover:scale-[1.02] transition-transform duration-300"
-                    />
-                  </div>
+              {galleryImages.map((item, idx) => {
+                const isImgLoading = galleryLoading[idx] ?? true;
+                const isImgError = galleryErrors[idx] || !item.image;
 
-                  <div className="pt-1 px-1 space-y-1">
-                    <span className="text-[9px] font-bold uppercase tracking-wider text-muted-foreground/70 border px-1.5 py-0.5 rounded bg-muted/20">
-                      {isId ? `Tampilan ${idx + 1}` : `Screen ${idx + 1}`}
-                    </span>
-                    <h4 className="text-xs font-bold text-foreground group-hover:text-primary transition-colors">{item.title}</h4>
-                    {item.caption && (
-                      <p className="text-[11px] text-muted-foreground leading-relaxed">{item.caption}</p>
-                    )}
+                return (
+                  <div 
+                    key={idx} 
+                    className="group border rounded-xl overflow-hidden bg-card p-3 space-y-3 cursor-pointer hover:border-foreground/40 transition-all duration-300 flex flex-col justify-between"
+                    onClick={() => !isImgError && setLightboxImage(item.image)}
+                  >
+                    <div className="relative w-full rounded-lg overflow-hidden border bg-background flex items-center justify-center min-h-[160px]">
+                      {!isImgError ? (
+                        <>
+                          {isImgLoading && (
+                            <div className="absolute inset-0 min-h-[180px] premium-shimmer z-10" />
+                          )}
+                          <Image 
+                            src={item.image} 
+                            alt={item.title || `Gallery screenshot ${idx + 1}`} 
+                            width={1200}
+                            height={750}
+                            className={cn(
+                              "w-full h-auto object-contain dark:brightness-[0.95] group-hover:scale-[1.01] transition-all duration-300",
+                              isImgLoading ? "opacity-0" : "opacity-100"
+                            )}
+                            onLoad={() => setGalleryLoading((prev) => ({ ...prev, [idx]: false }))}
+                            onError={() => {
+                              setGalleryLoading((prev) => ({ ...prev, [idx]: false }));
+                              setGalleryErrors((prev) => ({ ...prev, [idx]: true }));
+                            }}
+                          />
+                        </>
+                      ) : (
+                        <div className="py-12 flex flex-col items-center justify-center gap-2 text-muted-foreground/50">
+                          <FolderGit2 className="size-10" />
+                          <span className="text-xs">{isId ? "Gambar tidak tersedia" : "Image unavailable"}</span>
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="pt-1 px-1 space-y-1">
+                      <span className="text-[9px] font-bold uppercase tracking-wider text-muted-foreground/70 border px-1.5 py-0.5 rounded bg-muted/20">
+                        {isId ? `Tampilan ${idx + 1}` : `Screen ${idx + 1}`}
+                      </span>
+                      <h4 className="text-xs font-bold text-foreground group-hover:text-primary transition-colors">{item.title}</h4>
+                      {item.caption && (
+                        <p className="text-[11px] text-muted-foreground leading-relaxed">{item.caption}</p>
+                      )}
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </section>
 
@@ -702,23 +763,49 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
                 {isId ? "PROYEK LAINNYA" : "OTHER PROJECTS"}
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                {relatedProjects.map((p, idx) => (
-                  <Link href={`/projects/${slugify(p.title)}`} key={idx} className="group border rounded-xl overflow-hidden bg-muted/5 hover:border-foreground/40 hover:shadow-sm transition-all duration-300 flex flex-col justify-between">
-                    <div className="relative aspect-[16/10] bg-muted/30 w-full overflow-hidden flex items-center justify-center p-1.5">
-                      {p.image ? (
-                        <Image src={p.image} alt={p.title} fill className="object-contain p-1.5 dark:brightness-[0.95] group-hover:scale-105 transition-transform duration-300" />
-                      ) : (
-                        <div className="absolute inset-0 flex items-center justify-center text-[10px]">No Image</div>
-                      )}
-                    </div>
-                    <div className="p-3 space-y-1 bg-background/50 border-t">
-                      <span className="text-[8px] uppercase font-bold text-muted-foreground px-1.5 py-0.5 border rounded-md bg-muted/20">
-                        {p.category.replace(/&/g, "and")}
-                      </span>
-                      <h4 className="text-xs font-bold text-foreground group-hover:text-primary transition-colors line-clamp-1">{p.title}</h4>
-                    </div>
-                  </Link>
-                ))}
+                {relatedProjects.map((p, idx) => {
+                  const isRelLoading = relatedLoading[idx] ?? true;
+                  const isRelError = relatedErrors[idx] || !p.image;
+
+                  return (
+                    <Link href={`/projects/${slugify(p.title)}`} key={idx} className="group border rounded-xl overflow-hidden bg-muted/5 hover:border-foreground/40 hover:shadow-sm transition-all duration-300 flex flex-col justify-between">
+                      <div className="relative aspect-[16/10] bg-muted/30 w-full overflow-hidden flex items-center justify-center p-1.5">
+                        {!isRelError ? (
+                          <>
+                            {isRelLoading && (
+                              <div className="absolute inset-0 premium-shimmer z-10" />
+                            )}
+                            <Image 
+                              src={p.image!} 
+                              alt={p.title} 
+                              fill 
+                              className={cn(
+                                "object-contain p-1.5 dark:brightness-[0.95] group-hover:scale-105 transition-all duration-300",
+                                isRelLoading ? "opacity-0" : "opacity-100"
+                              )} 
+                              onLoad={() => setRelatedLoading((prev) => ({ ...prev, [idx]: false }))}
+                              onError={() => {
+                                setRelatedLoading((prev) => ({ ...prev, [idx]: false }));
+                                setRelatedErrors((prev) => ({ ...prev, [idx]: true }));
+                              }}
+                            />
+                          </>
+                        ) : (
+                          <div className="absolute inset-0 flex items-center justify-center text-[10px] text-muted-foreground/40 flex-col gap-1">
+                            <FolderGit2 className="size-6" />
+                            <span>No Image</span>
+                          </div>
+                        )}
+                      </div>
+                      <div className="p-3 space-y-1 bg-background/50 border-t">
+                        <span className="text-[8px] uppercase font-bold text-muted-foreground px-1.5 py-0.5 border rounded-md bg-muted/20">
+                          {p.category.replace(/&/g, "and")}
+                        </span>
+                        <h4 className="text-xs font-bold text-foreground group-hover:text-primary transition-colors line-clamp-1">{p.title}</h4>
+                      </div>
+                    </Link>
+                  );
+                })}
               </div>
             </section>
           )}
