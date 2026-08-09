@@ -168,7 +168,7 @@ export const PROJECT_DETAILS_EN: Record<string, ProjectDetail> = {
     coverImage: "/projects/dramova.png",
     category: "Web Development",
     role: "Full Stack Developer",
-    duration: "-",
+    duration: "Ongoing",
     type: "Personal",
     links: {
       website: "https://dramova.projectshowcase.web.id",
@@ -310,7 +310,7 @@ export const PROJECT_DETAILS_EN: Record<string, ProjectDetail> = {
     coverImage: "/projects/siakad-ikmi.png",
     category: "Web Development",
     role: "Full Stack Developer",
-    duration: "7 Months",
+    duration: "4 Months",
     type: "Personal",
     links: {
       website: "https://siakad-ikmi.projectshowcase.web.id",

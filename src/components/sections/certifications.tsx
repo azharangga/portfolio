@@ -14,7 +14,7 @@ export function CertificationsSection() {
   const [showAll, setShowAll] = useState(false);
   const { resumeData, t, lang } = useLanguage();
 
-  const groupedCertifications = resumeData.certifications.reduce(
+  const groupedCertifications = resumeData.certifications.filter((item) => Boolean(item.active)).reduce(
     (acc: GroupedCertification[], item) => {
       const existingGroup = acc.find((group) => group.school === item.school);
       if (existingGroup) {

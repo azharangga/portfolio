@@ -13,7 +13,7 @@ export function ExperienceSection() {
         <BlurFade delay={WORK_DELAY}>
           <h2 className="text-xl font-bold">{t("experience")}</h2>
         </BlurFade>
-        {resumeData.work.map((work, id) => (
+        {resumeData.work.filter((work) => Boolean(work.active)).map((work, id) => (
           <BlurFade key={work.company + id} delay={WORK_DELAY + id * 0.05}>
             <ResumeCard
               logoUrl={work.logoUrl}

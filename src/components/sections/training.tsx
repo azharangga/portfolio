@@ -14,7 +14,7 @@ export function TrainingSection() {
   const [showAll, setShowAll] = useState(false);
   const { resumeData, t, lang } = useLanguage();
 
-  const groupedTrainings = resumeData.training.reduce(
+  const groupedTrainings = resumeData.training.filter((item) => Boolean(item.active)).reduce(
     (acc: GroupedTraining[], item) => {
       const existingGroup = acc.find((group) => group.school === item.school);
       if (existingGroup) {

@@ -2,12 +2,12 @@ import { DATA } from "@/data/resume";
 
 export type ResumeData = typeof DATA;
 
-export type ProjectItem = (typeof DATA.projects)[number];
-export type ExperienceItem = (typeof DATA.work)[number];
-export type EducationItem = (typeof DATA.education)[number];
-export type TrainingItem = (typeof DATA.training)[number];
-export type CertificationItem = (typeof DATA.certifications)[number];
-export type AchievementItem = (typeof DATA.achievements)[number];
+export type ProjectItem = (typeof DATA.projects)[number] & { active?: boolean };
+export type ExperienceItem = (typeof DATA.work)[number] & { active?: boolean };
+export type EducationItem = (typeof DATA.education)[number] & { active?: boolean };
+export type TrainingItem = (typeof DATA.training)[number] & { active?: boolean };
+export type CertificationItem = (typeof DATA.certifications)[number] & { active?: boolean };
+export type AchievementItem = (typeof DATA.achievements)[number] & { active?: boolean };
 
 export interface GroupedTraining {
   school: string;

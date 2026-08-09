@@ -14,7 +14,7 @@ export function AchievementsSection() {
   const [showAll, setShowAll] = useState(false);
   const { resumeData, t, lang } = useLanguage();
 
-  const groupedAchievements = resumeData.achievements.reduce(
+  const groupedAchievements = resumeData.achievements.filter((item) => Boolean(item.active)).reduce(
     (acc: GroupedAchievement[], item) => {
       const existingGroup = acc.find((group) => group.school === item.school);
       if (existingGroup) {

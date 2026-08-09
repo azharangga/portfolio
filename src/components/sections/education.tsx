@@ -13,7 +13,7 @@ export function EducationSection() {
         <BlurFade delay={EDUCATION_DELAY}>
           <h2 className="text-xl font-bold">{t("education")}</h2>
         </BlurFade>
-        {resumeData.education.map((education, id) => (
+        {resumeData.education.filter((education) => Boolean(education.active)).map((education, id) => (
           <BlurFade
             key={education.school + id}
             delay={EDUCATION_DELAY + id * 0.05}

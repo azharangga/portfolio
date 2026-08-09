@@ -159,6 +159,7 @@ export const DATA_EN = {
       logoUrl: "/experience/kominfo.png",
       start: "Oct 2024",
       end: "Feb 2025",
+      active: true,
       description:
         "* Developed the web-based PUSDATIN system using PHP to support centralized village data management within the Cirebon Regency Government. \n* Built responsive web interfaces using Bootstrap and implemented features aligned with user requirements and business workflows. \n* Collaborated with team members and stakeholders throughout the development lifecycle, from requirement analysis to system deployment, to improve data management and reporting efficiency.",
       certificateUrl: "https://drive.google.com/file/d/1bNTTF7H-rkfqopBtnezoZMhOhUhUnS1T/view?usp=sharing",
@@ -174,6 +175,7 @@ export const DATA_EN = {
       logoUrl: "/experience/niagahoster.jpg",
       start: "Jun 2023",
       end: "Jun 2023",
+      active: true,
       description:
         "* Conducted user research, mapped user journeys, and identified user needs to serve as the foundation for interface design. \n* Designed wireframes, prototypes, and user interfaces aligned with visual identity guidelines and business requirements. \n* Applied UI/UX principles, including typography, color theory, and page layout, to deliver intuitive and user-friendly designs.",
       certificateUrl: "https://drive.google.com/file/d/198p42e1kGSQyi426QO278_13prFzPjkU/view?usp=sharing",
@@ -189,6 +191,7 @@ export const DATA_EN = {
       logoUrl: "/experience/coreinitiative.jpg",
       start: "Nov 2022",
       end: "Nov 2022",
+      active: true,
       description:
         "* Developed responsive web interfaces using React.js, Vue.js, Bootstrap, and Tailwind CSS according to project specifications. \n* Integrated REST APIs and utilized Git for version control to ensure smooth team collaboration and code management. \n* Implemented modern development practices including unit testing with Jest and gained hands-on experience with CI/CD pipelines using Docker.",
       certificateUrl: "https://drive.google.com/file/d/1jOhds0MX-ZQAU7bbCNu2qr9jJ-YIGQJM/view?usp=sharing",
@@ -204,6 +207,7 @@ export const DATA_EN = {
       logoUrl: "/experience/bonet.png",
       start: "Oct 2020",
       end: "Dec 2020",
+      active: true,
       description:
         "* Monitored network systems and internet services via the Network Operations Center (NOC) using The Dude to ensure stability and perform initial troubleshooting. \n* Configured, troubleshot, and maintained network devices using MikroTik RouterOS, Winbox, PuTTY, SSH, and Telnet to support operational network services. \n* Collaborated with field technicians in the installation, configuration, and testing of network devices, Access Points, CCTV systems, and network infrastructure to ensure service quality.",
       certificateUrl: "https://drive.google.com/file/d/1_zIvXzQ8KY6SV1zUtMmR3-o2Apc06b7m/view?usp=sharing",
@@ -219,6 +223,7 @@ export const DATA_EN = {
       logoUrl: "/experience/grandcomputer.jpg",
       start: "Jan 2019",
       end: "Jan 2019",
+      active: true,
       description:
         "* Installed Windows operating systems, device drivers, and software applications on new laptops and desktop computers according to customer requirements. \n* Assembled custom PC builds based on customer specifications and tested hardware components to ensure proper functionality before delivery. \n* Assisted the technical team in diagnosing, troubleshooting, and repairing desktop computers and laptops to ensure customer satisfaction.",
       certificateUrl: "https://drive.google.com/file/d/1neiZZq6rs418S9i5W8r6k9uu0DATAZt5/view?usp=sharing",
@@ -234,6 +239,7 @@ export const DATA_EN = {
       logoUrl: "/education/ikmi.png",
       start: "2022",
       end: "2026",
+      active: true,
       gpa: "3.46 / 4.00",
     },
     {
@@ -244,6 +250,7 @@ export const DATA_EN = {
       logoUrl: "/education/smkmla.png",
       start: "2017",
       end: "2020",
+      active: true,
       gpa: "84.38 / 100",
     },
   ],
@@ -256,6 +263,7 @@ export const DATA_EN = {
       logoUrl: "/training/codingcamp.jpg",
       start: "Feb 2026",
       end: "Jul 2026",
+      active: true,
       location: "Online",
       description:
         "Participated in the Coding Camp 2026 organized by DBS Foundation, specializing in the AI Engineer learning path. Gained hands-on experience in machine learning development, focusing on deep learning and artificial intelligence concepts along with their practical implementation.",
@@ -271,6 +279,7 @@ export const DATA_EN = {
       logoUrl: "/training/bdt.png",
       start: "Apr 2026",
       end: "May 2026",
+      active: true,
       location: "Online",
       description:
         "Completed the creative digital talent development program initiated by the government to enhance the capabilities of AI developers. Focused on AI Productivity by completing Practical AI for Productivity and Learning to Use Generative AI classes.",
@@ -285,6 +294,7 @@ export const DATA_EN = {
       logoUrl: "/training/smkdev.png",
       start: "Oct 2023",
       end: "Dec 2023",
+      active: true,
       location: "Online",
       description:
         "Completed an intensive Frontend Developer bootcamp scholarship, focusing on modern web development using Tailwind, React, and Next.js. Learned best practices in building responsive, accessible, and component-based user interfaces through live classes, coding challenges, and project-based learning.",
@@ -310,6 +320,7 @@ export const DATA_EN = {
       logoUrl: "/training/infradigitalfoundation.png",
       start: "Aug 2023",
       end: "Sep 2023",
+      active: true,
       location: "Online",
       description:
         "Completed the Ready4Security Indonesia training program, gaining foundational knowledge in cybersecurity, including threat identification, secure practices, and risk prevention. Participated in hands-on sessions designed to build awareness and essential security skills.",
@@ -324,6 +335,7 @@ export const DATA_EN = {
       logoUrl: "/training/digitalent.png",
       start: "Jul 2024",
       end: "Aug 2024",
+      active: true,
       location: "Online",
       description:
         "Completed the VSGA training program for Junior Web Developers based on SKKNI standards. Acquired competencies in building and managing web applications using HTML, CSS, and PHP, including database management with MySQL and implementation of responsive user interfaces.",
@@ -349,6 +361,7 @@ export const DATA_EN = {
       logoUrl: "/training/digitalent.png",
       start: "Sep 2023",
       end: "Sep 2023",
+      active: true,
       location: "Kuningan, West Java, Indonesia",
       description:
         "Completed the Vocational School Graduate Academy (VSGA) training based on the Indonesian National Work Competency Standards (SKKNI). Gained practical skills in configuring network devices, designing IP addressing schemes, setting up wireless networks, and managing routing and switching systems.",
@@ -379,6 +392,7 @@ export const DATA_EN = {
       logoUrl: "/training/coursera2.png",
       start: "14 Oct 2023",
       end: "14 Oct 2023",
+      active: true,
       location: "Online",
       description:
         "Completed the Meta - React Basics course on Coursera, gaining solid foundational knowledge in React development. Covered core concepts such as component creation, props, state management, event handling, and utilizing built-in React hooks to build interactive web interfaces.",
@@ -393,6 +407,7 @@ export const DATA_EN = {
       logoUrl: "/training/coursera2.png",
       start: "10 Jun 2023",
       end: "10 Jun 2023",
+      active: true,
       location: "Online",
       description:
         "Completed the Google - Technical Support Fundamentals course on Coursera, covering essential IT support foundations. Acquired knowledge in troubleshooting methodologies, customer service best practices, computer networks, operating systems, system administration, and security principles.",
@@ -407,6 +422,7 @@ export const DATA_EN = {
       logoUrl: "/training/dicoding.png",
       start: "03 Oct 2023",
       end: "03 Oct 2023",
+      active: true,
       location: "Online",
       description:
         "Completed the React course on Dicoding, learning essential skills to build dynamic web applications with React. Gained deep understanding of components, element rendering, props, state management, handling user events, and working with simple data flows in a single-page application structure.",
@@ -421,6 +437,7 @@ export const DATA_EN = {
       logoUrl: "/training/dicoding.png",
       start: "02 Oct 2023",
       end: "02 Oct 2023",
+      active: true,
       location: "Online",
       description:
         "Completed the Basic Web Programming course on Dicoding, acquiring core knowledge in front-end web development. Learned DOM manipulation, event listener handling, and persistent data storage using Web Storage APIs to create functional, interactive, and responsive websites.",
@@ -435,6 +452,7 @@ export const DATA_EN = {
       logoUrl: "/training/dicoding.png",
       start: "01 Oct 2023",
       end: "01 Oct 2023",
+      active: true,
       location: "Online",
       description:
         "Completed the Basic JavaScript course on Dicoding, gaining robust programming fundamentals. Learned variables, control flow, functions, object-oriented concepts, modern ES6 features, and writing basic unit tests to ensure application logic correctness.",
@@ -449,6 +467,7 @@ export const DATA_EN = {
       logoUrl: "/training/dicoding.png",
       start: "03 Jun 2023",
       end: "03 Jun 2023",
+      active: true,
       location: "Online",
       description:
         "Completed the Basic SQL course on Dicoding, mastering relational database query fundamentals. Acquired skills in data definition language (DDL), data manipulation language (DML), using built-in functions, performing table joins, and optimizing basic database queries.",
@@ -463,6 +482,7 @@ export const DATA_EN = {
       logoUrl: "/training/oracle.jpg",
       start: "19 Jan 2023",
       end: "19 Jan 2023",
+      active: true,
       location: "Online",
       description:
         "Completed the Database Design course at Oracle Academy, gaining foundational expertise in relational database modeling. Learned how to analyze business requirements, draw Entity-Relationship Diagrams (ERD), perform database normalization, and implement robust schema designs.",
@@ -477,6 +497,7 @@ export const DATA_EN = {
       logoUrl: "/training/oracle.jpg",
       start: "11 Jan 2023",
       end: "11 Jan 2023",
+      active: true,
       location: "Online",
       description:
         "Completed the Database Programming with SQL course at Oracle Academy, developing practical skills in database querying and manipulation. Learned advanced SELECT queries, data filtering, multi-table joins, subqueries, group functions, and executing transactional database operations.",
@@ -491,6 +512,7 @@ export const DATA_EN = {
       logoUrl: "/training/cisco.jpg",
       start: "09 Oct 2023",
       end: "09 Oct 2023",
+      active: true,
       location: "Online",
       description:
         "Completed the CyberOps Associate program at Cisco Networking Academy, gaining foundational knowledge in cybersecurity operations. Studied threat intelligence, network monitoring tools, security concepts, cryptography, host-based analysis, and basic security incident response protocols.",
@@ -505,6 +527,7 @@ export const DATA_EN = {
       logoUrl: "/training/cisco.jpg",
       start: "24 May 2023",
       end: "24 May 2023",
+      active: true,
       location: "Online",
       description:
         "Completed advanced CCNA training at Cisco Networking Academy, focusing on enterprise-scale networking. Developed skills in configuring OSPF, WAN architectures, network security concepts, access control lists (ACLs), network address translation (NAT), and modern network automation solutions.",
@@ -519,6 +542,7 @@ export const DATA_EN = {
       logoUrl: "/training/cisco.jpg",
       start: "31 Dec 2022",
       end: "31 Dec 2022",
+      active: true,
       location: "Online",
       description:
         "Completed the Switching, Routing, and Wireless Essentials CCNA course at Cisco Networking Academy. Gained hands-on competency in configuring VLANs, inter-VLAN routing, redundant network protocols (STP/EtherChannel), DHCP, WLAN security, and basic routing concepts.",
@@ -533,6 +557,7 @@ export const DATA_EN = {
       logoUrl: "/training/cisco.jpg",
       start: "02 Aug 2022",
       end: "02 Aug 2022",
+      active: true,
       location: "Online",
       description:
         "Completed the Introduction to Networks course at Cisco Networking Academy, learning networking architectures, physical layer connections, protocols, Ethernet operations, IPv4/IPv6 addressing schemes, subnetting, and initial switch/router setup procedures.",
@@ -547,6 +572,7 @@ export const DATA_EN = {
       logoUrl: "/training/cisco.jpg",
       start: "30 Jan 2022",
       end: "30 Jan 2022",
+      active: true,
       location: "Online",
       description:
         "Completed the PCAP (Programming Essentials in Python) course at Cisco Networking Academy. Built core programming logic, mastering variables, loops, conditional execution, lists/tuples, functions, module organization, exception handling, and object-oriented paradigms in Python.",
@@ -561,6 +587,7 @@ export const DATA_EN = {
       logoUrl: "/training/rapidminer.png",
       start: "24 May 2023",
       end: "24 May 2023",
+      active: true,
       location: "Online",
       description:
         "Completed the Data Engineering Professional training program at RapidMiner Academy. Gained expertise in data preparation, ETL (Extract, Transform, Load) pipelines, data integration, and constructing automated data workflows to support downstream analytics, reporting, and machine learning models.",
@@ -575,6 +602,7 @@ export const DATA_EN = {
       logoUrl: "/training/icsi.png",
       start: "22 May 2020",
       end: "22 May 2020",
+      active: false,
       location: "Online",
       description:
         "Completed the CNSS (Certified Network Security Specialist) training program at International CyberSecurity Institute (ICSI). Studied key cybersecurity areas such as firewall configurations, network topologies, encryption standards, threat intelligence, data access controls, and risk management guidelines.",
@@ -591,6 +619,7 @@ export const DATA_EN = {
       logoUrl: "/certifications/bnsp.jpg",
       start: "Aug 2024",
       end: "Aug 2024",
+      active: true,
       location: "Online",
       description:
         "Earned the Junior Web Developer professional competency certification issued by BNSP (Badan Nasional Sertifikasi Profesi) based on the Indonesian National Work Competency Standards (SKKNI). Certified competency covers building web applications using modern languages, database management, and implementing secure coding practices.",
@@ -605,6 +634,7 @@ export const DATA_EN = {
       logoUrl: "/certifications/bnsp.jpg",
       start: "Sep 2023",
       end: "Sep 2023",
+      active: true,
       location: "Kuningan, West Java, Indonesia",
       description:
         "Earned the Junior Network Administrator professional competency certification issued by BNSP (Badan Nasional Sertifikasi Profesi) based on the Indonesian National Work Competency Standards (SKKNI). Certified competency covers configuring routers and network devices, subnetting, cabling, and basic network administration tasks.",
@@ -619,6 +649,7 @@ export const DATA_EN = {
       logoUrl: "/certifications/mikrotik.png",
       start: "20 Jul 2019",
       end: "20 Jul 2019",
+      active: true,
       location: "Cirebon, West Java, Indonesia",
       description:
         "Earned the MikroTik Certified Network Associate (MTCNA) certification, covering basic computer network concepts as well as configuration and management of MikroTik RouterOS devices for small to medium scale network needs.",
@@ -652,6 +683,7 @@ export const DATA_EN = {
       logoUrl: "/achievements/sisfotek.png",
       start: "14 Sep 2025",
       end: "14 Sep 2025",
+      active: true,
       location: "Online",
       description:
         "Published and presented a research paper titled 'Comparative Analysis of Rice Leaf Disease Classification Models Based on MobileNetV2' at the SISFOTEK 2025 National Seminar. Served as team leader and first author, coordinating the study and presenting the findings.",
@@ -677,6 +709,7 @@ export const DATA_EN = {
       logoUrl: "/experience/kominfo.png",
       start: "Feb 2025",
       end: "Feb 2025",
+      active: true,
       location: "Cirebon, West Java, Indonesia",
       description:
         "Awarded Most Innovative Intern for exceptional contributions, innovation, and dedication during the internship. Recognized for active participation in web development projects and collaborative efforts to support regional digital services.",
@@ -691,6 +724,7 @@ export const DATA_EN = {
       logoUrl: "/achievements/undiksha.png",
       start: "Feb 2024",
       end: "Jul 2024",
+      active: true,
       location: "Buleleng, Bali, Indonesia",
       description:
         "Selected for the Pertukaran Mahasiswa Merdeka (PMM) Batch 4 program at Universitas Pendidikan Ganesha, organized by the Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi Republik Indonesia. Engaged in cross-disciplinary learning and intercultural collaboration, serving as the design coordinator for the Nusantara Module. Additionally, led a social contribution project at LKSA Widhya Asih Singaraja as the Reading Corner Coordinator, overseeing library redevelopment, digital collection setup, and visual environment design.",
