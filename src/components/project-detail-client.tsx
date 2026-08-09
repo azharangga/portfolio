@@ -382,8 +382,8 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
       <main className="max-w-[1200px] mx-auto px-6 pt-8 grid grid-cols-1 lg:grid-cols-[250px_1fr] gap-12">
         
         {/* SIDEBAR NAVIGATION (Desktop) */}
-        <aside className="hidden lg:block sticky top-24 self-start max-h-[calc(100vh-120px)] overflow-y-auto pr-4">
-          <BlurFade delay={BLUR_FADE_DELAY}>
+        <aside className="hidden lg:block sticky top-24 self-start max-h-[calc(100vh-120px)] overflow-y-auto pt-2 pr-4">
+          <BlurFade delay={BLUR_FADE_DELAY} yOffset={0}>
             <div className="mb-4">
               <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground/70 mb-2">
                 {isId ? "Navigasi Proyek" : "Project Navigation"}

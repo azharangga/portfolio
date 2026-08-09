@@ -59,6 +59,7 @@ import { Toaster } from "sonner";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { LanguageProvider } from "@/context/language-context";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { PageTransitionLoader } from "@/components/layout/page-transition-loader";
 
 export default function RootLayout({
   children,
@@ -77,6 +78,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="light">
           <LanguageProvider>
             <TooltipProvider delayDuration={0}>
+              <PageTransitionLoader />
               {children}
               <Toaster richColors position="top-right" />
             </TooltipProvider>
@@ -85,4 +87,4 @@ export default function RootLayout({
       </body>
     </html>
   );
-}
+}
