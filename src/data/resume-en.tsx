@@ -36,7 +36,6 @@ import {
   SiStreamlit,
 } from "react-icons/si";
 
-
 export interface GalleryItem {
   image: string;
   caption: string;
@@ -47,7 +46,8 @@ export const DATA_EN = {
   name: "Azharangga Kusuma",
   initials: "AK",
   url: "https://azharangga.me",
-  resumeUrl: "https://drive.google.com/file/d/13EqsJGtofkR5V49OZ43egybYCF6hYttW/view?usp=sharing", 
+  resumeUrl:
+    "https://drive.google.com/file/d/1Q9KJKZq_Dkq6uqKMGgVsPWk6YmaUk0ZB/view?usp=sharing",
   location: "Cirebon, Indonesia",
   locationLink: "",
   showOpenSourceBadge: false, // Set to false to hide "Open Source" / "Closed Source" badges across all project cards
@@ -162,7 +162,8 @@ export const DATA_EN = {
       active: true,
       description:
         "* Developed the web-based PUSDATIN system using PHP to support centralized village data management within the Cirebon Regency Government. \n* Built responsive web interfaces using Bootstrap and implemented features aligned with user requirements and business workflows. \n* Collaborated with team members and stakeholders throughout the development lifecycle, from requirement analysis to system deployment, to improve data management and reporting efficiency.",
-      certificateUrl: "https://drive.google.com/file/d/1bNTTF7H-rkfqopBtnezoZMhOhUhUnS1T/view?usp=sharing",
+      certificateUrl:
+        "https://drive.google.com/file/d/1bNTTF7H-rkfqopBtnezoZMhOhUhUnS1T/view?usp=sharing",
       gallery: [],
     },
     {
@@ -178,7 +179,8 @@ export const DATA_EN = {
       active: true,
       description:
         "* Conducted user research, mapped user journeys, and identified user needs to serve as the foundation for interface design. \n* Designed wireframes, prototypes, and user interfaces aligned with visual identity guidelines and business requirements. \n* Applied UI/UX principles, including typography, color theory, and page layout, to deliver intuitive and user-friendly designs.",
-      certificateUrl: "https://drive.google.com/file/d/198p42e1kGSQyi426QO278_13prFzPjkU/view?usp=sharing",
+      certificateUrl:
+        "https://drive.google.com/file/d/198p42e1kGSQyi426QO278_13prFzPjkU/view?usp=sharing",
       gallery: [],
     },
     {
@@ -194,7 +196,8 @@ export const DATA_EN = {
       active: true,
       description:
         "* Developed responsive web interfaces using React.js, Vue.js, Bootstrap, and Tailwind CSS according to project specifications. \n* Integrated REST APIs and utilized Git for version control to ensure smooth team collaboration and code management. \n* Implemented modern development practices including unit testing with Jest and gained hands-on experience with CI/CD pipelines using Docker.",
-      certificateUrl: "https://drive.google.com/file/d/1jOhds0MX-ZQAU7bbCNu2qr9jJ-YIGQJM/view?usp=sharing",
+      certificateUrl:
+        "https://drive.google.com/file/d/1jOhds0MX-ZQAU7bbCNu2qr9jJ-YIGQJM/view?usp=sharing",
       gallery: [],
     },
     {
@@ -210,7 +213,8 @@ export const DATA_EN = {
       active: true,
       description:
         "* Monitored network systems and internet services via the Network Operations Center (NOC) using The Dude to ensure stability and perform initial troubleshooting. \n* Configured, troubleshot, and maintained network devices using MikroTik RouterOS, Winbox, PuTTY, SSH, and Telnet to support operational network services. \n* Collaborated with field technicians in the installation, configuration, and testing of network devices, Access Points, CCTV systems, and network infrastructure to ensure service quality.",
-      certificateUrl: "https://drive.google.com/file/d/1_zIvXzQ8KY6SV1zUtMmR3-o2Apc06b7m/view?usp=sharing",
+      certificateUrl:
+        "https://drive.google.com/file/d/1_zIvXzQ8KY6SV1zUtMmR3-o2Apc06b7m/view?usp=sharing",
       gallery: [],
     },
     {
@@ -226,7 +230,8 @@ export const DATA_EN = {
       active: true,
       description:
         "* Installed Windows operating systems, device drivers, and software applications on new laptops and desktop computers according to customer requirements. \n* Assembled custom PC builds based on customer specifications and tested hardware components to ensure proper functionality before delivery. \n* Assisted the technical team in diagnosing, troubleshooting, and repairing desktop computers and laptops to ensure customer satisfaction.",
-      certificateUrl: "https://drive.google.com/file/d/1neiZZq6rs418S9i5W8r6k9uu0DATAZt5/view?usp=sharing",
+      certificateUrl:
+        "https://drive.google.com/file/d/1neiZZq6rs418S9i5W8r6k9uu0DATAZt5/view?usp=sharing",
       gallery: [],
     },
   ],
@@ -267,7 +272,8 @@ export const DATA_EN = {
       location: "Online",
       description:
         "Participated in the Coding Camp 2026 organized by DBS Foundation, specializing in the AI Engineer learning path. Gained hands-on experience in machine learning development, focusing on deep learning and artificial intelligence concepts along with their practical implementation.",
-      certificateUrl: "https://drive.google.com/file/d/1g0zLdMUygILTd_4rsUkPNssARhN2nIhg/view?usp=sharing",
+      certificateUrl:
+        "https://drive.google.com/file/d/1g0zLdMUygILTd_4rsUkPNssARhN2nIhg/view?usp=sharing",
       credentialId: "",
       gallery: [],
     },
@@ -283,7 +289,8 @@ export const DATA_EN = {
       location: "Online",
       description:
         "Completed the creative digital talent development program initiated by the government to enhance the capabilities of AI developers. Focused on AI Productivity by completing Practical AI for Productivity and Learning to Use Generative AI classes.",
-      certificateUrl: "https://drive.google.com/file/d/1rvMmCRzievwoSYhDCvEjubwWu-HA-ZrA/view?usp=sharing",
+      certificateUrl:
+        "https://drive.google.com/file/d/1rvMmCRzievwoSYhDCvEjubwWu-HA-ZrA/view?usp=sharing",
       credentialId: "",
       gallery: [],
     },
@@ -298,7 +305,8 @@ export const DATA_EN = {
       location: "Online",
       description:
         "Completed an intensive Frontend Developer bootcamp scholarship, focusing on modern web development using Tailwind, React, and Next.js. Learned best practices in building responsive, accessible, and component-based user interfaces through live classes, coding challenges, and project-based learning.",
-      certificateUrl: "https://drive.google.com/file/d/1XFUFx76mido9CNErfO3jY3GJocxp0IV8/view?usp=sharing",
+      certificateUrl:
+        "https://drive.google.com/file/d/1XFUFx76mido9CNErfO3jY3GJocxp0IV8/view?usp=sharing",
       credentialId: "",
       gallery: [
         {
@@ -324,7 +332,8 @@ export const DATA_EN = {
       location: "Online",
       description:
         "Completed the Ready4Security Indonesia training program, gaining foundational knowledge in cybersecurity, including threat identification, secure practices, and risk prevention. Participated in hands-on sessions designed to build awareness and essential security skills.",
-      certificateUrl: "https://drive.google.com/file/d/1yXBXOojBZi1ccsGEuIGR8HpB37PuV63C/view?usp=sharing",
+      certificateUrl:
+        "https://drive.google.com/file/d/1yXBXOojBZi1ccsGEuIGR8HpB37PuV63C/view?usp=sharing",
       credentialId: "",
       gallery: [],
     },
@@ -339,7 +348,8 @@ export const DATA_EN = {
       location: "Online",
       description:
         "Completed the VSGA training program for Junior Web Developers based on SKKNI standards. Acquired competencies in building and managing web applications using HTML, CSS, and PHP, including database management with MySQL and implementation of responsive user interfaces.",
-      certificateUrl: "https://drive.google.com/file/d/1dghNUD5H_ByX0IUL2HM-pKVUP73uq8k7/view?usp=sharing",
+      certificateUrl:
+        "https://drive.google.com/file/d/1dghNUD5H_ByX0IUL2HM-pKVUP73uq8k7/view?usp=sharing",
       credentialId: "",
       gallery: [
         {
@@ -365,7 +375,8 @@ export const DATA_EN = {
       location: "Kuningan, West Java, Indonesia",
       description:
         "Completed the Vocational School Graduate Academy (VSGA) training based on the Indonesian National Work Competency Standards (SKKNI). Gained practical skills in configuring network devices, designing IP addressing schemes, setting up wireless networks, and managing routing and switching systems.",
-      certificateUrl: "https://drive.google.com/file/d/1o0yVGlDDtjmW26Yh5N7_78nCkpLzBIe_/view?usp=sharing",
+      certificateUrl:
+        "https://drive.google.com/file/d/1o0yVGlDDtjmW26Yh5N7_78nCkpLzBIe_/view?usp=sharing",
       credentialId: "",
       gallery: [
         {
@@ -396,7 +407,8 @@ export const DATA_EN = {
       location: "Online",
       description:
         "Completed the Meta - React Basics course on Coursera, gaining solid foundational knowledge in React development. Covered core concepts such as component creation, props, state management, event handling, and utilizing built-in React hooks to build interactive web interfaces.",
-      certificateUrl: "https://drive.google.com/file/d/1Av-e0LPcw3GSFVzY-V-d-kOFU6SIJloe/view?usp=sharing",
+      certificateUrl:
+        "https://drive.google.com/file/d/1Av-e0LPcw3GSFVzY-V-d-kOFU6SIJloe/view?usp=sharing",
       credentialId: "",
       gallery: [],
     },
@@ -411,7 +423,8 @@ export const DATA_EN = {
       location: "Online",
       description:
         "Completed the Google - Technical Support Fundamentals course on Coursera, covering essential IT support foundations. Acquired knowledge in troubleshooting methodologies, customer service best practices, computer networks, operating systems, system administration, and security principles.",
-      certificateUrl: "https://drive.google.com/file/d/1VBJTbUyzgd8Jr0Db-vFQk4qhR4kFTWhy/view?usp=sharing",
+      certificateUrl:
+        "https://drive.google.com/file/d/1VBJTbUyzgd8Jr0Db-vFQk4qhR4kFTWhy/view?usp=sharing",
       credentialId: "",
       gallery: [],
     },
@@ -426,7 +439,8 @@ export const DATA_EN = {
       location: "Online",
       description:
         "Completed the React course on Dicoding, learning essential skills to build dynamic web applications with React. Gained deep understanding of components, element rendering, props, state management, handling user events, and working with simple data flows in a single-page application structure.",
-      certificateUrl: "https://drive.google.com/file/d/1t9jgdY8s3WF0wrPmnOudcCYukJPy7Tzq/view?usp=sharing",
+      certificateUrl:
+        "https://drive.google.com/file/d/1t9jgdY8s3WF0wrPmnOudcCYukJPy7Tzq/view?usp=sharing",
       credentialId: "",
       gallery: [],
     },
@@ -441,7 +455,8 @@ export const DATA_EN = {
       location: "Online",
       description:
         "Completed the Basic Web Programming course on Dicoding, acquiring core knowledge in front-end web development. Learned DOM manipulation, event listener handling, and persistent data storage using Web Storage APIs to create functional, interactive, and responsive websites.",
-      certificateUrl: "https://drive.google.com/file/d/1lszNiW-flv9j1J7Ikr2S56E_KA55NatB/view?usp=sharing",
+      certificateUrl:
+        "https://drive.google.com/file/d/1lszNiW-flv9j1J7Ikr2S56E_KA55NatB/view?usp=sharing",
       credentialId: "",
       gallery: [],
     },
@@ -456,7 +471,8 @@ export const DATA_EN = {
       location: "Online",
       description:
         "Completed the Basic JavaScript course on Dicoding, gaining robust programming fundamentals. Learned variables, control flow, functions, object-oriented concepts, modern ES6 features, and writing basic unit tests to ensure application logic correctness.",
-      certificateUrl: "https://drive.google.com/file/d/1htoZS4zKasdRL6GMhkCcVZI_kt7P_riM/view?usp=sharing",
+      certificateUrl:
+        "https://drive.google.com/file/d/1htoZS4zKasdRL6GMhkCcVZI_kt7P_riM/view?usp=sharing",
       credentialId: "",
       gallery: [],
     },
@@ -471,7 +487,8 @@ export const DATA_EN = {
       location: "Online",
       description:
         "Completed the Basic SQL course on Dicoding, mastering relational database query fundamentals. Acquired skills in data definition language (DDL), data manipulation language (DML), using built-in functions, performing table joins, and optimizing basic database queries.",
-      certificateUrl: "https://drive.google.com/file/d/1xkn6K_sEj7XfLmK5Nop8zeMwImsHYliz/view?usp=sharing",
+      certificateUrl:
+        "https://drive.google.com/file/d/1xkn6K_sEj7XfLmK5Nop8zeMwImsHYliz/view?usp=sharing",
       credentialId: "",
       gallery: [],
     },
@@ -486,7 +503,8 @@ export const DATA_EN = {
       location: "Online",
       description:
         "Completed the Database Design course at Oracle Academy, gaining foundational expertise in relational database modeling. Learned how to analyze business requirements, draw Entity-Relationship Diagrams (ERD), perform database normalization, and implement robust schema designs.",
-      certificateUrl: "https://drive.google.com/file/d/1dak5DQfYRObb7TNDegNkKiCdOoAMO64n/view?usp=sharing",
+      certificateUrl:
+        "https://drive.google.com/file/d/1dak5DQfYRObb7TNDegNkKiCdOoAMO64n/view?usp=sharing",
       credentialId: "",
       gallery: [],
     },
@@ -501,7 +519,8 @@ export const DATA_EN = {
       location: "Online",
       description:
         "Completed the Database Programming with SQL course at Oracle Academy, developing practical skills in database querying and manipulation. Learned advanced SELECT queries, data filtering, multi-table joins, subqueries, group functions, and executing transactional database operations.",
-      certificateUrl: "https://drive.google.com/file/d/1DI3wJATwAzX2C6tcXH0XdHuYwYGUaqsn/view?usp=sharing",
+      certificateUrl:
+        "https://drive.google.com/file/d/1DI3wJATwAzX2C6tcXH0XdHuYwYGUaqsn/view?usp=sharing",
       credentialId: "",
       gallery: [],
     },
@@ -516,7 +535,8 @@ export const DATA_EN = {
       location: "Online",
       description:
         "Completed the CyberOps Associate program at Cisco Networking Academy, gaining foundational knowledge in cybersecurity operations. Studied threat intelligence, network monitoring tools, security concepts, cryptography, host-based analysis, and basic security incident response protocols.",
-      certificateUrl: "https://drive.google.com/file/d/1SUZkkq5Ynxjf8H_486YkvA7A884ZWCw6/view?usp=sharing",
+      certificateUrl:
+        "https://drive.google.com/file/d/1SUZkkq5Ynxjf8H_486YkvA7A884ZWCw6/view?usp=sharing",
       credentialId: "",
       gallery: [],
     },
@@ -531,7 +551,8 @@ export const DATA_EN = {
       location: "Online",
       description:
         "Completed advanced CCNA training at Cisco Networking Academy, focusing on enterprise-scale networking. Developed skills in configuring OSPF, WAN architectures, network security concepts, access control lists (ACLs), network address translation (NAT), and modern network automation solutions.",
-      certificateUrl: "https://drive.google.com/file/d/1iVYdBiVKpicLlHPsS9h1pSO36LLpSUqI/view?usp=sharing",
+      certificateUrl:
+        "https://drive.google.com/file/d/1iVYdBiVKpicLlHPsS9h1pSO36LLpSUqI/view?usp=sharing",
       credentialId: "",
       gallery: [],
     },
@@ -546,7 +567,8 @@ export const DATA_EN = {
       location: "Online",
       description:
         "Completed the Switching, Routing, and Wireless Essentials CCNA course at Cisco Networking Academy. Gained hands-on competency in configuring VLANs, inter-VLAN routing, redundant network protocols (STP/EtherChannel), DHCP, WLAN security, and basic routing concepts.",
-      certificateUrl: "https://drive.google.com/file/d/19d4zpnDSHTDM3fg11g_ZW0ozh-FKXvdW/view?usp=sharing",
+      certificateUrl:
+        "https://drive.google.com/file/d/19d4zpnDSHTDM3fg11g_ZW0ozh-FKXvdW/view?usp=sharing",
       credentialId: "",
       gallery: [],
     },
@@ -561,7 +583,8 @@ export const DATA_EN = {
       location: "Online",
       description:
         "Completed the Introduction to Networks course at Cisco Networking Academy, learning networking architectures, physical layer connections, protocols, Ethernet operations, IPv4/IPv6 addressing schemes, subnetting, and initial switch/router setup procedures.",
-      certificateUrl: "https://drive.google.com/file/d/1_lBDuSRyJYCKkMHat8nNoEH0-eXTLfUr/view?usp=sharing",
+      certificateUrl:
+        "https://drive.google.com/file/d/1_lBDuSRyJYCKkMHat8nNoEH0-eXTLfUr/view?usp=sharing",
       credentialId: "",
       gallery: [],
     },
@@ -576,7 +599,8 @@ export const DATA_EN = {
       location: "Online",
       description:
         "Completed the PCAP (Programming Essentials in Python) course at Cisco Networking Academy. Built core programming logic, mastering variables, loops, conditional execution, lists/tuples, functions, module organization, exception handling, and object-oriented paradigms in Python.",
-      certificateUrl: "https://drive.google.com/file/d/1yqzmF80UNZs5gziklaSvaIy5eB4ZIeBO/view?usp=sharing",
+      certificateUrl:
+        "https://drive.google.com/file/d/1yqzmF80UNZs5gziklaSvaIy5eB4ZIeBO/view?usp=sharing",
       credentialId: "",
       gallery: [],
     },
@@ -591,7 +615,8 @@ export const DATA_EN = {
       location: "Online",
       description:
         "Completed the Data Engineering Professional training program at RapidMiner Academy. Gained expertise in data preparation, ETL (Extract, Transform, Load) pipelines, data integration, and constructing automated data workflows to support downstream analytics, reporting, and machine learning models.",
-      certificateUrl: "https://drive.google.com/file/d/1eaVBN7wn_QnzjBjTr2oU5UGwqDJWsYkz/view?usp=sharing",
+      certificateUrl:
+        "https://drive.google.com/file/d/1eaVBN7wn_QnzjBjTr2oU5UGwqDJWsYkz/view?usp=sharing",
       credentialId: "",
       gallery: [],
     },
@@ -606,7 +631,8 @@ export const DATA_EN = {
       location: "Online",
       description:
         "Completed the CNSS (Certified Network Security Specialist) training program at International CyberSecurity Institute (ICSI). Studied key cybersecurity areas such as firewall configurations, network topologies, encryption standards, threat intelligence, data access controls, and risk management guidelines.",
-      certificateUrl: "https://drive.google.com/file/d/1X9pASlMFshWLyFzip9vSTmHsdnnP5B1T/view?usp=sharing",
+      certificateUrl:
+        "https://drive.google.com/file/d/1X9pASlMFshWLyFzip9vSTmHsdnnP5B1T/view?usp=sharing",
       credentialId: "",
       gallery: [],
     },
@@ -623,7 +649,8 @@ export const DATA_EN = {
       location: "Online",
       description:
         "Earned the Junior Web Developer professional competency certification issued by BNSP (Badan Nasional Sertifikasi Profesi) based on the Indonesian National Work Competency Standards (SKKNI). Certified competency covers building web applications using modern languages, database management, and implementing secure coding practices.",
-      certificateUrl: "https://drive.google.com/file/d/1JinEBPhcE3jUdOGTYzfSdzXc5gP06XQv/view?usp=sharing",
+      certificateUrl:
+        "https://drive.google.com/file/d/1JinEBPhcE3jUdOGTYzfSdzXc5gP06XQv/view?usp=sharing",
       credentialId: "62019 2513 4 0031008 2024",
       gallery: [],
     },
@@ -638,7 +665,8 @@ export const DATA_EN = {
       location: "Kuningan, West Java, Indonesia",
       description:
         "Earned the Junior Network Administrator professional competency certification issued by BNSP (Badan Nasional Sertifikasi Profesi) based on the Indonesian National Work Competency Standards (SKKNI). Certified competency covers configuring routers and network devices, subnetting, cabling, and basic network administration tasks.",
-      certificateUrl: "https://drive.google.com/file/d/1dswbl2eAl75FOpDd9i7orUxqWC1uAxic/view?usp=sharing",
+      certificateUrl:
+        "https://drive.google.com/file/d/1dswbl2eAl75FOpDd9i7orUxqWC1uAxic/view?usp=sharing",
       credentialId: "61100 2522 25813 2023",
       gallery: [],
     },
@@ -653,7 +681,8 @@ export const DATA_EN = {
       location: "Cirebon, West Java, Indonesia",
       description:
         "Earned the MikroTik Certified Network Associate (MTCNA) certification, covering basic computer network concepts as well as configuration and management of MikroTik RouterOS devices for small to medium scale network needs.",
-      certificateUrl: "https://drive.google.com/file/d/1GpEi-J-VaEIUDzVRLGS6piTFTuu4pAzw/view?usp=sharing",
+      certificateUrl:
+        "https://drive.google.com/file/d/1GpEi-J-VaEIUDzVRLGS6piTFTuu4pAzw/view?usp=sharing",
       credentialId: "1907NA8791",
       gallery: [
         {
@@ -687,7 +716,8 @@ export const DATA_EN = {
       location: "Online",
       description:
         "Published and presented a research paper titled 'Comparative Analysis of Rice Leaf Disease Classification Models Based on MobileNetV2' at the SISFOTEK 2025 National Seminar. Served as team leader and first author, coordinating the study and presenting the findings.",
-      certificateUrl: "https://drive.google.com/file/d/1d4OzGfBdb6Dc-ceo2MY1PSDQu5iFMcj2/view?usp=sharing",
+      certificateUrl:
+        "https://drive.google.com/file/d/1d4OzGfBdb6Dc-ceo2MY1PSDQu5iFMcj2/view?usp=sharing",
       gallery: [
         {
           image: "/achievements/gallery/sisfotek-1.jpg",
@@ -713,7 +743,8 @@ export const DATA_EN = {
       location: "Cirebon, West Java, Indonesia",
       description:
         "Awarded Most Innovative Intern for exceptional contributions, innovation, and dedication during the internship. Recognized for active participation in web development projects and collaborative efforts to support regional digital services.",
-      certificateUrl: "https://drive.google.com/file/d/17meZtYBw8BTiz-rsBNi3Mc_PskRhsk0S/view?usp=sharing",
+      certificateUrl:
+        "https://drive.google.com/file/d/17meZtYBw8BTiz-rsBNi3Mc_PskRhsk0S/view?usp=sharing",
       gallery: [],
     },
     {
@@ -754,7 +785,15 @@ export const DATA_EN = {
       category: "web",
       description:
         "A modern and professional web application specifically designed to help job seekers manage, track, and analyze their entire job application process centrally. It features a premium, minimalist monochrome paper design inspired by Notion to provide clean, intuitive navigation without high cognitive load.",
-      technologies: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI", "Supabase", "PostgreSQL"],
+      technologies: [
+        "React.js",
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Shadcn UI",
+        "Supabase",
+        "PostgreSQL",
+      ],
       links: [
         {
           type: "Website",
@@ -779,7 +818,18 @@ export const DATA_EN = {
       category: "web",
       description:
         "A web application that uses Computer Vision to identify food ingredients from images and suggest healthy recipes. Features nutritional value tracking, dynamic meal recommendations, and an interactive Generative AI chatbot for personalized nutrition guidance.",
-      technologies: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI", "Supabase", "PostgreSQL", "Python", "FAST API", "Gemini API"],
+      technologies: [
+        "React.js",
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Shadcn UI",
+        "Supabase",
+        "PostgreSQL",
+        "Python",
+        "FAST API",
+        "Gemini API",
+      ],
       links: [
         {
           type: "Website",
@@ -809,7 +859,18 @@ export const DATA_EN = {
       category: "web",
       description:
         "A drama streaming platform featuring series and movies from various countries, including K-Dramas, C-Dramas, Thai Dramas, J-Dramas, and Variety Shows. It also includes a co-watching feature allowing users to stream and watch together in real-time.",
-      technologies: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI", "HLS.js", "Supabase", "PostgreSQL", "Python", "FAST API"],
+      technologies: [
+        "React.js",
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Shadcn UI",
+        "HLS.js",
+        "Supabase",
+        "PostgreSQL",
+        "Python",
+        "FAST API",
+      ],
       links: [
         {
           type: "Website",
@@ -839,7 +900,14 @@ export const DATA_EN = {
       category: "web",
       description:
         "A web streaming platform for the FIFA World Cup 2026, offering live broadcasts from various channels, comprehensive group standings statistics, match schedules, and real-time tournament updates.",
-      technologies: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI", "HLS.js"],
+      technologies: [
+        "React.js",
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Shadcn UI",
+        "HLS.js",
+      ],
       links: [
         {
           type: "Website",
@@ -864,7 +932,16 @@ export const DATA_EN = {
       category: "web",
       description:
         "A comprehensive academic information system designed to streamline academic processes at STMIK IKMI Cirebon, featuring an integrated Generative AI chatbot to assist students and staff with academic inquiries, course management, grading, and reporting.",
-      technologies: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI", "Supabase", "PostgreSQL", "Gemini API"],
+      technologies: [
+        "React.js",
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Shadcn UI",
+        "Supabase",
+        "PostgreSQL",
+        "Gemini API",
+      ],
       links: [
         {
           type: "Website",
@@ -889,7 +966,16 @@ export const DATA_EN = {
       category: "web",
       description:
         "A web platform that provides access to academic data from PDDikti, enabling users to search and view information on students, lecturers, study programs, and higher education institutions. The system also supports detailed lookup for individual student and lecturer profiles.",
-      technologies: ["React.js", "Next.js", "TypeScript", "Leaflet.js", "Tailwind CSS", "Python", "FAST API", "PDDikti API"],
+      technologies: [
+        "React.js",
+        "Next.js",
+        "TypeScript",
+        "Leaflet.js",
+        "Tailwind CSS",
+        "Python",
+        "FAST API",
+        "PDDikti API",
+      ],
       links: [
         {
           type: "Website",
@@ -1195,7 +1281,15 @@ export const DATA_EN = {
       category: "machine-learning",
       description:
         "The underlying Deep Learning model powering the GiziMeal web application, developed by the AI Engineer division of the CC26-PSU393 team during the Coding Camp 2026 program. It is designed to recognize food types from images and suggest recipes with nutritional info, utilizing a Custom CNN Multi-Task architecture with ResNet18 and custom attention layers.",
-      technologies: ["Python", "TensorFlow", "Keras", "CNN ResNet18", "Pandas", "Scikit-learn", "NumPy",],
+      technologies: [
+        "Python",
+        "TensorFlow",
+        "Keras",
+        "CNN ResNet18",
+        "Pandas",
+        "Scikit-learn",
+        "NumPy",
+      ],
       links: [
         {
           type: "Source",
@@ -1212,7 +1306,8 @@ export const DATA_EN = {
           notebooks: [
             {
               title: "Model Training",
-              githubUrl: "https://github.com/CC26-PSU393-GiziMeal/AI-Engineer/blob/main/Model/CC26_PSU393_GiziMeal_(AI).ipynb",
+              githubUrl:
+                "https://github.com/CC26-PSU393-GiziMeal/AI-Engineer/blob/main/Model/CC26_PSU393_GiziMeal_(AI).ipynb",
             },
           ],
           icon: <FileCode className="size-3" />,
@@ -1230,7 +1325,17 @@ export const DATA_EN = {
       category: "machine-learning",
       description:
         "A sentiment analysis system to classify Tokopedia app reviews from the Google Play Store. It compares Machine Learning (LinearSVC, Random Forest) and Deep Learning (LSTM) models using Indonesian natural language preprocessing.",
-      technologies: ["Python", "Google Colab", "TensorFlow", "Hugging Face", "scikit-learn", "Sastrawi", "NLTK", "Pandas", "NumPy"],
+      technologies: [
+        "Python",
+        "Google Colab",
+        "TensorFlow",
+        "Hugging Face",
+        "scikit-learn",
+        "Sastrawi",
+        "NLTK",
+        "Pandas",
+        "NumPy",
+      ],
       links: [
         {
           type: "Source",
@@ -1247,12 +1352,14 @@ export const DATA_EN = {
           notebooks: [
             {
               title: "Scraping Data",
-              githubUrl: "https://github.com/azharangga/tokopedia-review-sentiment-analysis/blob/main/scraping.ipynb",
+              githubUrl:
+                "https://github.com/azharangga/tokopedia-review-sentiment-analysis/blob/main/scraping.ipynb",
             },
             {
               title: "Model Training",
-              githubUrl: "https://github.com/azharangga/tokopedia-review-sentiment-analysis/blob/main/pelatihan_model.ipynb", 
-            }
+              githubUrl:
+                "https://github.com/azharangga/tokopedia-review-sentiment-analysis/blob/main/pelatihan_model.ipynb",
+            },
           ],
           icon: <FileCode className="size-3" />,
         },
@@ -1269,7 +1376,16 @@ export const DATA_EN = {
       category: "machine-learning",
       description:
         "A Deep Learning image classification system utilizing a custom CNN architecture to detect 4 types of apple leaf conditions. Supports model conversion to TFLite and TensorFlow.js formats for multi-platform deployment.",
-      technologies: ["Python", "Google Colab", "TensorFlow", "Hugging Face", "scikit-learn", "Pandas", "NumPy", "Matplotlib"],
+      technologies: [
+        "Python",
+        "Google Colab",
+        "TensorFlow",
+        "Hugging Face",
+        "scikit-learn",
+        "Pandas",
+        "NumPy",
+        "Matplotlib",
+      ],
       links: [
         {
           type: "Source",
@@ -1286,7 +1402,8 @@ export const DATA_EN = {
           notebooks: [
             {
               title: "Model Training",
-              githubUrl: "https://github.com/azharangga/apple-leaf-disease-classification/blob/main/pelatihan_model.ipynb",
+              githubUrl:
+                "https://github.com/azharangga/apple-leaf-disease-classification/blob/main/pelatihan_model.ipynb",
             },
           ],
           icon: <FileCode className="size-3" />,
@@ -1304,7 +1421,17 @@ export const DATA_EN = {
       category: "machine-learning",
       description:
         "A Deep Learning time-series forecasting system to predict Bitcoin closing prices using multi-step forecasting (Horizon = 3, Lookback = 96). It compares Baseline LSTM and Seq2Seq LSTM models with an Attention Mechanism.",
-      technologies: ["Python", "Google Colab", "TensorFlow", "Hugging Face", "scikit-learn", "statsmodels", "Pandas", "NumPy", "Matplotlib"],
+      technologies: [
+        "Python",
+        "Google Colab",
+        "TensorFlow",
+        "Hugging Face",
+        "scikit-learn",
+        "statsmodels",
+        "Pandas",
+        "NumPy",
+        "Matplotlib",
+      ],
       links: [
         {
           type: "Source",
@@ -1321,7 +1448,8 @@ export const DATA_EN = {
           notebooks: [
             {
               title: "Model Training",
-              githubUrl: "https://github.com/azharangga/bitcoin-price-forecasting/blob/main/pelatihan_model.ipynb",
+              githubUrl:
+                "https://github.com/azharangga/bitcoin-price-forecasting/blob/main/pelatihan_model.ipynb",
             },
           ],
           icon: <FileCode className="size-3" />,
