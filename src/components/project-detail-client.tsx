@@ -259,7 +259,7 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
 
       {/* Floating Header Navbar matching main page styling & animations */}
       <header className="sticky top-0 z-40 w-full border-b bg-background/80 backdrop-blur-md">
-      <BlurFade delay={BLUR_FADE_DELAY * 0.5}>
+      <BlurFade delay={BLUR_FADE_DELAY * 0.5} yOffset={0}>
           <div className="max-w-[1200px] mx-auto px-6 h-14 flex items-center justify-between">
             <Link href="/#projects" className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground hover:text-foreground transition-colors">
               <ArrowLeft className="size-4" />
@@ -668,7 +668,7 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
               <h2 className="text-xl sm:text-2xl font-bold tracking-tight border-b pb-2">
                 {isId ? "Fitur Utama" : "Key Features"}
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-4">
                 {detail.featureDocs.map((feat, index) => (
                   <div 
                     key={index} 
@@ -716,7 +716,7 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
                 <h2 className="text-xl sm:text-2xl font-bold tracking-tight border-b pb-2">
                   {isId ? "Tim Proyek" : "Project Team"}
                 </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4">
                   {detail.contributors.map((member, idx) => {
                     const initials = member.name
                       .split(" ")
