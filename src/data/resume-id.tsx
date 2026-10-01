@@ -823,6 +823,7 @@ export const DATA_ID = {
         "TypeScript",
         "Tailwind CSS",
         "Shadcn UI",
+        "Framer Motion",
         "Supabase",
         "PostgreSQL",
         "Python",

@@ -106,6 +106,7 @@ export const PROJECT_DETAILS_ID: Record<string, ProjectDetail> = {
           { name: "TypeScript", iconName: "TypeScript" },
           { name: "Tailwind CSS", iconName: "Tailwind CSS" },
           { name: "Shadcn UI", iconName: "Shadcn UI" },
+          { name: "Framer Motion", iconName: "Framer Motion" },
           { name: "Supabase", iconName: "Supabase" },
           { name: "PostgreSQL", iconName: "PostgreSQL" },
           { name: "Python", iconName: "Python" },
@@ -137,12 +138,12 @@ export const PROJECT_DETAILS_ID: Record<string, ProjectDetail> = {
       }
     ],
     contributors: [
-      { name: "Azharangga Kusuma", role: "AI Engineer dan Project Manager", avatar: "/team/angga.png", github: "https://github.com/azharangga", linkedin: "https://linkedin.com/in/azharanggakusuma" },
+      { name: "Azharangga Kusuma", role: "AI Engineer & Project Manager", avatar: "/team/angga.png", github: "https://github.com/azharangga", linkedin: "https://linkedin.com/in/azharanggakusuma" },
       { name: "Putri Nabilla", role: "AI Engineer", avatar: "/team/billa.png", github: "https://github.com/putribila", linkedin: "https://linkedin.com/in/putri-nabilla-77a670223" },
       { name: "Farina Setya Rahesti", role: "Data Scientist", avatar: "/team/farina.png", github: "https://github.com/farinasetyarahesti", linkedin: "https://www.linkedin.com/in/farina-setya-91474a3ab" },
       { name: "Mahaputri Buana Devwitasari", role: "Data Scientist", avatar: "/team/buana.png", github: "https://github.com/mahaputribuanaa", linkedin: "https://www.linkedin.com/in/mahaputri-buana-87b924332" },
-      { name: "M. Dava Arya Nada Putra", role: "Full-Stack Web Developer", avatar: "/team/dava.png", github: "https://github.com/mdavaarya", linkedin: "https://www.linkedin.com/in/m-dava-arya-nada-putra-a2ba8a3a5" },
-      { name: "Muhammad Ihsanul Dzaky", role: "Full-Stack Web Developer", avatar: "/team/dzaky.png", github: "https://github.com/ihsanulDzaky", linkedin: "https://www.linkedin.com/in/muhammad-ihsanul-dzaky" }
+      { name: "M. Dava Arya Nada Putra", role: "Frontend Developer & UI/UX Designer", avatar: "/team/dava.png", github: "https://github.com/mdavaarya", linkedin: "https://www.linkedin.com/in/m-dava-arya-nada-putra-a2ba8a3a5" },
+      { name: "Muhammad Ihsanul Dzaky", role: "Backend Developer", avatar: "/team/dzaky.png", github: "https://github.com/ihsanulDzaky", linkedin: "https://www.linkedin.com/in/muhammad-ihsanul-dzaky" }
     ],
      gallery: [
       { image: "/projects/detail/gizimeal/daftar-akun.png", title: "Halaman Daftar Akun", caption: "Formulir pendaftaran akun pengguna baru untuk memulai perjalanan gizi seimbang." },

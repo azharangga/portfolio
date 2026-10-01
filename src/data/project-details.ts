@@ -138,7 +138,9 @@ export function getIcon(name?: string) {
     nltk: "SiPython",
     sastrawi: "SiPython",
     hlsjs: "SiJavascript",
-    hls: "SiJavascript"
+    hls: "SiJavascript",
+    framermotion: "SiFramer",
+    framer: "SiFramer"
   };
 
   const matchedKey = iconMapping[cleanName];

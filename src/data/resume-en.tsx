@@ -824,6 +824,7 @@ export const DATA_EN = {
         "TypeScript",
         "Tailwind CSS",
         "Shadcn UI",
+        "Framer Motion",
         "Supabase",
         "PostgreSQL",
         "Python",

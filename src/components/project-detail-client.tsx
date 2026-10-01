@@ -258,8 +258,8 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
       />
 
       {/* Floating Header Navbar matching main page styling & animations */}
+      <header className="sticky top-0 z-40 w-full border-b bg-background/80 backdrop-blur-md">
       <BlurFade delay={BLUR_FADE_DELAY * 0.5}>
-        <header className="sticky top-0 z-40 w-full border-b bg-background/80 backdrop-blur-md">
           <div className="max-w-[1200px] mx-auto px-6 h-14 flex items-center justify-between">
             <Link href="/#projects" className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground hover:text-foreground transition-colors">
               <ArrowLeft className="size-4" />
@@ -331,8 +331,8 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
             </button>
           </div>
         </div>
+      </BlurFade>
       </header>
-    </BlurFade>
 
 
       {/* Mobile Drawer Menu */}
