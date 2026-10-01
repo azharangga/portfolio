@@ -146,8 +146,8 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
     { id: "overview", label: isId ? "Ringkasan" : "Overview" },
     { id: "problem", label: isId ? "Latar Belakang Masalah" : "Problem Background" },
     { id: "solution", label: isId ? "Pendekatan Solusi" : "Solution Approach" },
-    { id: "techstack", label: "Tech Stack" },
     { id: "features", label: isId ? "Fitur Utama" : "Key Features" },
+    { id: "techstack", label: "Tech Stack" },
     ...(detail.contributors && detail.contributors.length > 0 ? [{ id: "team", label: isId ? "Tim Proyek" : "Project Team" }] : []),
     { id: "gallery", label: isId ? "Galeri Proyek" : "Project Gallery" }
   ];
@@ -662,30 +662,8 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
             </section>
           </BlurFade>
 
-          {/* 4. TECH STACK (Icon + Technology Name) */}
+          {/* 4. KEY FEATURES */}
           <BlurFade delay={BLUR_FADE_DELAY * 8}>
-            <section id="techstack" className="space-y-4 scroll-mt-24">
-              <h2 className="text-xl sm:text-2xl font-bold tracking-tight border-b pb-2">
-                Tech Stack
-              </h2>
-              <div className="flex flex-wrap gap-2.5 pt-2">
-                {allTechItems.map((tech, idx) => (
-                  <div 
-                    key={idx} 
-                    className="flex items-center gap-2.5 px-3.5 py-2 border rounded-xl bg-muted/10 hover:bg-muted/20 transition-colors"
-                  >
-                    <span className="flex-shrink-0">
-                      {(tech.iconName && getIcon(tech.iconName)) || getIcon(tech.name) || <Layers className="size-4 text-foreground/80" />}
-                    </span>
-                    <span className="text-xs font-semibold text-foreground">{tech.name}</span>
-                  </div>
-                ))}
-              </div>
-            </section>
-          </BlurFade>
-
-          {/* 5. KEY FEATURES */}
-          <BlurFade delay={BLUR_FADE_DELAY * 9}>
             <section id="features" className="space-y-6 scroll-mt-24">
               <h2 className="text-xl sm:text-2xl font-bold tracking-tight border-b pb-2">
                 {isId ? "Fitur Utama" : "Key Features"}
@@ -703,6 +681,28 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
                       </span>
                     </div>
                     <p className="text-xs text-muted-foreground leading-relaxed pt-0.5">{feat.description}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          </BlurFade>
+
+          {/* 5. TECH STACK (Icon + Technology Name) */}
+          <BlurFade delay={BLUR_FADE_DELAY * 9}>
+            <section id="techstack" className="space-y-4 scroll-mt-24">
+              <h2 className="text-xl sm:text-2xl font-bold tracking-tight border-b pb-2">
+                Tech Stack
+              </h2>
+              <div className="flex flex-wrap gap-2.5 pt-2">
+                {allTechItems.map((tech, idx) => (
+                  <div 
+                    key={idx} 
+                    className="flex items-center gap-2.5 px-3.5 py-2 border rounded-xl bg-muted/10 hover:bg-muted/20 transition-colors"
+                  >
+                    <span className="flex-shrink-0">
+                      {(tech.iconName && getIcon(tech.iconName)) || getIcon(tech.name) || <Layers className="size-4 text-foreground/80" />}
+                    </span>
+                    <span className="text-xs font-semibold text-foreground">{tech.name}</span>
                   </div>
                 ))}
               </div>
