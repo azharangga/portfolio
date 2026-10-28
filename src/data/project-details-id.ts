@@ -494,7 +494,7 @@ export const PROJECT_DETAILS_ID: Record<string, ProjectDetail> = {
     category: "Web Development",
     role: "Full Stack Developer",
     duration: "4 Bulan",
-    type: "Personal",
+    type: "Team",
     links: {
       website: "https://pusdatin.kesug.com",
       source: "https://github.com/azharangga/pusdatin-kabcirebon",
@@ -544,6 +544,12 @@ export const PROJECT_DETAILS_ID: Record<string, ProjectDetail> = {
         title: "Manajemen Pengguna dan Tahun Anggaran",
         description: "Menyediakan pengelolaan data pengguna, menu aplikasi, dan periode tahun anggaran agar sistem tetap terstruktur dan mudah dikelola."
       }
+    ],
+    contributors: [
+      { name: "Azharangga Kusuma", role: "Full-Stack Developer", avatar: "/team/angga.png", github: "https://github.com/azharangga", linkedin: "https://linkedin.com/in/azharanggakusuma" },
+      { name: "Bayu Perasetio", role: "Frontend Developer", avatar: "", github: "https://github.com/Htognin", linkedin: "https://www.linkedin.com/in/bayu-perasetio-223565259" },
+      { name: "Sabrina Tria Amanda", role: "Frontend Developer", avatar: "", github: "https://github.com/Earthmoonsaturn", linkedin: "https://www.linkedin.com/in/sabrina-tria-amanda-a7b7131a2" },
+      { name: "Haris Burhanudin", role: "Backend Developer", avatar: "", github: "https://github.com/Xevhiroth", linkedin: "https://www.linkedin.com/in/haris-burhanudin" },
     ],
     gallery: [
       { image: "/projects/detail/pusdatin-kab-cirebon/beranda.png", title: "Halaman Beranda", caption: "Halaman depan portal Pusat Data dan Informasi Kabupaten Cirebon." },

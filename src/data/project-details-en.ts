@@ -492,9 +492,9 @@ export const PROJECT_DETAILS_EN: Record<string, ProjectDetail> = {
     tagline: "Manage village data in a centralized, structured, and efficient way.",
     coverImage: "/projects/pusdatin.png",
     category: "Web Development",
-    role: "Full Stack Developer",
+    role: "Full-Stack Developer",
     duration: "4 Months",
-    type: "Personal",
+    type: "Team",
     links: {
       website: "https://pusdatin.kesug.com",
       source: "https://github.com/azharangga/pusdatin-kabcirebon",
@@ -544,6 +544,12 @@ export const PROJECT_DETAILS_EN: Record<string, ProjectDetail> = {
         title: "User and Fiscal Year Management",
         description: "Supports the management of users, application menus, and fiscal periods to keep the system organized and maintainable."
       }
+    ],
+    contributors: [
+      { name: "Azharangga Kusuma", role: "Full-Stack Developer", avatar: "/team/angga.png", github: "https://github.com/azharangga", linkedin: "https://linkedin.com/in/azharanggakusuma" },
+      { name: "Bayu Perasetio", role: "Frontend Developer", avatar: "", github: "https://github.com/Htognin", linkedin: "https://www.linkedin.com/in/bayu-perasetio-223565259" },
+      { name: "Sabrina Tria Amanda", role: "Frontend Developer", avatar: "", github: "https://github.com/Earthmoonsaturn", linkedin: "https://www.linkedin.com/in/sabrina-tria-amanda-a7b7131a2" },
+      { name: "Haris Burhanudin", role: "Backend Developer", avatar: "", github: "https://github.com/Xevhiroth", linkedin: "https://www.linkedin.com/in/haris-burhanudin" },
     ],
     gallery: [
       { image: "/projects/detail/pusdatin-kab-cirebon/beranda.png", title: "Home Page", caption: "Landing page for the Data and Information Center of Cirebon Regency." },
