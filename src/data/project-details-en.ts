@@ -80,7 +80,7 @@ export const PROJECT_DETAILS_EN: Record<string, ProjectDetail> = {
     duration: "4 Months",
     type: "Team",
     links: {
-      website: "https://gizimeal.projectshowcase.web.id",
+      website: "https://cc26-psu393-gizimeal.vercel.app",
       source: "https://github.com/azharangga/gizimeal",
       apiDocs: "https://cc26-psu393-gizimeal-api.hf.space",
     },
@@ -172,7 +172,7 @@ export const PROJECT_DETAILS_EN: Record<string, ProjectDetail> = {
     duration: "Ongoing",
     type: "Personal",
     links: {
-      website: "https://dramova.projectshowcase.web.id",
+      website: "https://dramova.vercel.app",
     },
     overview: "DRAMOVA is a web-based movie streaming platform designed to deliver a modern, convenient, and interactive entertainment experience. The platform allows users to explore movie collections, access detailed information for each title, create personal watchlists, and enjoy a Watch Party feature to watch together in real-time. With an intuitive interface and integrated services, DRAMOVA aims to provide a more practical and enjoyable digital entertainment experience.",
     problemBackground: "- **Difficulty Finding Suitable Content**: Users spend considerable time searching for movies that match their interests because information is scattered and poorly organized.\n- **Limited Shared Viewing Experience**: Most platforms do not offer a seamless way to enjoy movies together with friends or family in real-time synchronization from different locations.\n- **Disorganized Watchlists**: Users struggle to save and manage movies they intend to watch, often forgetting titles or having to search for them again.",
@@ -314,7 +314,7 @@ export const PROJECT_DETAILS_EN: Record<string, ProjectDetail> = {
     duration: "4 Months",
     type: "Personal",
     links: {
-      website: "https://siakad-ikmi.projectshowcase.web.id",
+      website: "https://siakad-ikmi.vercel.app",
       source: "https://github.com/azharangga/siakad-ikmi",
     },
     overview: "SIAKAD IKMI is a web-based Academic Information System developed to support the digitalization of academic services at STMIK IKMI Cirebon. The platform integrates various academic services into a single system, from course plan selection (KRS), academic record management, and independent document printing to information access via a Generative AI chatbot assistant. By delivering modern, fast, and accessible services, SIAKAD IKMI aims to improve academic administrative efficiency while providing a better user experience for students, lecturers, and staff.",

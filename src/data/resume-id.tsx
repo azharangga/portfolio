@@ -45,7 +45,7 @@ export interface GalleryItem {
 export const DATA_ID = {
   name: "Azharangga Kusuma",
   initials: "AK",
-  url: "https://azharangga.me",
+  url: "https://azharangga.com",
   resumeUrl:
     "https://drive.google.com/file/d/1Q9KJKZq_Dkq6uqKMGgVsPWk6YmaUk0ZB/view?usp=sharing",
   location: "Cirebon, Indonesia",
@@ -127,7 +127,7 @@ export const DATA_ID = {
       },
       Hashnode: {
         name: "Hashnode",
-        url: "https://blog.azharangga.me",
+        url: "https://blog.azharangga.com",
         icon: Icons.hashnode,
         contact: false,
         navbar: false,
@@ -833,7 +833,7 @@ export const DATA_ID = {
       links: [
         {
           type: "Website",
-          href: "https://gizimeal.projectshowcase.web.id",
+          href: "https://cc26-psu393-gizimeal.vercel.app",
           icon: <Icons.globe className="size-3" />,
         },
         {
@@ -874,7 +874,7 @@ export const DATA_ID = {
       links: [
         {
           type: "Website",
-          href: "https://dramova.projectshowcase.web.id",
+          href: "https://dramova.vercel.app",
           icon: <Icons.globe className="size-3" />,
         },
         {
@@ -945,7 +945,7 @@ export const DATA_ID = {
       links: [
         {
           type: "Website",
-          href: "https://siakad-ikmi.projectshowcase.web.id",
+          href: "https://siakad-ikmi.vercel.app",
           icon: <Icons.globe className="size-3" />,
         },
         {

@@ -80,7 +80,7 @@ export const PROJECT_DETAILS_ID: Record<string, ProjectDetail> = {
     duration: "4 Bulan",
     type: "Team",
     links: {
-      website: "https://gizimeal.projectshowcase.web.id",
+      website: "https:/cc26-psu393-gizimeal.vercel.app",
       source: "https://github.com/azharangga/gizimeal",
       apiDocs: "https://cc26-psu393-gizimeal-api.hf.space",
     },
@@ -172,7 +172,7 @@ export const PROJECT_DETAILS_ID: Record<string, ProjectDetail> = {
     duration: "Ongoing",
     type: "Personal",
     links: {
-      website: "https://dramova.projectshowcase.web.id",
+      website: "https://dramova.vercel.app",
     },
     overview: "DRAMOVA merupakan platform streaming film berbasis web yang dirancang untuk menghadirkan pengalaman menonton yang modern, nyaman, dan interaktif. Platform ini memungkinkan pengguna menjelajahi berbagai koleksi film, memperoleh informasi lengkap mengenai setiap judul, membuat daftar tontonan pribadi, serta menikmati fitur Watch Party untuk menonton bersama secara real-time. Dengan antarmuka yang intuitif dan layanan yang terintegrasi, DRAMOVA bertujuan memberikan pengalaman hiburan digital yang lebih praktis dan menyenangkan.",
     problemBackground: "- **Sulit Menemukan Tontonan yang Sesuai**: Pengguna sering menghabiskan banyak waktu untuk mencari film yang sesuai dengan minat karena informasi tersebar dan kurang terorganisir.\n- **Pengalaman Menonton Bersama Terbatas**: Sebagian besar platform belum menyediakan cara yang mudah untuk menikmati film bersama teman atau keluarga secara sinkron dari lokasi yang berbeda.\n- **Daftar Tontonan Kurang Terorganisir**: Pengguna kesulitan menyimpan dan mengelola film yang ingin ditonton sehingga sering lupa atau harus mencarinya kembali.",
@@ -314,7 +314,7 @@ export const PROJECT_DETAILS_ID: Record<string, ProjectDetail> = {
     duration: "4 Bulan",
     type: "Personal",
     links: {
-      website: "https://siakad-ikmi.projectshowcase.web.id",
+      website: "https://siakad-ikmi.vercel.app",
       source: "https://github.com/azharangga/siakad-ikmi",
     },
     overview: "SIAKAD IKMI merupakan platform Sistem Informasi Akademik berbasis web yang dikembangkan untuk mendukung digitalisasi layanan akademik di lingkungan STMIK IKMI Cirebon. Platform ini mengintegrasikan berbagai layanan akademik dalam satu sistem, mulai dari pengisian Kartu Rencana Studi (KRS), pengelolaan data akademik, pencetakan dokumen secara mandiri, hingga akses informasi melalui asisten chatbot berbasis Generative AI. Dengan menghadirkan layanan yang modern, cepat, dan mudah diakses, SIAKAD IKMI bertujuan meningkatkan efisiensi administrasi akademik sekaligus memberikan pengalaman pengguna yang lebih baik bagi mahasiswa, dosen, dan tenaga kependidikan.",
